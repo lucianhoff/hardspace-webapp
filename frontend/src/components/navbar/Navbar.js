@@ -1,28 +1,28 @@
-import './navbar.css'
+import "./navbar.css";
+import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
+
 
 function Navigation() {
   return (
-      <>
+    <>
       <div className="firstNav">
+        <div>
           <div>
-              <div>
-                  <p>My Account</p>
-              </div>
+            <p>My Account</p>
           </div>
+        </div>
+        <div>
           <div>
-                <div>
-                    <p>About us</p>
-                </div>              
+            <p>About us</p>
           </div>
+        </div>
+        <div>
           <div>
-                <div>
-                  <p>Contact us</p>
-              </div>
-              
+            <p>Contact us</p>
           </div>
-
+        </div>
       </div>
-    
+
       <div className="container navigation">
         <div className="hardspace">
           <h1>HardSpace</h1>
@@ -36,23 +36,49 @@ function Navigation() {
           <div className="lens">🔍</div>
         </div>
         <div className="create-account">
-          <div>icono user</div>
-          <div>
-            <div>sign in</div>
-            <div>create an account</div>
+          <div className="iconUser">
+            <AiOutlineUser />
+          </div>
+          <div className="signClass">
+            <h4>Sign in</h4>
+            <h4>Create an account</h4>
           </div>
         </div>
         <div className="shop">
-          <div>carrito icono</div>
-          <div >
-            <div>my cart</div>
-            <div>$</div>
+          <div className="iconUser">
+            <AiOutlineShoppingCart />
+          </div>
+          <div className="signClass">
+            <h4>My Cart</h4>
+            <h4>$</h4>
           </div>
         </div>
       </div>
-      </>
-   
+      <div className="secondNav">
+        <div>
+          <div>
+          <span ><a href="#" className="effect-underline">SHOP</a></span>
+          </div>
+        </div>
+        <div>
+          <div>
+          <span ><a href="#" className="effect-underline">ELECTRONIC</a></span>
+          </div>
+        </div>
+        <div>
+          <div>
+          <span ><a href="#" className="effect-underline">SALE</a></span>
+          </div>
+        </div>
+        <div>
+          <div>
+            
+          <span ><a href="#" className="effect-underline">BRANDS</a></span>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
-export default Navigation
+export default Navigation;
