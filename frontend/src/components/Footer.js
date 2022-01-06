@@ -17,32 +17,33 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
-        <div className="">
-          <FaTruck className="colorIcons" /> Free Delivery
-          <BsFillCreditCardFill className="colorIcons"/> Safe Payment
-          <IoIosHelpBuoy className="colorIcons"/> 24/7 Help Center
-          <HiIdentification className="colorIcons"/> Friendly Services
+  
+
+        <div className="orderFooter">
+          <div className="flex"><FaTruck className="colorIcons" /> <div className="column"><p>FREE DELIVERY</p> <p>For all orders over $120</p></div></div>
+          <div className="flex"><BsFillCreditCardFill className="colorIcons"/> <div className="column"><p>SAFE PAYMENT</p> <p>If goods have problems</p></div></div>
+          <div className="flex"><IoIosHelpBuoy className="colorIcons"/> <div className="column"><p>24/7 HELP CENTER</p> <p>24/7 Customer Support</p></div></div>
+          <div className="flex"><HiIdentification className="colorIcons"/> <div className="column"><p>FRIENDLY SERVICES</p> <p>30 day satisfaction</p></div></div>
         </div>
 
-        <div className="">
-          <BsTelephoneFill className="colorIcons"/>+54911234568
-          <FaEnvelope className="colorIcons"/>contact@hardspace.com
-          <MdLocationOn className="colorIcons"/>Address: 6 Bis Rue Meyerbee
+
+        <div className="orderData">
+          <div><BsTelephoneFill className="colorIcons"/>+54911234568</div>
+          <div><FaEnvelope className="colorIcons"/>contact@hardspace.com</div>
+          <div><MdLocationOn className="colorIcons"/>Address: 6 Bis Rue Meyerbee</div>
         </div>
 
-        <h2>FOLLOW US</h2>
-
-        <div className="">
-          <GrFacebook className="colorIcons"/>
-          <FaTwitterSquare className="colorIcons"/>
-          <ImInstagram className="colorIcons"/>
+        <div className="orderSocial">
+        <a href="http://www.facebook.com"><div className="hover"><GrFacebook className="colorIcons"/></div></a>
+        <a href="http://www.instagram.com"><div className="hover"> <FaTwitterSquare className="colorIcons"/></div></a>
+        <a href="http://www.twitter.com"><div className="hover"><ImInstagram className="colorIcons"/></div></a>
         </div>
 
         <div className="footerLinks">
           <Link className="homelink" to="/">Home</Link>
         </div>
 
-        <div className="copyright"><h3>HARDSPACE | &copy; 2021 </h3> </div>
+        <div className="copyright"><h3>HARDSPACE | &copy; 2021 </h3> <p>Developed by Team F - Mindhub</p> </div>
 
       </footer>
     </>
