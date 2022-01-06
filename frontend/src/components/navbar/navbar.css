@@ -1,0 +1,70 @@
+.firstNav{
+    background-color: #04419c;
+    display:flex;
+    justify-content: flex-end;
+    color:white;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    
+}
+
+.navigation{
+    display: flex;
+    height: 20vh;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #04419c;
+
+
+}
+
+.hardspace{
+    font-size: 20px;
+    color:white;
+}
+
+.input-catalog{
+    display:flex;
+    align-items: center;
+    
+}
+
+.inputcatalog{
+    height: 50px;
+    padding:0.5rem;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+
+.lens{
+    font-size: 20px;
+    display:flex;
+    width: 65px;
+    height: 50px;
+    background-color: #16bbdcc4;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+  
+}
+
+.create-account{
+    display:flex;
+    color:white;
+}
+
+.shop{
+    display:flex;
+    color:white;
+}
