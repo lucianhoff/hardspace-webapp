@@ -1,37 +1,51 @@
 import React from "react"
-import '../components-styles/Footer.css';
-import {Link} from 'react-router-dom'
+import '../component-styles/footer.css';
+import { Link } from 'react-router-dom';
+import { FaTruck } from 'react-icons/fa';
+import { BsFillCreditCardFill } from 'react-icons/bs';
+import { IoIosHelpBuoy } from 'react-icons/io';
+import { HiIdentification } from 'react-icons/hi';
+import { GrFacebook } from 'react-icons/gr';
+import { BsTelephoneFill } from 'react-icons/bs';
+import { FaEnvelope } from 'react-icons/fa';
+import { MdLocationOn } from 'react-icons/md';
+import { FaTwitterSquare } from 'react-icons/fa';
+import { ImInstagram } from 'react-icons/im';
 
 
 const Footer = () => {
-  return (   
+  return (
     <>
-    <div>
-      <footer>
-      <div className="infoIcons">
-        <i class="fab FaTruck"></i>
-        <i class="fab BsFillCreditCardFill"></i>
-        <i class="fab IoIosHelpBuoyr"></i>
-        <i class="fab HiIdentification"></i>
+      <footer className="footer">
+        <div className="">
+          <FaTruck className="colorIcons" /> Free Delivery
+          <BsFillCreditCardFill className="colorIcons"/> Safe Payment
+          <IoIosHelpBuoy className="colorIcons"/> 24/7 Help Center
+          <HiIdentification className="colorIcons"/> Friendly Services
         </div>
-        <div className="contactInfo">
-        <i class="fab BsTelephoneFill">+54911234568</i>
-        <i class="fab FaEnvelope">contact@hardspace.com</i>
-        <i class="fab MdLocationOn">Address: 6 Bis Rue Meyerbee</i>
+
+        <div className="">
+          <BsTelephoneFill className="colorIcons"/>+54911234568
+          <FaEnvelope className="colorIcons"/>contact@hardspace.com
+          <MdLocationOn className="colorIcons"/>Address: 6 Bis Rue Meyerbee
         </div>
+
         <h2>FOLLOW US</h2>
-        <div className="socialNetwork">
-        <i class="fab GrFacebook"></i>
-        <i class="fab FaTwitterSquare"></i>
-        <i class="fab ImInstagram"></i>
+
+        <div className="">
+          <GrFacebook className="colorIcons"/>
+          <FaTwitterSquare className="colorIcons"/>
+          <ImInstagram className="colorIcons"/>
         </div>
-      <div className="footerLinks">
-        <Link  className="homelink"to="/">Home</Link>
+
+        <div className="footerLinks">
+          <Link className="homelink" to="/">Home</Link>
         </div>
-        <div className="copyright"><h3>HARDSPACE | &copy; 2021 </h3> </div>    
+
+        <div className="copyright"><h3>HARDSPACE | &copy; 2021 </h3> </div>
+
       </footer>
-    </div>
     </>
-)
+  )
 }
 export default Footer
