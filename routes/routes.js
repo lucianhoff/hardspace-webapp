@@ -3,6 +3,7 @@ const userController = require ('../controllers/userController')
 const productControllers = require ('../controllers/productControllers')
 const passport = require("../config/passport")
 const Router = require('express').Router();
+const validator = require("../controllers/validator")
 
 const {addNewUser, logInUser, deleteUser, editUser, verifyToken} = userController
 const {getProducts, loadProduct, getOneProduct, deleteProduct, modifyProduct} = productControllers
