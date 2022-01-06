@@ -9,9 +9,9 @@ const {getProducts, loadProduct, getOneProduct, deleteProduct, modifyProduct} = 
 
 Router.route("/products")
 .get(getProducts)
+.post(loadProduct)
 
 Router.route("/product/:id")
-.post(loadProduct)
 .get(getOneProduct)
 .delete(deleteProduct)
 .put(modifyProduct)
