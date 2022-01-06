@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
 
-    firstname: {type:String, required: true},
-    lastname: {type:String, required: true},
+    firstName: {type:String, required: true},
+    lastName: {type:String, required: true},
     email: {type:String, required: true},
     password: {type:String, required: true},
     image: {type: String, required: true},
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     google: {type: boolean, default: false},
     facebook: {type: boolean, default: false},
     admin: {type: boolean, default: false},
-    favorites:  [{
+    favourites:  [{
         productId: {type: mongoose.Types.ObjectId, ref: "product"},
     }],
 })
