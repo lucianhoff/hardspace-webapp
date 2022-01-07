@@ -2,7 +2,7 @@ const express = require('express')
 
 const Product = require('../models/Product')
 
-const citiesControllers = {
+const productControllers = {
 
     getProducts: (req,res)=>{
         Product.find()
@@ -46,7 +46,15 @@ const citiesControllers = {
             console.error(error)
         }
         res.json({sucess:updated ? true:false})
+    },
+    searchProducts: (req,res) => {
+        let string = req.params.string
+        /* const query = { "name": { $regex: string } } */
+        const query = { "name" : { $regex : new RegExp(string, "i") } }
+        Product.find(query)
+        .then((response)=>res.json({response}))
+        .catch((err)=>console.error(err))
     } 
 }
 
-module.exports = citiesControllers;
+module.exports = productControllers;
