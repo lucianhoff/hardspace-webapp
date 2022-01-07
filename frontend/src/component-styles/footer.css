@@ -1,22 +1,96 @@
-.footer{
-    width: 100%;
-    height: 20vh;
-    background-color: grey;
-    display: fleX;
-    flex-direction: row;
-    padding: 1.5rem;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
 }
 
-
+.footer{
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(230, 69, 69, 0.555);
+    display: fleX;
+    flex-direction: column;
+    padding: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    
+}
 
 .icons{
     display: flex;
     flex-direction: column;
 }
-
 .colorIcons{
-    color:rgb(46, 46, 236);
-    width: 20px;
-    height: 20px;
-  
+    color:#04419c;
+    width: 30px;
+    height: 25px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.orderFooter{
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    border-top: solid 1px #04419c;
+    border-bottom: solid 1px #04419c;
+}
+
+h2{
+    margin-top: 1rem;
+}
+
+.flex{
+    display: flex;
+}
+
+.orderData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    margin: 2rem;
+}
+
+.contactInfo{
+    display: flex;
+    align-items: center;
+    margin: 0.7rem;
+    height: 1.5rem;
+}
+.colorIcons{
+    margin: 0.7rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.orderSocial{
+    justify-content: space-between;
+    display: flex;
+    width: 10%;
+    margin-bottom: 1rem;
+}
+
+.copyright{
+    margin-top: 1rem;
+}
+
+.hover:hover{
+    transform: scale(1.3, 1.3);
+    transition: ease all .4s;
+}
+.hover{
+    transition: ease-in-out all .4s;
+}
+
+.homelink{
+    text-decoration: none !important;
 }
