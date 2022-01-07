@@ -158,7 +158,7 @@ const articles = [
       "Voltage - 1.35V",
     ],
     "imagesDescription": [],
-  },
+  }, 
   {
     "name": "HyperX Fury 16GB 2666MHz DDR4",
     "images": [
