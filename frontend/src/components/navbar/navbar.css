@@ -8,37 +8,6 @@
   font-size: 20px;
   height: 5vh;
 }
-@media (min-width: 871px) {
-  .imgLogo{
-    display: none;
-    
-  }
-    
-}
-@media (max-width: 870px) {
-    .firstNav{        
-        justify-content: space-evenly;
-        height: 8vh;
-    }
-    .firstNav p{
-        margin-right: 0px !important;
-      }
-   
-      
-    .hardspace h1 {
-        display: none;
-      }
-      
-    .signClass h4{
-        display: none !important;
-
-    }
-
-    .imgLogo{
-      width: 4rem;
-      
-    }
-}
 .secondNav {
   background-color: #04419c;
   display: flex;
@@ -101,9 +70,8 @@ span a {
 }
 
 .hardspace {
-  font-size: 25px;
+  font-size: 20px;
   color: white;
-  letter-spacing: 2px;
 }
 
 @media (max-width: 425px) {
@@ -120,7 +88,7 @@ span a {
   height: 50px;
   padding: 0.5rem;
   display: block;
-  width: 35vw;
+  width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -137,7 +105,7 @@ span a {
 .lens {
   font-size: 20px;
   display: flex;
-  width: 50px;
+  width: 65px;
   height: 50px;
   background-color: #16bbdcc4;
   align-items: center;
@@ -155,9 +123,7 @@ span a {
   color: white;
 }
 
-.iconUser{
-  height: 3rem;
-  width: 3rem;
+.iconUser {
   font-size: 3rem;
 }
 .signClass {

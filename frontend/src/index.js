@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+=======
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+>>>>>>> 5b8548def178c371abb536610edae710ef9e42cf
 
 //style
 import "./App.css";
@@ -18,6 +24,12 @@ const reduxStore = createStore(mainReducer,composeEnhancer(applyMiddleware(thunk
 ReactDOM.render(
   <Provider store={reduxStore}>
     <App />
+<<<<<<< HEAD
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+=======
   </Provider>,
   document.getElementById("root")
 );
+>>>>>>> 5b8548def178c371abb536610edae710ef9e42cf

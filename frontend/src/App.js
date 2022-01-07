@@ -1,4 +1,5 @@
 //components
+import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
 import Signup from "./components/Signup";
 import Signin from './components/Signin'
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
