@@ -1,6 +1,9 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 
+import {
+  Link
+} from "react-router-dom";
 
 function Navigation() {
   return (
@@ -58,23 +61,23 @@ function Navigation() {
       <div className="secondNav">
         <div>
           <div>
-          <span ><a href="#" className="effect-underline">SHOP</a></span>
+          <span ><Link to="/" className="effect-underline">SHOP</Link></span>
           </div>
         </div>
         <div>
           <div>
-          <span ><a href="#" className="effect-underline">ELECTRONIC</a></span>
+          <span ><p className="effect-underline">ELECTRONIC</p></span>
           </div>
         </div>
         <div>
           <div>
-          <span ><a href="#" className="effect-underline">SALE</a></span>
+          <span ><p className="effect-underline">SALE</p></span>
           </div>
         </div>
         <div>
           <div>
             
-          <span ><a href="#" className="effect-underline">BRANDS</a></span>
+          <span ><p className="effect-underline">BRANDS</p></span>
           </div>
         </div>
       </div>
