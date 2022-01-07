@@ -1,5 +1,6 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
+import {Link} from 'react-router-dom'
 
 
 function Navigation() {
@@ -58,7 +59,7 @@ function Navigation() {
       <div className="secondNav">
         <div>
           <div>
-          <span ><a href="#" className="effect-underline">SHOP</a></span>
+          <span ><Link to="#" className="effect-underline">SHOP</Link></span>
           </div>
         </div>
         <div>
