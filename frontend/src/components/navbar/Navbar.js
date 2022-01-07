@@ -26,8 +26,7 @@ function Navigation() {
         </div>
       </div>
 
-      <div className="navigation">
-        <img src="./assets/hardSpace.png" className="imgLogo" alt="logo"/>
+      <div className="container navigation">
         <div className="hardspace">
           <h1>HardSpace</h1>
         </div>
@@ -71,14 +70,9 @@ function Navigation() {
         </div>
         <div>
           <div>
-          <span ><p className="effect-underline">SALE</p></span>
           </div>
-        </div>
-        <div>
-          <div>
             
           <span ><p className="effect-underline">BRANDS</p></span>
-          </div>
         </div>
       </div>
     </>
