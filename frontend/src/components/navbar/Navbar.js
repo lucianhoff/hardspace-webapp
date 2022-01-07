@@ -27,8 +27,11 @@ function Navigation() {
       </div>
 
       <div className="navigation">
+        <div className="logName">
+        <img src="./assets/hardSpace.png" className="imgLogo" alt="logo"/>
         <div className="hardspace">
           <h1>HardSpace</h1>
+        </div>
         </div>
         <div className="input-catalog">
           <input
@@ -38,13 +41,15 @@ function Navigation() {
           ></input>
           <div className="lens">🔍</div>
         </div>
+        <div className="iconsRight">
         <div className="create-account">
           <div className="iconUser">
             <AiOutlineUser />
           </div>
+          
           <div className="signClass">
-            <h4>Sign in</h4>
-            <h4>Create an account</h4>
+            <h5>Sign in</h5>
+            <h5>Sing up</h5>
           </div>
         </div>
         <div className="shop">
@@ -52,10 +57,12 @@ function Navigation() {
             <AiOutlineShoppingCart />
           </div>
           <div className="signClass">
-            <h4>My Cart</h4>
-            <h4>$</h4>
+            <h5>My Cart</h5>
+            <h5>$</h5>
           </div>
         </div>
+        </div>
+        
       </div>
       <div className="secondNav">
         <div>

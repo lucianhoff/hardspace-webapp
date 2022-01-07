@@ -8,6 +8,113 @@
   font-size: 20px;
   height: 5vh;
 }
+@media (min-width: 889px) {
+  .imgLogo{
+    width: 5rem;
+    
+  }
+  
+  .navigation h1{
+    font-size: 50px;
+  }
+  .logName{
+   width: 35%;
+   display: flex !important;
+   justify-content: center;
+   justify-content: space-evenly;
+    
+  }
+  .input-catalog {
+    width: 38%;
+  }
+}
+
+.logName{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  
+  
+}
+
+
+.iconsRight{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 25%;
+ 
+}
+
+@media (max-width: 889px) {
+    .firstNav{        
+        justify-content: space-evenly;
+        height: 8vh;
+    }
+    .firstNav p{
+        margin-right: 0px !important;
+      }
+      .logName{
+        
+        margin-left: 0rem;
+        
+      }
+      
+    .hardspace h1 {
+        display: none;
+      }
+      
+    .signClass h5{
+        display: none !important;
+
+    }
+
+    .imgLogo{
+      width: 4rem;
+      
+    }
+    .navigation{
+      justify-content: space-around !important;
+
+
+    }
+}
+
+@media (max-width: 374px) {
+  .secondNav{
+    flex-direction: column;
+    height: 25vh !important;   
+  }
+  a.effect-underline{
+    font-size: 16px;
+  }
+  .iconUser{
+    height: 2rem !important;
+    width: 2rem !important;
+    font-size: 2rem !important;
+  }
+  .navigation{
+    height: 15vh !important;
+  }
+  .inputcatalog{
+    height: 35px !important;
+  }
+
+  .lens{
+    height: 35px !important;
+    width: 35px !important;
+  }
+  .firstNav{
+    height: 6.5vh;
+  }
+  .firstNav p{
+    font-size: 16px;
+  }
+  .inputcatalog{
+    width: 50vw !important;
+  }
+}
 .secondNav {
   background-color: #04419c;
   display: flex;
@@ -62,11 +169,12 @@ span a {
 
 .navigation {
   display: flex;
-  height: 20vh;
+  height: 120px;
   align-items: center;
   justify-content: space-around;
+  justify-content: space-between;
   background-color: #04419c;
-  flex-wrap: wrap;
+  
 }
 
 .hardspace {
@@ -78,14 +186,22 @@ span a {
   .hardspace h1 {
     display: none;
   }
+  .imgLogo{
+    display: none;
+  }
+  .inputcatalog{
+    width: 50vw !important;
+  }
 }
 .input-catalog {
   display: flex;
   align-items: center;
+  
 }
 
 .inputcatalog {
   height: 50px;
+  
   padding: 0.5rem;
   display: block;
   width: 100%;
@@ -132,7 +248,7 @@ span a {
   justify-content: center;
   align-content: flex-start;
 }
-.signClass h4 {
+.signClass h5 {
   text-align: left;
   margin-left: 0.5rem;
 }
