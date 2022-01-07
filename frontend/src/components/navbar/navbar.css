@@ -8,7 +8,7 @@
   font-size: 20px;
   height: 5vh;
 }
-@media (min-width: 871px) {
+@media (min-width: 889px) {
   .imgLogo{
     width: 5rem;
     
@@ -46,9 +46,7 @@
   width: 25%;
  
 }
-@media (max-width: 889px) {
 
-}
 @media (max-width: 889px) {
     .firstNav{        
         justify-content: space-evenly;
@@ -81,12 +79,6 @@
 
 
     }
-}
-
-@media (max-width: 425px) {
-  .imgLogo{
-    display: none;
-  }
 }
 
 @media (max-width: 374px) {
@@ -194,6 +186,12 @@ span a {
 @media (max-width: 425px) {
   .hardspace h1 {
     display: none;
+  }
+  .imgLogo{
+    display: none;
+  }
+  .inputcatalog{
+    width: 50vw !important;
   }
 }
 .input-catalog {
