@@ -26,7 +26,7 @@ function Navigation() {
         </div>
       </div>
 
-      <div className="container navigation">
+      <div className="navigation">
         <div className="hardspace">
           <h1>HardSpace</h1>
         </div>
