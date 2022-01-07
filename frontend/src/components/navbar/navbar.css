@@ -1,0 +1,138 @@
+.firstNav {
+  background-color: #04419c;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.253);
+  font-size: 20px;
+  height: 5vh;
+}
+.secondNav {
+  background-color: #04419c;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.253);
+  font-size: 20px;
+  height: 8vh;
+}
+
+.secondNav p:hover {
+  color: rgba(255, 255, 255, 0.705);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+span a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    font-family: 'Dosis', sans-serif;
+  }
+  
+  /*effect-underline*/
+  a.effect-underline:after {
+      content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-top: 10px;
+    opacity: 0;
+      -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+      transition: opacity 0.35s, transform 0.35s;
+      -webkit-transform: scale(0,1);
+      transform: scale(0,1);
+  }
+  
+  a.effect-underline:hover:after {
+    opacity: 1;
+      -webkit-transform: scale(1);
+  }
+
+.firstNav p {
+  margin-right: 3rem;
+}
+
+.navigation {
+  display: flex;
+  height: 20vh;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #04419c;
+  flex-wrap: wrap;
+}
+
+.hardspace {
+  font-size: 20px;
+  color: white;
+}
+
+@media (max-width: 425px) {
+  .hardspace h1 {
+    display: none;
+  }
+}
+.input-catalog {
+  display: flex;
+  align-items: center;
+}
+
+.inputcatalog {
+  height: 50px;
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: 5px 0 0 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.lens {
+  font-size: 20px;
+  display: flex;
+  width: 65px;
+  height: 50px;
+  background-color: #16bbdcc4;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 5px 5px 0;
+}
+
+.create-account {
+  display: flex;
+  color: white;
+}
+
+.shop {
+  display: flex;
+  color: white;
+}
+
+.iconUser {
+  font-size: 3rem;
+}
+.signClass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+}
+.signClass h4 {
+  text-align: left;
+  margin-left: 0.5rem;
+}
