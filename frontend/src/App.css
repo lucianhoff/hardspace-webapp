@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+>>>>>>> 5b8548def178c371abb536610edae710ef9e42cf
 * {
   box-sizing: border-box;
   padding: 0;
