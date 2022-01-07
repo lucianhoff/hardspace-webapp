@@ -1,4 +1,5 @@
 //components
+import Footer from '../components/Footer'
 
 //pages
 import Home from './pages/Home';
@@ -14,9 +15,11 @@ import { connect } from "react-redux";
 function App() {
   return (
     <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
