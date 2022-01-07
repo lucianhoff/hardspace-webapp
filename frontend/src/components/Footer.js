@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { FaTruck } from "react-icons/fa";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { IoIosHelpBuoy } from "react-icons/io";
-import { HiIdentification } from "react-icons/hi";
 import { GrFacebook } from "react-icons/gr";
 import { BsTelephoneFill } from "react-icons/bs";
 import { FaEnvelope } from "react-icons/fa";
@@ -17,14 +16,32 @@ const Footer = () => {
     <>
       <footer className="relative bg-blueGray-200 pt-8 pb-6">
         <div className="bg-red-500 w-full flex flex-col lg:grid lg:grid-cols-3 lg:gap-4 lg:px-2">
-          <div className="bg-yellow-500 h-32">
-            hola
+          <div className="bg-black-500 h-32">
+            <div className="delivery">
+              <div className="deliveryIcon"><FaTruck/></div>
+              <div className="deliveryText">
+              <p className="textBold">FREE DELIVERY</p>
+              <p>For orders over $120</p>
+              </div>
+            </div>
           </div>
-          <div className="bg-purple-500 h-32">
-            hola
+          <div className="bg-black-500 h-32">
+          <div className="delivery">
+              <div className="deliveryIcon"><BsFillCreditCardFill/></div>
+              <div className="deliveryText">
+              <p className="textBold">SAFE PAYMENT</p>
+              <p>If goods have problems</p>
+              </div>
+            </div>
           </div>
-          <div className="bg-blue-500 h-32">
-            hola
+          <div className="bg-black-500 h-32">
+          <div className="delivery">
+              <div className="deliveryIcon"><IoIosHelpBuoy/></div>
+              <div className="deliveryText">
+              <p className="textBold">HELP CENTER</p>
+              <p>24/7 Customer Support</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -68,7 +85,7 @@ const Footer = () => {
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
                   <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
-                    Useful Links
+                    CATEGORIES
                   </span>
                   <ul className="list-unstyled">
                     <li>
@@ -76,7 +93,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://www.creative-tim.com/presentation?ref=njs-profile"
                       >
-                        About Us
+                        Keyboards
                       </a>
                     </li>
                     <li>
@@ -84,7 +101,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://blog.creative-tim.com?ref=njs-profile"
                       >
-                        Blog
+                        Headphones
                       </a>
                     </li>
                     <li>
@@ -92,7 +109,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://www.github.com/creativetimofficial?ref=njs-profile"
                       >
-                        Github
+                        Monitors
                       </a>
                     </li>
                     <li>
@@ -100,7 +117,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
                       >
-                        Free Products
+                        GPU
                       </a>
                     </li>
                   </ul>
@@ -115,7 +132,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
                       >
-                        MIT License
+                        Home
                       </a>
                     </li>
                     <li>
@@ -123,7 +140,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/terms?ref=njs-profile"
                       >
-                        Terms &amp; Conditions
+                        Store
                       </a>
                     </li>
                     <li>
@@ -131,7 +148,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/privacy?ref=njs-profile"
                       >
-                        Privacy Policy
+                        Cart
                       </a>
                     </li>
                     <li>
@@ -150,12 +167,12 @@ const Footer = () => {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-blueGray-500 font-semibold py-1">
-                Copyright © <span id="get-current-year">2021</span> Notus JS by
+                Copyright © <span id="get-current-year">2021</span>
                 <a
                   href="https://www.creative-tim.com?ref=njs-profile"
                   className="text-blueGray-500 hover:text-blueGray-800"
                 >
-                  Creative Tim
+                   Developed by HardSpace Team
                 </a>
                 .
               </div>
