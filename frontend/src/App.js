@@ -1,5 +1,6 @@
 //components
-import Footer from '../components/Footer'
+import Footer from "./components/Footer";
+import Navigation from "./components/navbar/Navbar";
 
 //pages
 import Home from './pages/Home';
@@ -15,7 +16,7 @@ import { connect } from "react-redux";
 function App() {
   return (
     <BrowserRouter>
-    
+    <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
