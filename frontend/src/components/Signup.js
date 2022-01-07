@@ -89,8 +89,8 @@ function Signup(props){
             
             
         <div className="already">
-              <p>Already have an account? </p>
-              <Link to='#'><span className="Create"> Sign in here!</span></Link>            
+             
+              <Link to='#'><span className="Create">Already have an account? Log in instead!</span></Link>            
             </div>
             
         </form>
