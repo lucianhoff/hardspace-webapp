@@ -48,9 +48,9 @@ const productControllers = {
         res.json({sucess:updated ? true:false})
     },
     searchProducts: (req,res) => {
-        const string = req.params.string
-        const query = { name: { $regex: string } }
-        //const query = { name: { $regex: new RegExp(`^${string}$`), $options: 'i' } }
+        let string = req.params.string
+        /* const query = { "name": { $regex: string } } */
+        const query = { "name" : { $regex : new RegExp(string, "i") } }
         Product.find(query)
         .then((response)=>res.json({response}))
         .catch((err)=>console.error(err))
