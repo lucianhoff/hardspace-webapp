@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom';
 
+
 import React, {useRef} from 'react'
 
 
 import GoogleLogin from 'react-google-login'
 // import {useNavigate} from "react-router-dom"
 
-function SignupComponent(props){
+function Signup(props){
 //   let navigate = useNavigate()
 
 //   localStorage.getItem("token") && !props.token && props.signInToken()
@@ -61,7 +62,8 @@ function SignupComponent(props){
         <legend>Sign Up
         <h5>It's quick and easy</h5>  </legend>     
             <label htmlFor="socialtitle" >Social title</label>
-            <input type="radius" placeholder="socialtitle"ref={socialtitle} required minLength="3" maxLength="20" id="name" />  
+           <p><input type="radio" value="Mr" />Mr.  </p> 
+           <p><input type="radio" value="Mrs" />Mrs.  </p> 
             <label htmlFor="name" >First Name</label>
             <input type="text" placeholder="Name"ref={name} required minLength="3" maxLength="20" id="name" />
             <label htmlFor="lastname" >Last Name</label>
@@ -70,6 +72,7 @@ function SignupComponent(props){
             <input type="email" placeholder="E-mail"ref={email} required minLength="3" id="email" />
             <label htmlFor="pass" >Password</label>
             <input type="password" placeholder="Password"ref={password}  required id="pass" />
+           <p>Bitrhday: <input type="date" /> </p>
     
             <input className="botones p-1 fs-small btn-form" type="submit" value="Sign Up" />
             <p >or</p>
@@ -100,4 +103,4 @@ function SignupComponent(props){
 }
 
 
-export default SignupComponent
+export default Signup

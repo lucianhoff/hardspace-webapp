@@ -26,7 +26,7 @@ function Navigation() {
         </div>
       </div>
 
-      <div className="container navigation">
+      <div className="navigation">
         <img src="./assets/hardSpace.png" className="imgLogo" alt="logo"/>
         <div className="hardspace">
           <h1>HardSpace</h1>

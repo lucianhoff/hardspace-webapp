@@ -1,5 +1,6 @@
 //components
 import Navigation from "./components/navbar/Navbar";
+import Signup from "./components/navbar/Signup";
 
 //pages
 import Home from './pages/Home';
@@ -16,6 +17,7 @@ function App() {
   return (
     <BrowserRouter>
     <Navigation />
+    <Signup />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
