@@ -46,6 +46,14 @@ const citiesControllers = {
             console.error(error)
         }
         res.json({sucess:updated ? true:false})
+    },
+    searchProducts: (req,res) => {
+        const string = req.params.string
+        Product.find({ name: { $regex: string } })
+        /* const stringSearch = "/"+string+"/i"
+        Product.find({ name: { $regex: stringSearch } }) */
+        .then((response)=>res.json({response}))
+        .catch((err)=>console.error(err))
     } 
 }
 

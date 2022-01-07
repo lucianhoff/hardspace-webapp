@@ -6,11 +6,14 @@ const Router = require('express').Router();
 const validator = require("../controllers/validator")
 
 const {addNewUser, logInUser, deleteUser, editUser, verifyToken} = userController
-const {getProducts, loadProduct, getOneProduct, deleteProduct, modifyProduct} = productControllers
+const {getProducts, loadProduct, getOneProduct, deleteProduct, modifyProduct, searchProducts} = productControllers
 
 Router.route("/products")
 .get(getProducts)
 .post(loadProduct)
+
+Router.route("/products/:string")
+.get(searchProducts)
 
 Router.route("/product/:id")
 .get(getOneProduct)
