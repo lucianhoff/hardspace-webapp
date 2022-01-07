@@ -31,7 +31,6 @@ const Footer = () => {
         </div>
 
         <h2>FOLLOW US</h2>
-
         <div className="">
           <GrFacebook className="colorIcons"/>
           <FaTwitterSquare className="colorIcons"/>
