@@ -57,7 +57,10 @@ function Navigation(props) {
              <Link to="/signIn">Sign in</Link>
             <Link to="/signUp">Sign up</Link> 
             </>) :
+            <>
+            <p>Welcome {props.firstName}</p>
             <Link onClick={() => { props.signOutUser() }} to="/signin">Sign Out</Link>
+            </>
            
 
            }
