@@ -48,8 +48,8 @@ function Navigation() {
           </div>
           
           <div className="signClass">
-            <h5>Sign in</h5>
-            <h5>Sing up</h5>
+            <Link to="/signIn">Sign in</Link>
+            <Link to="/signUp">Sign up</Link>
           </div>
         </div>
         <div className="shop">

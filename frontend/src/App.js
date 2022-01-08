@@ -10,7 +10,8 @@ import "./App.css";
 
 //redux
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { connect } from "react-redux";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/signUp" element={<SignUp/>} />
+        <Route path="/signIn" element={<LogIn/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>

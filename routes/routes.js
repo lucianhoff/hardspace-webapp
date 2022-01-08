@@ -5,7 +5,7 @@ const passport = require("../config/passport")
 const Router = require('express').Router();
 const validator = require("../controllers/validator")
 
-const {addNewUser, logInUser, deleteUser, editUser, verifyToken} = userController
+const {getAllUsers, addNewUser, logInUser, deleteUser, editUser, verifyToken} = userController
 const {getProducts, loadProduct, getOneProduct, deleteProduct, modifyProduct, searchProducts} = productControllers
 
 Router.route("/products")
@@ -19,6 +19,9 @@ Router.route("/product/:id")
 .get(getOneProduct)
 .delete(deleteProduct)
 .put(modifyProduct)
+
+Router.route("/users")
+ .get(getAllUsers)
 
 Router.route("/user/signup")
  .post(validator,addNewUser)

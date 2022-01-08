@@ -3,10 +3,23 @@ const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const userController = {
+    getAllUsers:async (req, res) => {
+        let error = null
+        let response = []
+        try{
+           const users = await User.find()
+           users.map( User =>{
+              return response.push({firstName:User.firstName, lastName:User.lastName, email:User.email, image:User.image, _id:User._id, admin:User.admin, google: User.google, facebook: User.facebook })
+            })
+            res.json({success: true, response: response})
+        }catch(error){
+            res.json({success: false, response: null})
+        }
+    },
     addNewUser : (req, res) => {
         const {firstName, lastName, email, password, image, birthday, google, facebook, admin, favourites} = req.body
         let cryptPass = bcryptjs.hashSync(password)
-        const newUser = new User ({firstName, lastName, email, password:cryptPass, image, birthday, google, facebook, admin, favourites})
+        const newUser = new User ({firstName, lastName, email, password:cryptPass, image, google, facebook, admin, favourites})// , birthday
         User.findOne({email:email})
         .then((user)=>{
             if(user){
@@ -15,7 +28,7 @@ const userController = {
                 newUser.save()
                 .then((newUser) =>{
                     const token = jwt.sign({...newUser}, process.env.SECRETKEY)
-                    res.json({success:true, response:{firstName:newUser.firstName, image:newUser.image, token, _id:newUser._id}, error:null})
+                    res.json({success:true, response:{firstName:newUser.firstName ,lastName:newUser.lastName ,password:newUser.password , image:newUser.image ,google:newUser.google ,admin:newUser.admin ,facebook:newUser.facebook ,favourites:newUser.favourites , token, _id:newUser._id}, error:null})
                 }) 
                 .catch((error) => res.json({success:false, response:error}))
             }
