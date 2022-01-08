@@ -12,29 +12,35 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import usersActions from "./redux/actions/usersActions";
+import {useEffect} from 'react'
+import {connect} from 'react-redux'
 
-function App() {
+function App(props) {
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+        props.signInLS(localStorage.getItem('token'))
+      }
+  },[])
   return (
     <BrowserRouter>
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signUp" element={<SignUp/>} />
-        <Route path="/signIn" element={<LogIn/>} />
+               {props.token ? <Route path='*'element ={<Home/>}></Route>:<> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
       </Routes>
       <Footer/>
     </BrowserRouter>
   );
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//   };
-// };
+const mapStateToProps = (state) => {
+  return{
+      token: state.users.token
+  }
+}
+const mapDispatchToProps = {
+  signInLS: usersActions.signInLS
+}
 
-// const mapDispatchToProps = {
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -1,11 +1,12 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
+import { connect } from 'react-redux'
+import usersActions from '../../redux/actions/usersActions'
+import { Link} from "react-router-dom";
 
-import {
-  Link
-} from "react-router-dom";
+function Navigation(props) {
 
-function Navigation() {
+  console.log(props.token)
   return (
     <>
       <div className="firstNav">
@@ -44,13 +45,24 @@ function Navigation() {
         <div className="iconsRight">
         <div className="create-account">
           <div className="iconUser">
-            <AiOutlineUser />
+            {!props.token ? <AiOutlineUser /> : 
+            <img className="imgUserNav" src={props.image} />}
+            
           </div>
           
+        
           <div className="signClass">
-            <Link to="/signIn">Sign in</Link>
-            <Link to="/signUp">Sign up</Link>
-          </div>
+            {!props.token ? (
+              <>
+             <Link to="/signIn">Sign in</Link>
+            <Link to="/signUp">Sign up</Link> 
+            </>) :
+            <Link onClick={() => { props.signOutUser() }} to="/signin">Sign Out</Link>
+           
+
+           }
+           </div>
+       
         </div>
         <div className="shop">
           <div className="iconUser">
@@ -86,4 +98,22 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+
+
+const mapStateToProps = (state) => { 
+  return {   
+    token: state.users.token,
+    firstName: state.users.firstName,
+    image: state.users.image,
+    
+  }
+}
+
+const mapDispatchToProps = {
+  signInUser: usersActions.signInUser,
+  signInLS: usersActions.signInLS,
+  signOutUser: usersActions.signOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
+
