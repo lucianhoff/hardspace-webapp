@@ -1,6 +1,7 @@
 //components
 import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
+import Products from "./pages/Products";
 
 //pages
 import Home from './pages/Home';
@@ -28,6 +29,7 @@ function App(props) {
       <Routes>
         <Route path="/" element={<Home />} />
                {props.token ? <Route path='*'element ={<Home/>}></Route>:<> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
+        <Route path="/products" element={<Products />} />
       </Routes>
       <Footer/>
     </BrowserRouter>
