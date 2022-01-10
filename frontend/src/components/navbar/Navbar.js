@@ -1,11 +1,62 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
+import { useState } from "react";
+import { connect } from "react-redux"
+import productActions from "../../actions/productActions"
+import swal from 'sweetalert2'
 
 import {
   Link
 } from "react-router-dom";
 
-function Navigation() {
+function Navigation(props) {
+
+  const [search,setSearch] = useState ('')
+
+  const Toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    background: '#16bbdc',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', swal.stopTimer)
+      toast.addEventListener('mouseleave', swal.resumeTimer)
+    }
+  })
+
+  const inputHandler = (e) => {
+    console.log(e.target.value)
+    setSearch(e.target.value)
+  }
+
+  const handleSubmit = async (e) => {
+
+    console.log('el search es::',search)
+    if (search.length < 3) {
+        return Toast.fire({
+            title:'HardSpace',
+            text:`You must enter at least 3 characters`,
+            icon:'warning',
+        })
+    } else {
+        console.log('VOY A LA BUSQUEDA')
+        const busqueda = await props.search(search) 
+        
+        if ( busqueda.length > 0 ) {
+          console.log('DENTRO DEL NAVBAR:: la busqueda es::',busqueda)
+
+        } else {
+          return Toast.fire({
+            title:'HardSpace',
+            text:`Don´t exist articles for your search.`,
+            icon:'warning',
+          })
+        }
+    }
+  }
+
   return (
     <>
       <div className="firstNav">
@@ -38,8 +89,11 @@ function Navigation() {
             type="text"
             placeholder="Search our catalog"
             className="inputcatalog"
-          ></input>
-          <div className="lens">🔍</div>
+            onChange={inputHandler}
+            id="search"
+            name="search">
+          </input>
+          <div /* type="button" */ onClick={handleSubmit} className="lens">🔍</div>
         </div>
         <div className="iconsRight">
         <div className="create-account">
@@ -85,5 +139,16 @@ function Navigation() {
     </>
   );
 }
+/* export default Navigation; */
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  return {
+    /* searchProducts: state.productReducer.searchProducts */
+  }
+}
+
+const mapDispatchToProps = {
+  search: productActions.search
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(Navigation);
