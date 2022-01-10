@@ -132,3 +132,182 @@ height: 5rem;
 .slick-list {
   margin: 0 -20px;
 }
+
+/* SIGN IN, SIGN UP */
+
+.signUpTittle h2, .signInTittle h2{
+  font-weight: bold;
+  color:#cfcfcf;
+  font-size: 7vmin;
+}
+
+.signUpTittle h4, .signInTittle h4 {
+  font-size: 3vmin;
+}
+
+.signUpBack, .signInBack {
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 90vh;
+  background-size:cover;
+  background-position:center center;
+}
+.signInBack, .signUpBack{
+  min-height: 90vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.signInBack {
+min-height: 86vh;
+}
+
+.signInTittle{
+  padding: 2rem;
+}
+
+.formContainer, .formContainerSignIn{
+  padding: 2rem 2rem;
+  width:30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formContainer form, .signInForm {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+}
+
+form input, form select, .signInForm input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 90%;
+}
+
+.formButtons{
+  display: flex;
+  flex-direction: column;
+}
+
+.formButtons button {
+  padding: .3rem 0;
+  margin: .2rem;
+}
+
+form span, .signInForm span {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+  border: none;
+  padding: 2vh 2vw;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
+
+}
+
+.eyeIcon {
+  cursor: pointer;
+}
+
+/*Container Cart*/
+.containerCart{
+  margin-left: 5rem;
+  margin-right:5rem;
+  min-height: 60vh;
+  background-color: rgba(245, 239, 239, 0.767);
+  display: flex;
+  flex-direction: column;
+  margin-top:4rem;
+ 
+ 
+}
+
+.primerdiv{
+  border-bottom: 1px solid #e6e6e6;
+  height: 10vh;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.carrito{
+  margin:2rem;
+  font-size: 1.2rem;
+  font-weight:bold;
+}
+
+.guardados{
+  margin:2rem;
+  font-size: 1.2rem;
+  font-weight:bold;
+}
+
+.articleContainer{
+  border-bottom: 1px solid #e6e6e6;
+  display:flex;
+  
+  height: 20vh;
+  align-items: center;
+}
+
+.articleImg{
+  width: 10%;
+  display:flex;
+  justify-content: center;
+}
+
+.articleInfo{
+  width: 55%;
+  display:flex;
+  flex-direction: column;
+}
+
+.articleTitle{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.deleteAndBuy{
+  margin-top:1rem;
+  display:flex;
+  justify-content: flex-start;
+
+}
+
+.delete{  
+  margin-right: 1rem;
+}
+
+.articleInput{
+  width:25%;
+  display:flex;
+  justify-content: center;
+}
+
+#inputCart{
+  width:20%;
+  text-align: center;
+}
+
+.articlePrice{
+width: 10%;
+}
+
+.boton{
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  width:30px;
+  height: 30px;
+  background-color: #04419c;
+  color:white;
+  
+}
+

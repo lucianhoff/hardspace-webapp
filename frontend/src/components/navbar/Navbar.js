@@ -4,10 +4,8 @@ import { useState } from "react";
 import { connect } from "react-redux"
 import productActions from "../../actions/productActions"
 import swal from 'sweetalert2'
-
-import {
-  Link
-} from "react-router-dom";
+import usersActions from '../../redux/actions/usersActions'
+import { Link } from "react-router-dom";
 
 function Navigation(props) {
 
@@ -103,20 +101,34 @@ function Navigation(props) {
         <div className="iconsRight">
         <div className="create-account">
           <div className="iconUser">
-            <AiOutlineUser />
+            {!props.token ? <AiOutlineUser /> : 
+            <img className="imgUserNav" src={props.image} />}
+            
           </div>
           
+        
           <div className="signClass">
-            <h5>Sign in</h5>
-            <h5>Sing up</h5>
-          </div>
+            {!props.token ? (
+              <>
+             <Link to="/signIn">Sign in</Link>
+            <Link to="/signUp">Sign up</Link> 
+            </>) :
+            <>
+            <p>Welcome {props.firstName}</p>
+            <Link onClick={() => { props.signOutUser() }} to="/signin">Sign Out</Link>
+            </>
+           
+
+           }
+           </div>
+       
         </div>
         <div className="shop">
           <div className="iconUser">
-            <AiOutlineShoppingCart />
+           <Link to="/cart"><AiOutlineShoppingCart /></Link> 
           </div>
           <div className="signClass">
-            <h5>My Cart</h5>
+            {/* <h5>My Cart</h5> */}
             <h5>$</h5>
           </div>
         </div>
@@ -144,16 +156,21 @@ function Navigation(props) {
     </>
   );
 }
-/* export default Navigation; */
 
-const mapStateToProps = (state) => {
-  return {
-    /* searchProducts: state.productReducer.searchProducts */
+const mapStateToProps = (state) => { 
+  return {   
+    token: state.users.token,
+    firstName: state.users.firstName,
+    image: state.users.image,
+    
   }
 }
 
 const mapDispatchToProps = {
+  signInUser: usersActions.signInUser,
+  signInLS: usersActions.signInLS,
+  signOutUser: usersActions.signOutUser,
   search: productActions.search
 }
 
-export default connect (mapStateToProps, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

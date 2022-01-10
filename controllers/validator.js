@@ -16,11 +16,14 @@ const validator = (req, res, next) => {
         password:joi.string().min(5).trim().required().messages({
             'string.empty' : 'You must complete this field',
         }),
-        profilePhoto:joi.string().min(5).trim().required().messages({
+        image:joi.string().min(5).trim().required().messages({
             'string.min': 'Please use a valid url'
         }),
-        country:joi.string().required(),
+        admin:joi.boolean(),
+        // birthday:joi.date(),
         google:joi.boolean(),
+        facebook:joi.boolean(),
+        favourites:joi.array().items(joi.string(), joi.number()),
     })
 
     const verification = schema.validate(req.body, {abortEarly: false})
