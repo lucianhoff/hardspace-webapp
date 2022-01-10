@@ -69,10 +69,10 @@ function Navigation(props) {
         </div>
         <div className="shop">
           <div className="iconUser">
-            <AiOutlineShoppingCart />
+           <Link to="/cart"><AiOutlineShoppingCart /></Link> 
           </div>
           <div className="signClass">
-            <h5>My Cart</h5>
+            {/* <h5>My Cart</h5> */}
             <h5>$</h5>
           </div>
         </div>

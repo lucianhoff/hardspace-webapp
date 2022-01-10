@@ -90,10 +90,12 @@
     font-size: 16px;
   }
   .iconUser{
+    
     height: 2rem !important;
     width: 2rem !important;
     font-size: 2rem !important;
   }
+
   .navigation{
     height: 15vh !important;
   }
@@ -242,6 +244,8 @@ span a {
 .iconUser {
   font-size: 3rem;
 }
+
+
 .signClass {
   display: flex;
   flex-direction: column;
