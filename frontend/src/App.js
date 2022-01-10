@@ -1,6 +1,7 @@
 //components
 import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
+import { Products } from "./pages/Products";
 
 //pages
 import Home from './pages/Home';
@@ -18,6 +19,8 @@ function App() {
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+
       </Routes>
       <Footer/>
     </BrowserRouter>
