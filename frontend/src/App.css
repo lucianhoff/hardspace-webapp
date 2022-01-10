@@ -69,11 +69,17 @@
   border-radius: 5px;
   height: 20rem;
   color: rgb(0, 0, 0);
-  width: 239px;
+  width: 20vw;
   justify-content: space-around !important;
   box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
   -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
   -moz-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+}
+
+.productContent {
+  display: flex;
+  justify-content: center;
+  width: 33%;
 }
 
 .slider {

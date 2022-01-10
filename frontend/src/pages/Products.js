@@ -25,14 +25,16 @@ const settings = {
         {
           props.productsList.length > 0 
           ? props.productsList.map( products =>
-            <div className="cardCarousel">
-              {/* <Slider {...settings}>{products.images.map(image=><img src={image}/>)}</Slider> */}
-                <h4 className="txtCarousel">{products.name}</h4>
-                <div className="price-button">
-                  <p>{`$${products.price}`}</p>
-                  <button className="buttonCarousel">Buy</button>
+            <div className="productContent">
+              <div className="cardCarousel">
+                {/* <Slider {...settings}>{products.images.map(image=><img src={image}/>)}</Slider> */}
+                  <h4 className="txtCarousel">{products.name}</h4>
+                  <div className="price-button">
+                    <p>{`$${products.price}`}</p>
+                    <button className="buttonCarousel">Buy</button>
+                </div>
               </div>
-          </div>
+            </div>
           )
           : <h1>There are no products</h1>
         }
