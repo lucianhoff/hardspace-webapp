@@ -65,7 +65,20 @@
   border-radius: 5px;
   height: 20rem;
   color: rgb(0, 0, 0);
-  width: 20vw;
+  width: 30vw;
+  justify-content: space-around !important;
+  box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+  -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+  -moz-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+}
+.pCarousel {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  height: 20;
+  color: rgb(0, 0, 0);
+  width: 30vh;
   justify-content: space-around !important;
   box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
   -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
@@ -216,3 +229,23 @@ form span, .signInForm span {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.slick-slide {
+ 
+  height: 10%;
+}
+
+.imgProduct{
+  
+}
+.slick-slide img {
+  width: 100%;
+}
+.slick-list {
+ margin: 0 !important;
+}
+
+/* .slick-slider {
+ width: 100%;
+ margin-right: -2px;
+} */

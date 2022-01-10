@@ -10,6 +10,7 @@ const Products = (props) => {
 }, [])
 const settings = {
   className: "center",
+  centerMode: true,
   infinite: true,
   centerPadding: "50px",
   slidesToShow: 1,
@@ -26,8 +27,8 @@ const settings = {
           props.productsList.length > 0 
           ? props.productsList.map( products =>
             <div className="productContent">
-              <div className="cardCarousel">
-                {/* <Slider {...settings}>{products.images.map(image=><img src={image}/>)}</Slider> */}
+              <div className="pCarousel">
+                <Slider {...settings}>{products.images.map(image=><img className="imgProduct" src={image}/>)}</Slider>
                   <h4 className="txtCarousel">{products.name}</h4>
                   <div className="price-button">
                     <p>{`$${products.price}`}</p>
