@@ -214,3 +214,55 @@ form span, .signInForm span {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiperAtr {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  height: 24rem;
+  color: rgb(0, 0, 0);
+  width: 15vw;
+  justify-content: space-around !important;
+  box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+  -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+  -moz-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+}
+
+.swiperFather {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
