@@ -46,6 +46,11 @@ function Navigation(props) {
         
         if ( busqueda.length > 0 ) {
           console.log('DENTRO DEL NAVBAR:: la busqueda es::',busqueda)
+          return Toast.fire({
+            title:'HardSpace',
+            text:`There are ${busqueda.length} articles.`,
+            icon:'success',
+          })
 
         } else {
           return Toast.fire({
