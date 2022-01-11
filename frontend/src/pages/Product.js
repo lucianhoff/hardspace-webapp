@@ -97,6 +97,18 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <div className="bg-red-500">
+        <h2>comentarios</h2>
+
+        <div>
+              <div>
+                <h4>aaaa</h4>
+                <p>estavaassddass asdaada</p>
+              </div>
+
+        </div>
+      </div>
+
     </>
   );
 };

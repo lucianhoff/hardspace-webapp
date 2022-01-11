@@ -10,12 +10,12 @@ const productSchema = new mongoose.Schema({
     category: {type: String, required: true},
     description: {type:Array},
     imagesDescription: {type: Array},
-    reviews:  [{
-        title: {type: String},
-        review: {type: String},
-        value: {type: Number},
-        userId: {type: mongoose.Types.ObjectId, ref: "user"},
-    }],
+    reviews:  [
+        {
+          userId: { type: mongoose.Types.ObjectId, ref: "usuario" },
+          reviewId: { type: String },
+        }
+      ],
 })
 
 const Product = mongoose.model('product',productSchema)
