@@ -17,9 +17,6 @@ const Products = (props) => {
 }, [])
 
   return (
-  //   <Swiper pagination={true} className="mySwiper">
-  // <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
-  // </Swiper>
     <>
       <div className="products">
         {
@@ -28,7 +25,7 @@ const Products = (props) => {
             <div className="swiperFather">
               <div className="swiperAtr">
                 <Swiper pagination={true} className="mySwiper">
-                {products.images.map(image=><SwiperSlide><img src={image}/></SwiperSlide>)}
+                {products.images.map(image=><SwiperSlide><img src={image} alt={products.name}/></SwiperSlide>)}
                 </Swiper>
                   <h4 className="txtCarouselProduct">{products.name}</h4>
                   <div className="price-button">
@@ -42,34 +39,6 @@ const Products = (props) => {
         }
       </div>
     </>
-    // <div>
-    // <div className="products">
-      // <div className="cardCarousel">
-      //   <div className="imgCarousel">imagen</div>
-      //   <h4 className="txtCarousel">Texto</h4>
-      //   <div className="price-button">
-      //     <p>$28.99</p>
-      //     <button className="buttonCarousel">Buy</button>
-      //   </div>
-      // </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    // </div>
-    // </div>
   );
 }
 
