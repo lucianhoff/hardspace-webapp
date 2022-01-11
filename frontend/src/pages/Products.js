@@ -14,9 +14,7 @@ SwiperCore.use([Pagination]);
 const Products = (props) => {
   useEffect(() => {
     props.getAllProducts()
-}, [])
-
-
+  }, [])
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -38,18 +36,6 @@ const Products = (props) => {
   }
 
 
-    
-
-    
-
-      
-      
-
-    
-  
-
-
-
   return (
   //   <Swiper pagination={true} className="mySwiper">
   // <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
@@ -67,7 +53,7 @@ const Products = (props) => {
                   <h4 className="txtCarouselProduct">{products.name}</h4>
                   <div className="price-button">
                     <p>{`$${products.price}`}</p>
-                    <button className="buttonCarousel" onClick={()=> addCart(products)}>Buy</button>
+                    <button className="buttonCarousel" onClick={()=> addCart(products)} >Buy</button>
                     
                 </div>
             </div>

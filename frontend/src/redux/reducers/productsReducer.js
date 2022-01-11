@@ -1,5 +1,6 @@
 const initState = {
     productsList: [],
+    searchProducts: []
 }
 
 const productsReducer = (state = initState,action)=>{
@@ -9,6 +10,13 @@ const productsReducer = (state = initState,action)=>{
             ...state,
             productsList: action.payload,
         }
+
+        case 'SEARCH': 
+            return {
+                ...state,
+                searchProducts: action.payload
+        }
+        
         default:
             return state
     }

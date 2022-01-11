@@ -2,7 +2,7 @@ import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
 import { connect } from "react-redux"
-import productActions from "../../actions/productActions"
+import productsActions from "../../redux/actions/productsActions"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
 import { Link } from "react-router-dom";
@@ -44,6 +44,7 @@ function Navigation(props) {
         
         if ( busqueda.length > 0 ) {
           console.log('DENTRO DEL NAVBAR:: la busqueda es::',busqueda)
+          console.log('DENTRO DEL NAVBAR:: searchProducts es::',props.searchProducts)
           return Toast.fire({
             title:'HardSpace',
             text:`There are ${busqueda.length} articles.`,
@@ -168,7 +169,7 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     firstName: state.users.firstName,
     image: state.users.image,
-    
+    /* searchProducts: state.productReducer.searchProducts */
   }
 }
 
@@ -176,7 +177,7 @@ const mapDispatchToProps = {
   signInUser: usersActions.signInUser,
   signInLS: usersActions.signInLS,
   signOutUser: usersActions.signOutUser,
-  search: productActions.search
+  search: productsActions.search
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
