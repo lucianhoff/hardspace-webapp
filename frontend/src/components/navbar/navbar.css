@@ -241,6 +241,16 @@ span a {
   color: white;
 }
 
+.badge{
+  font-size: 15px;
+  border-radius: 50% ;
+  width: 20px;
+  height: 20px;
+  background-color: lightseagreen;
+ text-align: center;
+ margin-left: 2px; 
+}
+
 .iconUser {
   font-size: 3rem;
 }

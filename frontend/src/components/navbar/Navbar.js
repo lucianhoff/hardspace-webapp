@@ -4,11 +4,11 @@ import { useState } from "react";
 import { connect } from "react-redux"
 import productActions from "../../actions/productActions"
 import swal from 'sweetalert2'
+import usersActions from '../../redux/actions/usersActions'
+import { Link } from "react-router-dom";
 
 function Navigation(props) {
-
-function Navigation(props) {
-
+  
   const [search,setSearch] = useState ('')
 
   const Toast = swal.mixin({
@@ -66,6 +66,11 @@ function Navigation(props) {
         <div>
           <div>
             <p>My Account</p>
+          </div>
+        </div>
+        <div>
+          <div>
+          <Link to="/addproducts"> Add Products</Link> 
           </div>
         </div>
         <div>
@@ -128,6 +133,7 @@ function Navigation(props) {
            <Link to="/cart"><AiOutlineShoppingCart /></Link> 
           </div>
           <div className="signClass">
+           <div className="badge">0</div>
             {/* <h5>My Cart</h5> */}
             <h5>$</h5>
           </div>
@@ -156,16 +162,21 @@ function Navigation(props) {
     </>
   );
 }
-/* export default Navigation; */
 
-const mapStateToProps = (state) => {
-  return {
-    /* searchProducts: state.productReducer.searchProducts */
+const mapStateToProps = (state) => { 
+  return {   
+    token: state.users.token,
+    firstName: state.users.firstName,
+    image: state.users.image,
+    
   }
 }
 
 const mapDispatchToProps = {
+  signInUser: usersActions.signInUser,
+  signInLS: usersActions.signInLS,
+  signOutUser: usersActions.signOutUser,
   search: productActions.search
 }
 
-export default connect (mapStateToProps, mapDispatchToProps)(Navigation)}
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
