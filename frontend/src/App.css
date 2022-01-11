@@ -132,3 +132,22 @@ height: 5rem;
 .slick-list {
   margin: 0 -20px;
 }
+
+
+.swiper {
+  width: 350px;
+  height: 350px;
+  padding: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+  height: 350px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}

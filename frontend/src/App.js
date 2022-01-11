@@ -4,6 +4,7 @@ import Navigation from "./components/navbar/Navbar";
 
 //pages
 import Home from './pages/Home';
+import Product from './pages/Product';
 
 //style
 import "./App.css";
@@ -18,6 +19,7 @@ function App() {
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
       <Footer/>
     </BrowserRouter>
