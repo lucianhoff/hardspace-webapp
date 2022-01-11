@@ -1,6 +1,7 @@
 //components
 import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
+import Products from "./pages/Products";
 
 //pages
 import Home from './pages/Home';
@@ -33,6 +34,7 @@ function App(props) {
                 <Route path='*'element ={<Home/>}></Route> : 
                 <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/addproducts" element={<AddProducts/>} />
       </Routes>
       <Footer/>
