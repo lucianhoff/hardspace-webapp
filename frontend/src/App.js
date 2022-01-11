@@ -5,6 +5,7 @@ import Navigation from "./components/navbar/Navbar";
 //pages
 import Home from './pages/Home';
 import Cart from './pages/Cart'
+import AddProducts from "./pages/AddProducts";
 
 //style
 import "./App.css";
@@ -32,6 +33,7 @@ function App(props) {
                 <Route path='*'element ={<Home/>}></Route> : 
                 <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />
+        <Route path="/addproducts" element={<AddProducts/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>

@@ -70,6 +70,11 @@ function Navigation(props) {
         </div>
         <div>
           <div>
+          <Link to="/addproducts"> Add Products</Link> 
+          </div>
+        </div>
+        <div>
+          <div>
             <p>About us</p>
           </div>
         </div>
@@ -128,6 +133,7 @@ function Navigation(props) {
            <Link to="/cart"><AiOutlineShoppingCart /></Link> 
           </div>
           <div className="signClass">
+           <div className="badge">0</div>
             {/* <h5>My Cart</h5> */}
             <h5>$</h5>
           </div>
