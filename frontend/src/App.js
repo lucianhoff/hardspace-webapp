@@ -1,6 +1,7 @@
 //components
 import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
+import Products from "./pages/Products";
 
 //pages
 import Home from './pages/Home';

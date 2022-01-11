@@ -172,10 +172,6 @@ const Home = () => {
                 </div>
               </div>
         </div>
-
-
-          
-
         <div className="lg:flex lg:w-6/12">
           <div className="lg:flex lg:flex-col lg:w-6/12  lg:px-3">
             <div
