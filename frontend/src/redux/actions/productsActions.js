@@ -8,6 +8,16 @@ const productsActions = {
             dispatch({type: 'GET_ALL_PRODUCTS', payload: data})
         }
     },
+    setTotalProducts: (totalQuantity) => {
+        return async (dispatch) => {
+            dispatch({type: 'TOTAL_PRODUCTS', payload: totalQuantity})
+        }
+    },
+    setTotalPrice: (totalPrice) => {
+        return async (dispatch) => {
+            dispatch({type: 'TOTAL_PRICE', payload: totalPrice})
+        }
+    }
 }
 
 export default productsActions

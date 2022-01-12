@@ -133,9 +133,9 @@ function Navigation(props) {
            <Link to="/cart"><AiOutlineShoppingCart /></Link> 
           </div>
           <div className="signClass">
-           <div className="badge">0</div>
+           <div className="badge">{props.totalProducts}</div>
             {/* <h5>My Cart</h5> */}
-            <h5>$</h5>
+            <h5>${props.totalPrice}</h5>
           </div>
         </div>
         </div>
@@ -168,6 +168,8 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     firstName: state.users.firstName,
     image: state.users.image,
+    totalProducts: state.productsReducer.totalProducts,
+    totalPrice: state.productsReducer.totalPrice
     
   }
 }

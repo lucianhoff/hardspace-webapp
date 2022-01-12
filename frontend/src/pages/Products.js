@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React , {useEffect, useState} from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
@@ -16,6 +16,9 @@ const Products = (props) => {
     props.getAllProducts()
 }, [])
 
+const [array, setArray] = useState([])
+const [totalProd, setTotalProd] = useState()
+const [totalPrice, setTotalPrice] = useState()
 
 
   function addCart(elemento){
@@ -35,17 +38,29 @@ const Products = (props) => {
       localStorage.setItem(elemento._id, JSON.stringify(producto))
       console.log("agregaste al carrito", elemento.name)
     }
+
+    allStorage()
+
   }
 
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
 
-    
+    for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
 
-    
-
-      
-      
-
-    
+    console.log(archive)
+    props.setTotalProducts(sumaProd) 
+    props.setTotalPrice(sumaPrice)
+    // setArray(archive)
+    // setTotalProd(sumaProd)
+    // setTotalPrice(sumaPrice)
+    }
+}
   
 
 
@@ -110,12 +125,14 @@ const Products = (props) => {
 
 const mapStateToProps = (state) =>{
   return{
-      productsList : state.productsReducer.productsList,
+      productsList : state.productsReducer.productsList
   } 
 }
 
 const mapDispatchToProps = {
-  getAllProducts: productsActions.getAllProducts
+  getAllProducts: productsActions.getAllProducts,
+  setTotalProducts: productsActions.setTotalProducts,
+  setTotalPrice: productsActions.setTotalPrice
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Products)

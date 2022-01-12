@@ -1,27 +1,38 @@
-import React , {useState }from 'react'
+import { process_params } from 'express/lib/router';
+import React , {useState, useEffect }from 'react'
+import {connect} from 'react-redux'
+import productsActions from '../redux/actions/productsActions'
 
 
+function IndividualCart( props, [{elemento}]){
 
-function IndividualCart({elemento}){
-
+   
     const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        setCount(elemento.qty)
+    }, [])
 
    
     const decrementCount = () => {
+    
         count > 0 && setCount(parseInt(count)-1)
      }
 
     const incrementCount = () => {
-           setCount(parseInt(count)+1);
+        props.setTotalProducts(props.totalProducts+1) 
+        // props.setTotalPrice(sumaPrice)
+        setCount(parseInt(count)+1);
         }
 
+    
 
     return(
             <>
             <div className="articleContainer">
-                            <div className="articleImg"> imagen</div>
+                            <img className="articleImg" src={elemento.images[0]}></img>
                             <div className="articleInfo">
-                                <p className="articleTitle">{elemento.nombre}</p>
+                                <p className="articleTitle">{elemento.name}</p>
                                 <p>Free delivery</p>
                                 <div className="deleteAndBuy">
                                     <button className="delete">Delete</button>
@@ -44,11 +55,25 @@ function IndividualCart({elemento}){
                                    
                              <button className="boton"  onClick={incrementCount}>+</button>
                             </div>
-                           <div className="articlePrice">$</div>
+                           <div className="articlePrice">${elemento.price}</div>
                         </div>
 
 </>
     )
 }
 
-export default IndividualCart
+const mapStateToProps = (state) =>{
+    return{
+        totalProducts: state.productsReducer.totalProducts,
+        // totalPrice: state.productsReducer.totalPrice
+    } 
+  }
+  
+  const mapDispatchToProps = {    
+    setTotalProducts: productsActions.setTotalProducts,
+    // setTotalPrice: productsActions.setTotalPrice
+  }
+  
+  export default connect (mapStateToProps, mapDispatchToProps)(IndividualCart)
+
+// export default IndividualCart
