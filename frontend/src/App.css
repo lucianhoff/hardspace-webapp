@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -65,30 +69,11 @@
   border-radius: 5px;
   height: 20rem;
   color: rgb(0, 0, 0);
-  width: 30vw;
+  width: 239px;
   justify-content: space-around !important;
   box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
   -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
   -moz-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
-}
-.pCarousel {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  height: 20;
-  color: rgb(0, 0, 0);
-  width: 30vh;
-  justify-content: space-around !important;
-  box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
-  -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
-  -moz-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
-}
-
-.productContent {
-  display: flex;
-  justify-content: center;
-  width: 33%;
 }
 
 .slider {
@@ -126,7 +111,7 @@
   padding: 0.5rem;
   background-color: rgb(25, 196, 196);
   border-radius: 5px;
-  width: 5vw;
+  width: 64px;
 }
 
 .slick-track {
@@ -228,24 +213,118 @@ form span, .signInForm span {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  width: 85%;
 }
 
-.slick-slide {
- 
-  height: 10%;
+@media (max-width: 420px) {
+  .products {
+    width: 70%;
+  }
+
+  .filter{
+    width: 30% !important;
+  }
+
+  .textFilter{
+    margin-left: 1rem !important;
+  }
 }
 
-.imgProduct{
+@media (max-width: 353px) {
+  .filter{
+    width: 25% !important;
+}
+.textFilter{
+  margin-left: 0.5rem !important;
+}
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiperAtr {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  height: 24rem;
+  color: rgb(0, 0, 0);
+  width: 230px;
+  justify-content: space-around !important;
+  box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+  -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+  -moz-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
+}
+
+.swiperFather {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+
+@media (max-width: 1110px) {
+  .swiperFather {
+        width: 33%;
+  }
+}
+
+@media (max-width: 860px) {
+  .swiperFather {
+    width: 50%;
+}
+}
+
+@media (max-width: 650px) {
+  .swiperFather {
+    width: 100%;
+}
+}
+.txtCarouselProduct {
+  display: flex;
+  justify-content: center;
+  height: 6rem;
+  background-color: rgba(43, 43, 42, 0.048);
+  align-items: center;
+  font-weight: bold;
+}
+
+.filterProduct{
+  display: flex;
   
 }
-.slick-slide img {
-  width: 100%;
-}
-.slick-list {
- margin: 0 !important;
+.filter{
+  width: 15%;
+  margin-top: 5rem
 }
 
-/* .slick-slider {
- width: 100%;
- margin-right: -2px;
-} */
+.textFilter{
+  margin-left: 3rem;
+}

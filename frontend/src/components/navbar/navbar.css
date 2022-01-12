@@ -69,6 +69,10 @@
         display: none !important;
 
     }
+    .signClass a{
+        display: none !important;
+
+    }
 
     .imgLogo{
       width: 4rem;
