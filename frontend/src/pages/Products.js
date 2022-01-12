@@ -12,6 +12,7 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
+  
   useEffect(() => {
     props.getAllProducts()
 }, [])
@@ -39,10 +40,10 @@ const [totalPrice, setTotalPrice] = useState()
       console.log("agregaste al carrito", elemento.name)
     }
 
+    
     allStorage()
-
   }
-
+  
   function allStorage() {
     var archive = [];
     var sumaProd = 0;
@@ -56,14 +57,12 @@ const [totalPrice, setTotalPrice] = useState()
     console.log(archive)
     props.setTotalProducts(sumaProd) 
     props.setTotalPrice(sumaPrice)
-    // setArray(archive)
-    // setTotalProd(sumaProd)
-    // setTotalPrice(sumaPrice)
+   
     }
 }
   
 
-
+  allStorage()
 
   return (
   //   <Swiper pagination={true} className="mySwiper">

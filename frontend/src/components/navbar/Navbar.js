@@ -1,7 +1,7 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
-import { connect } from "react-redux"
+import { connect , useSelector, useDispatch} from "react-redux"
 import productActions from "../../actions/productActions"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 function Navigation(props) {
   
   const [search,setSearch] = useState ('')
+  const dispatch = useDispatch() 
+  const usuario = useSelector(store => store.productsReducer.totalProducts)
+ 
 
   const Toast = swal.mixin({
     toast: true,
@@ -59,6 +62,7 @@ function Navigation(props) {
         }
     }
   }
+  console.log(props)
 
   return (
     <>

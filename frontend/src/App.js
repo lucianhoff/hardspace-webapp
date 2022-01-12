@@ -18,13 +18,35 @@ import LogIn from "./pages/LogIn";
 import usersActions from "./redux/actions/usersActions";
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
+import productsActions from "./redux/actions/productsActions";
 
 function App(props) {
+
+
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
+
+    for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
+
+    console.log(archive)
+    props.setTotalProducts(sumaProd) 
+    props.setTotalPrice(sumaPrice)
+   
+    }
+}
+  
   useEffect(()=>{
     if(localStorage.getItem('token')){
         props.signInLS(localStorage.getItem('token'))
       }
+    allStorage()
   },[])
+
   return (
     <BrowserRouter>
     <Navigation />
@@ -48,7 +70,10 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  signInLS: usersActions.signInLS
+  signInLS: usersActions.signInLS,
+  setTotalProducts: productsActions.setTotalProducts,
+  setTotalPrice:productsActions.setTotalPrice
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

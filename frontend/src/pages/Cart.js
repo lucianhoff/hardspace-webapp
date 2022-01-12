@@ -1,20 +1,25 @@
 import React , {useEffect, useState} from 'react'
 import IndividualCart from '../components/IndividualCart'
+import productsActions from "../redux/actions/productsActions"
+import {connect,useSelector} from 'react-redux'
 
-function Cart(){
+function Cart(props){
     
+    
+    const totalQty = useSelector(store => store.productsReducer.totalProducts)
+    console.log(totalQty)
+
    const [array, setArray] = useState([])
    const [totalProd, setTotalProd] = useState()
    const [totalPrice, setTotalPrice] = useState()
 
     useEffect(() => {
-    allStorage()
+        props.getAllProducts()
+       allStorage()
 
     }, []) 
 
-
-    
-    function allStorage() {
+   function allStorage() {
         var archive = [];
         var sumaProd = 0;
         var sumaPrice = 0;
@@ -30,7 +35,7 @@ function Cart(){
         setTotalPrice(sumaPrice)
         }
     }
-  
+    
        
     console.log(array)          
          
@@ -64,5 +69,19 @@ function Cart(){
     )
 }
 
+const mapStateToProps = (state) =>{
+    return{
+        productsList : state.productsReducer.productsList,
+        totalProducts: state.productsReducer.totalProducts
+    } 
+  }
+  
+  const mapDispatchToProps = {
+    getAllProducts: productsActions.getAllProducts,
+    setTotalProducts: productsActions.setTotalProducts,
+    setTotalPrice: productsActions.setTotalPrice
+  }
+  
+  export default connect (mapStateToProps, mapDispatchToProps)(Cart)
 
-export default Cart
+

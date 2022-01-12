@@ -1,12 +1,15 @@
 import { process_params } from 'express/lib/router';
 import React , {useState, useEffect }from 'react'
-import {connect} from 'react-redux'
+import {connect, useSelector, useDispatch} from 'react-redux'
 import productsActions from '../redux/actions/productsActions'
 
 
-function IndividualCart( props, [{elemento}]){
 
-   
+function IndividualCart({elemento}){
+
+    const dispatch = useDispatch() 
+    const usuario = useSelector(store => store.productsReducer.totalProducts)
+
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -20,11 +23,33 @@ function IndividualCart( props, [{elemento}]){
      }
 
     const incrementCount = () => {
-        props.setTotalProducts(props.totalProducts+1) 
+        // props.setTotalProducts(props.totalProducts+1) 
         // props.setTotalPrice(sumaPrice)
         setCount(parseInt(count)+1);
         }
+    
 
+        // function deleteArticle() {
+        //     swal({
+        //       title: "Are you sure?",
+        //       text: "This product will'be deleted from the list!",
+        //       icon: "warning",
+        //       buttons: true,
+        //       dangerMode: true,
+        //     }).then((willDelete) => {
+        //       if (willDelete) {
+        //         props.setTotalProducts(
+        //           props.totalProducts._id,
+        //         )
+        //         swal("Your product has been deleted!", {
+        //           icon: "success",
+        //         })
+        //       } else {
+        //         swal("Your product is safe!")
+        //       }
+        //     })
+        //   }
+      
     
 
     return(
@@ -36,7 +61,7 @@ function IndividualCart( props, [{elemento}]){
                                 <p>Free delivery</p>
                                 <div className="deleteAndBuy">
                                     <button className="delete">Delete</button>
-                                    <button className="buynow">Buy now</button>
+                                   
                                 </div>
                                                    
                             </div>
