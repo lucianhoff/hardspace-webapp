@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React , {useEffect, useState} from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
@@ -13,12 +13,20 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
+  
   useEffect(() => {
     props.getAllProducts()
   }, [])
 
   function addCart(elemento) {
     const cantidad = { qty: 1 }
+const [array, setArray] = useState([])
+const [totalProd, setTotalProd] = useState()
+const [totalPrice, setTotalPrice] = useState()
+
+
+  function addCart(elemento){
+    const cantidad = {qty: 1}
 
     let productExists = localStorage.getItem(elemento._id)
     console.log(productExists)
@@ -36,6 +44,30 @@ const Products = (props) => {
     }
   }
 
+
+    
+    allStorage()
+  }
+  
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
+
+    for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
+
+    console.log(archive)
+    props.setTotalProducts(sumaProd) 
+    props.setTotalPrice(sumaPrice)
+   
+    }
+}
+  
+
+  allStorage()
 
   return (
     <>
@@ -69,16 +101,17 @@ const Products = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    productsList: state.productsReducer.productsList,
-    auxSearch: state.productsReducer.auxSearch,
-  }
+const mapStateToProps = (state) =>{
+  return{
+      productsList : state.productsReducer.productsList,
+      auxSearch: state.productsReducer.auxSearch,
+  } 
 }
 
 const mapDispatchToProps = {
-  getAllProducts: productsActions.getAllProducts
-
+  getAllProducts: productsActions.getAllProducts,
+  setTotalProducts: productsActions.setTotalProducts,
+  setTotalPrice: productsActions.setTotalPrice
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products)

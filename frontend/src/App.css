@@ -305,13 +305,26 @@ width: 10%;
 
 /*formulario add products */
 
+.titleForm{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color:#5469d4;
+  margin-top: 3rem;
+  margin-bottom: -2rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  
+}
+
 .formulario{  
   object-fit: cover;
-  padding-top:6rem;  
+  padding-top:2rem;  
   display: flex;
   justify-content: center;
   align-items:center;
- 
+  font-weight: bolder;
 }
 
 .form{ 
@@ -320,35 +333,49 @@ width: 10%;
   flex-direction: column;
   align-items: center;
   font-size: normal;
-  box-shadow: 0px 0px 50px -24px rgba(0,0,0,1) inset;
+  border: 2px solid #04419c;
   padding: 2rem;
-  margin-bottom:1rem;
-  backdrop-filter: blur(5px);
-
- }
+  width: 500px;
+	padding: 20px;
+	background: #FFFFFF;
+	margin: 20px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
 
 label{
   margin:0.3rem;
   align-self: flex-start;
+  
 }
 
 input, select{
-  width: 30vw;
-  border-radius: 10px;
-  border: none;
-  
+  box-sizing: border-box;
+	display: block;
+	padding: 5px;
+	margin-bottom: 5px;
+	height: 35px;
+
+}
+.buttonForm{
+  -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+  margin-top: 2rem;
+}
+.buttonForm:hover{
+  background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
 }
 
-.btn-form{
-  margin-top:1rem!important;
-  align-self: center;  
-  
-}
-
-legend{
-  font-weight: bolder;
-  text-align:center;
-}
 .products {
   display: flex;
   flex-direction: row;
