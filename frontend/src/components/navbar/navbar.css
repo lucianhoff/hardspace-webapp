@@ -69,6 +69,10 @@
         display: none !important;
 
     }
+    .signClass a{
+        display: none !important;
+
+    }
 
     .imgLogo{
       width: 4rem;
@@ -90,10 +94,12 @@
     font-size: 16px;
   }
   .iconUser{
+    
     height: 2rem !important;
     width: 2rem !important;
     font-size: 2rem !important;
   }
+
   .navigation{
     height: 15vh !important;
   }
@@ -239,9 +245,21 @@ span a {
   color: white;
 }
 
+.badge{
+  font-size: 15px;
+  border-radius: 50% ;
+  width: 20px;
+  height: 20px;
+  background-color: lightseagreen;
+ text-align: center;
+ margin-left: 2px; 
+}
+
 .iconUser {
   font-size: 3rem;
 }
+
+
 .signClass {
   display: flex;
   flex-direction: column;

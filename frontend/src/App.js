@@ -5,6 +5,8 @@ import Products from "./pages/Products";
 
 //pages
 import Home from './pages/Home';
+import Cart from './pages/Cart'
+import AddProducts from "./pages/AddProducts";
 
 //style
 import "./App.css";
@@ -28,8 +30,12 @@ function App(props) {
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-               {props.token ? <Route path='*'element ={<Home/>}></Route>:<> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
+               {props.token ?
+                <Route path='*'element ={<Home/>}></Route> : 
+                <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
+        <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/addproducts" element={<AddProducts/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
