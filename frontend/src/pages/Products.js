@@ -15,12 +15,7 @@ const Products = (props) => {
   
   useEffect(() => {
     props.getAllProducts()
-}, [])
-
-const [array, setArray] = useState([])
-const [totalProd, setTotalProd] = useState()
-const [totalPrice, setTotalPrice] = useState()
-
+  }, [])
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -39,30 +34,8 @@ const [totalPrice, setTotalPrice] = useState()
       localStorage.setItem(elemento._id, JSON.stringify(producto))
       console.log("agregaste al carrito", elemento.name)
     }
-
-    
-    allStorage()
   }
-  
-  function allStorage() {
-    var archive = [];
-    var sumaProd = 0;
-    var sumaPrice = 0;
 
-    for (var i = 0; i<localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty 
-        sumaPrice = sumaPrice + archive[i].price
-
-    console.log(archive)
-    props.setTotalProducts(sumaProd) 
-    props.setTotalPrice(sumaPrice)
-   
-    }
-}
-  
-
-  allStorage()
 
   return (
   //   <Swiper pagination={true} className="mySwiper">
@@ -81,7 +54,7 @@ const [totalPrice, setTotalPrice] = useState()
                   <h4 className="txtCarouselProduct">{products.name}</h4>
                   <div className="price-button">
                     <p>{`$${products.price}`}</p>
-                    <button className="buttonCarousel" onClick={()=> addCart(products)}>Buy</button>
+                    <button className="buttonCarousel" onClick={()=> addCart(products)} >Buy</button>
                     
                 </div>
             </div>

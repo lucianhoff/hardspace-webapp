@@ -1,7 +1,11 @@
 const initState = {
     productsList: [],
+<<<<<<< HEAD
     totalProducts: 0,
     totalPrice: 0
+=======
+    searchProducts: []
+>>>>>>> b5b0b9aa1a9044d848f4d76388255f51f935cdd4
 }
 
 const productsReducer = (state = initState,action)=>{
@@ -11,6 +15,7 @@ const productsReducer = (state = initState,action)=>{
             ...state,
             productsList: action.payload,
         }
+<<<<<<< HEAD
         case 'TOTAL_PRODUCTS' :
         return {
             ...state,
@@ -21,6 +26,15 @@ const productsReducer = (state = initState,action)=>{
             ...state,
             totalPrice: action.payload,
         }
+=======
+
+        case 'SEARCH': 
+            return {
+                ...state,
+                searchProducts: action.payload
+        }
+        
+>>>>>>> b5b0b9aa1a9044d848f4d76388255f51f935cdd4
         default:
             return state
     }
