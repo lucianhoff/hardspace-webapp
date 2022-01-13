@@ -45,6 +45,8 @@ function Navigation(props) {
         if ( busqueda.length > 0 ) {
           console.log('DENTRO DEL NAVBAR:: la busqueda es::',busqueda)
           console.log('DENTRO DEL NAVBAR:: searchProducts es::',props.searchProducts)
+
+          
           return Toast.fire({
             title:'HardSpace',
             text:`There are ${busqueda.length} articles.`,
@@ -169,7 +171,7 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     firstName: state.users.firstName,
     image: state.users.image,
-    /* searchProducts: state.productReducer.searchProducts */
+    searchProducts: state.productsReducer.searchProducts
   }
 }
 
