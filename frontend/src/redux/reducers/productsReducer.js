@@ -1,5 +1,7 @@
 const initState = {
     productsList: [],
+    searchProducts: [],
+    auxSearch: [],
 }
 
 const productsReducer = (state = initState,action)=>{
@@ -9,6 +11,20 @@ const productsReducer = (state = initState,action)=>{
             ...state,
             productsList: action.payload,
         }
+
+        case 'SEARCH': 
+            return {
+                ...state,
+                searchProducts: action.payload,
+                auxSearch: action.payload
+        }
+
+        case 'BRANDS': 
+        return {
+            ...state,
+            auxSearch: action.payload
+    }
+        
         default:
             return state
     }
