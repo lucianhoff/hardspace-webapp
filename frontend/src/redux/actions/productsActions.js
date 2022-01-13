@@ -40,6 +40,11 @@ const productsActions = {
             }
         }
     },
+    arrayStorage: (array) => {
+        return async (dispatch) => {
+            dispatch({type: 'STORAGE', payload: array})
+        }
+    },
 }
 
 export default productsActions

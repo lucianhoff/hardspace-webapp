@@ -1,5 +1,5 @@
 import React , {useEffect, useState} from "react";
-import { connect } from "react-redux";
+import { connect , useSelector, useDispatch} from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,15 +11,19 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination]);
 
+
+
 const Products = (props) => {
   
+  const dispatch = useDispatch()
+  const totalQty = useSelector(store => store.productsReducer.totalProducts)
+  // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
+  const totalPrice= useSelector(store=> store.productsReducer.totalPrice)
+
   useEffect(() => {
     props.getAllProducts()
 }, [])
 
-const [array, setArray] = useState([])
-const [totalProd, setTotalProd] = useState()
-const [totalPrice, setTotalPrice] = useState()
 
 
   function addCart(elemento){
@@ -29,40 +33,33 @@ const [totalPrice, setTotalPrice] = useState()
     console.log(productExists)
 
     if(productExists !== null){
+     
       let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
       producto.qty = producto.qty +1
+      
       localStorage.setItem(producto._id,JSON.stringify(producto) )
       console.log("agregaste al carrito", producto)
       
+      dispatch(productsActions.setTotalProducts(totalQty +1))
+      dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
+      
     }else{
+      
       const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
       localStorage.setItem(elemento._id, JSON.stringify(producto))
       console.log("agregaste al carrito", elemento.name)
+
+      dispatch(productsActions.setTotalProducts(totalQty +1))
+      dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
     }
 
+     
     
-    allStorage()
   }
   
-  function allStorage() {
-    var archive = [];
-    var sumaProd = 0;
-    var sumaPrice = 0;
+ 
 
-    for (var i = 0; i<localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty 
-        sumaPrice = sumaPrice + archive[i].price
-
-    console.log(archive)
-    props.setTotalProducts(sumaProd) 
-    props.setTotalPrice(sumaPrice)
-   
-    }
-}
-  
-
-  allStorage()
+ 
 
   return (
   //   <Swiper pagination={true} className="mySwiper">
@@ -91,34 +88,7 @@ const [totalPrice, setTotalPrice] = useState()
         }
       </div>
     </>
-    // <div>
-    // <div className="products">
-      // <div className="cardCarousel">
-      //   <div className="imgCarousel">imagen</div>
-      //   <h4 className="txtCarousel">Texto</h4>
-      //   <div className="price-button">
-      //     <p>$28.99</p>
-      //     <button className="buttonCarousel">Buy</button>
-      //   </div>
-      // </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    // </div>
-    // </div>
+   
   );
 }
 

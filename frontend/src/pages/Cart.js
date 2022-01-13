@@ -3,10 +3,12 @@ import IndividualCart from '../components/IndividualCart'
 import productsActions from "../redux/actions/productsActions"
 import {connect,useSelector} from 'react-redux'
 
+
 function Cart(props){
     
-    
     const totalQty = useSelector(store => store.productsReducer.totalProducts)
+    const totalStatePrice= useSelector(store=> store.productsReducer.totalPrice)
+    const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
     console.log(totalQty)
 
    const [array, setArray] = useState([])
@@ -14,30 +16,19 @@ function Cart(props){
    const [totalPrice, setTotalPrice] = useState()
 
     useEffect(() => {
-        props.getAllProducts()
-       allStorage()
+       render()
 
     }, []) 
 
-   function allStorage() {
-        var archive = [];
-        var sumaProd = 0;
-        var sumaPrice = 0;
 
-        for (var i = 0; i<localStorage.length; i++) {
-            archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-            sumaProd = sumaProd + archive[i].qty 
-            sumaPrice = sumaPrice + archive[i].price
- 
-        console.log(archive)
-        setArray(archive)
-        setTotalProd(sumaProd)
-        setTotalPrice(sumaPrice)
-        }
+    function render(){
+       
+        setArray(arraySt)
     }
+   
     
        
-    console.log(array)          
+    console.log(arraySt)          
          
     return(
         <>
@@ -48,7 +39,8 @@ function Cart(props){
                 </div>
                 <div>
                     
-                    {array.map((elemento,index)=> {
+                    {array.lenght > 0 && array.map((elemento,index)=> {
+                        
                         return (
                             <IndividualCart elemento={elemento} />
                         )
@@ -57,9 +49,9 @@ function Cart(props){
                 
             
                 </div>
-                <div>
-                    <h3>Total price = ${totalPrice}</h3>
-                    <h3>Total Product = {totalProd}</h3>
+                <div className="totales">
+                    <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
+                    
                 </div>
                 
             </div>
@@ -78,8 +70,9 @@ const mapStateToProps = (state) =>{
   
   const mapDispatchToProps = {
     getAllProducts: productsActions.getAllProducts,
-    setTotalProducts: productsActions.setTotalProducts,
-    setTotalPrice: productsActions.setTotalPrice
+    //setTotalProducts: productsActions.setTotalProducts,
+    // setTotalPrice: productsActions.setTotalPrice,
+    //arrayStorage : productsActions.arrayStorage
   }
   
   export default connect (mapStateToProps, mapDispatchToProps)(Cart)

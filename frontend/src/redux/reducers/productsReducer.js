@@ -1,7 +1,8 @@
 const initState = {
     productsList: [],
     totalProducts: 0,
-    totalPrice: 0
+    totalPrice: 0,
+    arrayStorage: []
 }
 
 const productsReducer = (state = initState,action)=>{
@@ -21,6 +22,11 @@ const productsReducer = (state = initState,action)=>{
             ...state,
             totalPrice: action.payload,
         }
+        case 'STORAGE' :
+            return {
+                ...state,
+                arrayStorage: action.payload,
+            }
         default:
             return state
     }

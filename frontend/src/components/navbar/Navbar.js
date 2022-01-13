@@ -115,7 +115,7 @@ function Navigation(props) {
             
           </div>
           
-        
+       
           <div className="signClass">
             {!props.token ? (
               <>
@@ -138,8 +138,7 @@ function Navigation(props) {
           </div>
           <div className="signClass">
            <div className="badge">{props.totalProducts}</div>
-            {/* <h5>My Cart</h5> */}
-            <h5>${props.totalPrice}</h5>
+              <h5>${props.totalPrice.toFixed(2)}</h5>
           </div>
         </div>
         </div>

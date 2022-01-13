@@ -28,16 +28,19 @@ function App(props) {
     var sumaProd = 0;
     var sumaPrice = 0;
 
-    for (var i = 0; i<localStorage.length; i++) {
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
         archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
         sumaProd = sumaProd + archive[i].qty 
         sumaPrice = sumaPrice + archive[i].price
+       }
+        console.log(archive)
 
-    console.log(archive)
-    props.setTotalProducts(sumaProd) 
-    props.setTotalPrice(sumaPrice)
+        props.arrayStorage(archive)
+        props.setTotalProducts(sumaProd) 
+        props.setTotalPrice(sumaPrice)
    
-    }
+  }
 }
   
   useEffect(()=>{
@@ -72,7 +75,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   signInLS: usersActions.signInLS,
   setTotalProducts: productsActions.setTotalProducts,
-  setTotalPrice:productsActions.setTotalPrice
+  setTotalPrice:productsActions.setTotalPrice,
+  arrayStorage: productsActions.arrayStorage
 
 }
 
