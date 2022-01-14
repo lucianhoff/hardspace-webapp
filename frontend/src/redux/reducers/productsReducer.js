@@ -1,5 +1,6 @@
 const initState = {
     productsList: [],
+    searchProducts: [],
     totalProducts: 0,
     totalPrice: 0,
     arrayStorage: []
@@ -12,11 +13,19 @@ const productsReducer = (state = initState,action)=>{
             ...state,
             productsList: action.payload,
         }
+
+        case 'SEARCH': 
+            return {
+                ...state,
+                searchProducts: action.payload
+        }
+        
         case 'TOTAL_PRODUCTS' :
         return {
             ...state,
             totalProducts: action.payload,
         }
+        
         case 'TOTAL_PRICE' :
         return {
             ...state,

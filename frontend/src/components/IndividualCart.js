@@ -17,7 +17,7 @@ function IndividualCart({ elemento}){
 
     useEffect(() => {
         setCount(elemento.qty)   
-                   
+
     }, [])
    
     const decrementCount = (value) => {    
@@ -25,7 +25,8 @@ function IndividualCart({ elemento}){
         if(count > 0){
             let restaCant = totalProducts - 1
             let restaPrice = totalPrice - value
-          elemento.qty --
+            elemento.qty--
+
             dispatch(productsActions.setTotalProducts(restaCant))
             dispatch(productsActions.setTotalPrice(restaPrice))
         }
@@ -35,28 +36,27 @@ function IndividualCart({ elemento}){
         setCount(parseInt(count)+1);
         let sumaCant = totalProducts + 1
         let sumaPrice = totalPrice + value
-        elemento.qty ++
+        elemento.qty++
 
         dispatch(productsActions.setTotalProducts(sumaCant))
         dispatch(productsActions.setTotalPrice(sumaPrice))
      }
     
-
     function deleteCart(){   
             
-    alert(elemento._id)
-    let productExists = localStorage.getItem(elemento._id)
-    console.log(productExists)
+      alert(elemento._id)
+      let productExists = localStorage.getItem(elemento._id)
+      console.log(productExists)
    
-    let restaCant = totalProducts - elemento.qty
-    let restaPrice = totalPrice - elemento.price
+      let restaCant = totalProducts - elemento.qty
+      let restaPrice = totalPrice - (elemento.price*elemento.qty)
    
-    const arrayAux = array.filter(item => item._id !== elemento._id);
-     console.log(arrayAux)
-    localStorage.removeItem(elemento._id)
-    dispatch(productsActions.setTotalProducts(restaCant))
-    dispatch(productsActions.setTotalPrice(restaPrice))
-    dispatch(productsActions.arrayStorage(arrayAux))
+      const arrayAux = array.filter(item => item._id !== elemento._id);
+      console.log(arrayAux)
+      localStorage.removeItem(elemento._id)
+      dispatch(productsActions.setTotalProducts(restaCant))
+      dispatch(productsActions.setTotalPrice(restaPrice))
+      dispatch(productsActions.arrayStorage(arrayAux))
 
    }
    

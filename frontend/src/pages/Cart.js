@@ -9,11 +9,12 @@ function Cart(props){
     const totalQty = useSelector(store => store.productsReducer.totalProducts)
     const totalStatePrice= useSelector(store=> store.productsReducer.totalPrice)
     const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
-      
-   const [array, setArray] = useState([])
-   const [totalProd, setTotalProd] = useState()
-   const [totalPrice, setTotalPrice] = useState()
-  
+    console.log(totalQty)
+
+    const [array, setArray] = useState([])
+    /* const [totalProd, setTotalProd] = useState()
+    const [totalPrice, setTotalPrice] = useState() */
+
     useEffect(() => {
        render()
     }, []) 
@@ -25,8 +26,7 @@ function Cart(props){
           
     console.log(arraySt)          
          
-    return(
-        <>
+    return (
             <div className="containerCart">
                 <div className="primerdiv">
                     <h3 className="carrito">Cart</h3>
@@ -41,22 +41,17 @@ function Cart(props){
                         )
 
                     })}                
-                
             
                 </div>
                 <div className="totales">
-                    <h3>Total price = $ {totalStatePrice.toFixed(2)}</h3>
-                    
+                    <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
                 </div>
-                
             </div>
-    
-    </>
-
     )
 }
+export default Cart
 
-const mapStateToProps = (state) =>{
+/* const mapStateToProps = (state) =>{
     return{
         productsList : state.productsReducer.productsList,
         totalProducts: state.productsReducer.totalProducts
@@ -65,11 +60,8 @@ const mapStateToProps = (state) =>{
   
   const mapDispatchToProps = {
     getAllProducts: productsActions.getAllProducts,
-    //setTotalProducts: productsActions.setTotalProducts,
-    // setTotalPrice: productsActions.setTotalPrice,
-    //arrayStorage : productsActions.arrayStorage
   }
   
-  export default connect (mapStateToProps, mapDispatchToProps)(Cart)
+  export default connect (mapStateToProps, mapDispatchToProps)(Cart) */
 
 
