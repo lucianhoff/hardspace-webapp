@@ -1,8 +1,8 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
-import {connect, useSelector, useDispatch} from 'react-redux'
 import productsActions from "../../redux/actions/productsActions"
+import { connect , useSelector, useDispatch} from "react-redux"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
 import { Link } from "react-router-dom";
@@ -118,7 +118,7 @@ function Navigation(props) {
             
           </div>
           
-        
+       
           <div className="signClass">
             {!props.token ? (
               <>
@@ -141,8 +141,7 @@ function Navigation(props) {
           </div>
           <div className="signClass">
            <div className="badge">{props.totalProducts}</div>
-            {/* <h5>My Cart</h5> */}
-            <h5>${props.totalPrice}</h5>
+              <h5>${props.totalPrice.toFixed(2)}</h5>
           </div>
         </div>
         </div>
@@ -151,7 +150,7 @@ function Navigation(props) {
       <div className="secondNav">
         <div>
           <div>
-          <span ><Link to="/" className="effect-underline">SHOP</Link></span>
+          <span ><Link to="/products" className="effect-underline">SHOP</Link></span>
           </div>
         </div>
         <div>
@@ -175,7 +174,10 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     firstName: state.users.firstName,
     image: state.users.image,
-    searchProducts: state.productsReducer.searchProducts
+    searchProducts: state.productsReducer.searchProducts,
+    totalProducts: state.productsReducer.totalProducts,
+    totalPrice: state.productsReducer.totalPrice
+    
   }
 }
 

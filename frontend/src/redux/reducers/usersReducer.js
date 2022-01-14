@@ -1,4 +1,4 @@
-const usersReducer = (state= {token:null, firstName:null, image:null, _id:null}, action) => {
+const usersReducer = (state= {token:'', firstName:null, image:null, _id:null}, action) => {
     switch (action.type){
         case "LOG_USER" :
             localStorage.setItem('token',action.payload.token)
