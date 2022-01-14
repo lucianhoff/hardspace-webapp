@@ -6,7 +6,7 @@ import swal from 'sweetalert'
 
 
 
-function IndividualCart({ elemento}){
+function IndividualCart({ elemento }){
 
     const dispatch = useDispatch()
     const totalProducts = useSelector(store => store.productsReducer.totalProducts)
@@ -25,9 +25,12 @@ function IndividualCart({ elemento}){
             let restaCant = totalProducts - 1
             let restaPrice = totalPrice - value
             elemento.qty--
+            localStorage.setItem(elemento._id,JSON.stringify(elemento))
 
             dispatch(productsActions.setTotalProducts(restaCant))
             dispatch(productsActions.setTotalPrice(restaPrice))
+        } if (count===1) {
+          deleteArticle()
         }
      }
 
@@ -37,14 +40,13 @@ function IndividualCart({ elemento}){
         let sumaCant = totalProducts + 1
         let sumaPrice = totalPrice + value
         elemento.qty++
+        localStorage.setItem(elemento._id,JSON.stringify(elemento))
 
         dispatch(productsActions.setTotalProducts(sumaCant))
         dispatch(productsActions.setTotalPrice(sumaPrice))
      }
     
     function deleteCart(){   
-            
-      alert(elemento._id)
       let productExists = localStorage.getItem(elemento._id)
       console.log(productExists)
    
@@ -56,7 +58,7 @@ function IndividualCart({ elemento}){
       localStorage.removeItem(elemento._id)
       dispatch(productsActions.setTotalProducts(restaCant))
       dispatch(productsActions.setTotalPrice(restaPrice))
-      dispatch(productsActions.arrayStorage(arrayAux))
+      dispatch(productsActions.setArrayStorage(arrayAux))
 
    }
    
@@ -106,8 +108,6 @@ function IndividualCart({ elemento}){
                                 value={count}
                                 onChange={(event) => {setCount(event.target.value)}}
                                 />
-                                
-                                
                                    
                              <button className="boton"  onClick={()=> incrementCount(elemento.price)}>+</button>
                             </div>
