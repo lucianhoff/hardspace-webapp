@@ -1,9 +1,10 @@
 import React , {useEffect, useState} from "react";
-import { connect } from "react-redux";
+import { connect , useSelector, useDispatch} from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import swal from 'sweetalert2'
 import "swiper/css/pagination"
 import SwiperCore, {
   Pagination
@@ -13,14 +14,30 @@ SwiperCore.use([Pagination]);
 
 const Products = (props) => {
   
+  const dispatch = useDispatch()
+  const totalQty = useSelector(store => store.productsReducer.totalProducts)
+  // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
+  const totalPrice= useSelector(store=> store.productsReducer.totalPrice)
+
   useEffect(() => {
     props.getAllProducts()
   }, [])
 
-  const [array, setArray] = useState([])
-  const [totalProd, setTotalProd] = useState()
-  const [totalPrice, setTotalPrice] = useState()
-
+  /* const [array, setArray] = useState([])
+  const [totalProd, setTotalProd] = useState() */
+  /* const [totalPrice, setTotalPrice] = useState() */
+  const Toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    background: '#16bbdc',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', swal.stopTimer)
+      toast.addEventListener('mouseleave', swal.resumeTimer)
+    }
+  })
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -28,39 +45,35 @@ const Products = (props) => {
     let productExists = localStorage.getItem(elemento._id)
     console.log(productExists)
 
-    if(productExists !== null){
-      let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
-      producto.qty = producto.qty +1
-      localStorage.setItem(producto._id,JSON.stringify(producto) )
-      console.log("agregaste al carrito", producto)
-      
-    }else{
-      const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
-      localStorage.setItem(elemento._id, JSON.stringify(producto))
-      console.log("agregaste al carrito", elemento.name)
-    }
-
-    allStorage()
-  }
+    /* if (props.token !== '') { */
+      if(productExists !== null){
+       
+        let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
+        producto.qty = producto.qty +1
+        
+        localStorage.setItem(producto._id,JSON.stringify(producto) )
+        console.log("agregaste al carrito", producto)
+        
+        dispatch(productsActions.setTotalProducts(totalQty +1))
+        dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
+        
+      }else{
+        
+        const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
+        localStorage.setItem(elemento._id, JSON.stringify(producto))
+        console.log("agregaste al carrito", elemento.name)
   
-  function allStorage() {
-    var archive = [];
-    var sumaProd = 0;
-    var sumaPrice = 0;
+        dispatch(productsActions.setTotalProducts(totalQty +1))
+        dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
+      }
 
-    for (var i = 0; i<localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty 
-        sumaPrice = sumaPrice + archive[i].price
-
-    console.log(archive)
-    props.setTotalProducts(sumaProd) 
-    props.setTotalPrice(sumaPrice)
-   
-    }
-  
-
-    allStorage()
+    /* } else {
+      return Toast.fire({
+        title:'HardSpace',
+        text:`You must be logged to add articles.`,
+        icon:'warning',
+      })
+    } */
   }
 
   return (
@@ -95,7 +108,8 @@ const Products = (props) => {
 
 const mapStateToProps = (state) =>{
   return{
-      productsList : state.productsReducer.productsList
+      productsList : state.productsReducer.productsList,
+      /* token: state.usersReducer.token */
   } 
 }
 
