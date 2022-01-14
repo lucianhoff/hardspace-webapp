@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React , {useEffect, useState} from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
@@ -12,9 +12,15 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
+  
   useEffect(() => {
     props.getAllProducts()
   }, [])
+
+  const [array, setArray] = useState([])
+  const [totalProd, setTotalProd] = useState()
+  const [totalPrice, setTotalPrice] = useState()
+
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -33,8 +39,29 @@ const Products = (props) => {
       localStorage.setItem(elemento._id, JSON.stringify(producto))
       console.log("agregaste al carrito", elemento.name)
     }
-  }
 
+    allStorage()
+  }
+  
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
+
+    for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
+
+    console.log(archive)
+    props.setTotalProducts(sumaProd) 
+    props.setTotalPrice(sumaPrice)
+   
+    }
+  
+
+    allStorage()
+  }
 
   return (
   //   <Swiper pagination={true} className="mySwiper">
@@ -63,45 +90,19 @@ const Products = (props) => {
         }
       </div>
     </>
-    // <div>
-    // <div className="products">
-      // <div className="cardCarousel">
-      //   <div className="imgCarousel">imagen</div>
-      //   <h4 className="txtCarousel">Texto</h4>
-      //   <div className="price-button">
-      //     <p>$28.99</p>
-      //     <button className="buttonCarousel">Buy</button>
-      //   </div>
-      // </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    // </div>
-    // </div>
-  );
+  )
 }
 
 const mapStateToProps = (state) =>{
   return{
-      productsList : state.productsReducer.productsList,
+      productsList : state.productsReducer.productsList
   } 
 }
 
 const mapDispatchToProps = {
-  getAllProducts: productsActions.getAllProducts
+  getAllProducts: productsActions.getAllProducts,
+  setTotalProducts: productsActions.setTotalProducts,
+  setTotalPrice: productsActions.setTotalPrice
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Products)

@@ -1,8 +1,8 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
-import { connect } from "react-redux"
 import productsActions from "../../redux/actions/productsActions"
+import { connect , useSelector, useDispatch} from "react-redux"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
 import { Link } from "react-router-dom";
@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 function Navigation(props) {
   
   const [search,setSearch] = useState ('')
+  const dispatch = useDispatch() 
+  const usuario = useSelector(store => store.productsReducer.totalProducts)
+ 
 
   const Toast = swal.mixin({
     toast: true,
@@ -56,12 +59,13 @@ function Navigation(props) {
         } else {
           return Toast.fire({
             title:'HardSpace',
-            text:`Don´t exist articles for your search.`,
+            text:`Don't exist articles for your search.`,
             icon:'warning',
           })
         }
     }
   }
+  console.log(props)
 
   return (
     <>
@@ -136,9 +140,9 @@ function Navigation(props) {
            <Link to="/cart"><AiOutlineShoppingCart /></Link> 
           </div>
           <div className="signClass">
-           <div className="badge">0</div>
+           <div className="badge">{props.totalProducts}</div>
             {/* <h5>My Cart</h5> */}
-            <h5>$</h5>
+            <h5>${props.totalPrice}</h5>
           </div>
         </div>
         </div>
@@ -171,7 +175,10 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     firstName: state.users.firstName,
     image: state.users.image,
-    searchProducts: state.productsReducer.searchProducts
+    searchProducts: state.productsReducer.searchProducts,
+    totalProducts: state.productsReducer.totalProducts,
+    totalPrice: state.productsReducer.totalPrice
+    
   }
 }
 
