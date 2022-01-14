@@ -45,7 +45,7 @@ function Cart(props){
             
                 </div>
                 <div className="totales">
-                    <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
+                    <h3>Total price = $ {totalStatePrice.toFixed(2)}</h3>
                     
                 </div>
                 
