@@ -9,25 +9,20 @@ function Cart(props){
     const totalQty = useSelector(store => store.productsReducer.totalProducts)
     const totalStatePrice= useSelector(store=> store.productsReducer.totalPrice)
     const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
-    console.log(totalQty)
-
+      
    const [array, setArray] = useState([])
    const [totalProd, setTotalProd] = useState()
    const [totalPrice, setTotalPrice] = useState()
-
+  
     useEffect(() => {
        render()
-
     }, []) 
 
 
-    function render(){
-       
+    function render(){       
         setArray(arraySt)
     }
-   
-    
-       
+          
     console.log(arraySt)          
          
     return(
@@ -39,7 +34,7 @@ function Cart(props){
                 </div>
                 <div>
                     
-                    {array.lenght > 0 && array.map((elemento,index)=> {
+                    {arraySt.map((elemento,index)=> {
                         
                         return (
                             <IndividualCart elemento={elemento} />

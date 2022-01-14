@@ -40,8 +40,8 @@ function App(props) {
         props.setTotalProducts(sumaProd) 
         props.setTotalPrice(sumaPrice)
    
+   }
   }
-}
   
   useEffect(()=>{
     if(localStorage.getItem('token')){

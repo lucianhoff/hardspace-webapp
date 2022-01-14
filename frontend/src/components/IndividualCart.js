@@ -12,11 +12,12 @@ function IndividualCart({ elemento}){
     const totalProducts = useSelector(store => store.productsReducer.totalProducts)
     const totalPrice = useSelector(store => store.productsReducer.totalPrice)
     const array = useSelector(store=> store.productsReducer.arrayStorage)
-
+  console.log(array)
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        setCount(elemento.qty)              
+        setCount(elemento.qty)   
+                   
     }, [])
    
     const decrementCount = (value) => {    
@@ -24,17 +25,17 @@ function IndividualCart({ elemento}){
         if(count > 0){
             let restaCant = totalProducts - 1
             let restaPrice = totalPrice - value
-
+          elemento.qty --
             dispatch(productsActions.setTotalProducts(restaCant))
             dispatch(productsActions.setTotalPrice(restaPrice))
         }
      }
 
     const incrementCount = (value) => {
-        
         setCount(parseInt(count)+1);
         let sumaCant = totalProducts + 1
         let sumaPrice = totalPrice + value
+        elemento.qty ++
 
         dispatch(productsActions.setTotalProducts(sumaCant))
         dispatch(productsActions.setTotalPrice(sumaPrice))
@@ -110,7 +111,7 @@ function IndividualCart({ elemento}){
                                    
                              <button className="boton"  onClick={()=> incrementCount(elemento.price)}>+</button>
                             </div>
-                           <div className="articlePrice">${elemento.price}</div>
+                           <div className="articlePrice">${(elemento.price * elemento.qty).toFixed(2)}</div>
                         </div>
 
 </>
@@ -119,16 +120,14 @@ function IndividualCart({ elemento}){
 
 const mapStateToProps = (state) =>{
     return{
-        totalProducts: state.productsReducer.totalProducts,
+     totalProducts: state.productsReducer.totalProducts,
      totalPrice: state.productsReducer.totalPrice
     } 
   }
   
   const mapDispatchToProps = {    
-    setTotalProducts: productsActions.setTotalProducts,
+     setTotalProducts: productsActions.setTotalProducts,
      setTotalPrice: productsActions.setTotalPrice
   }
   
   export default connect (mapStateToProps, mapDispatchToProps)(IndividualCart)
-
-// export default IndividualCart

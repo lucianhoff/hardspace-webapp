@@ -24,7 +24,25 @@ const Products = (props) => {
     props.getAllProducts()
 }, [])
 
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
 
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
+      }
+        console.log(archive)
+
+        props.arrayStorage(archive)
+        props.setTotalProducts(sumaProd) 
+        props.setTotalPrice(sumaPrice)
+  
+   }
+  }
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -35,12 +53,12 @@ const Products = (props) => {
     if(productExists !== null){
      
       let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
-      producto.qty = producto.qty +1
-      
+      producto.qty ++
+      console.log(producto.qty)
       localStorage.setItem(producto._id,JSON.stringify(producto) )
       console.log("agregaste al carrito", producto)
       
-      dispatch(productsActions.setTotalProducts(totalQty +1))
+      dispatch(productsActions.setTotalProducts(totalQty ++))
       dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
       
     }else{
@@ -49,8 +67,10 @@ const Products = (props) => {
       localStorage.setItem(elemento._id, JSON.stringify(producto))
       console.log("agregaste al carrito", elemento.name)
 
-      dispatch(productsActions.setTotalProducts(totalQty +1))
+      dispatch(productsActions.setTotalProducts(totalQty ++))
       dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
+
+      allStorage()
     }
 
      
@@ -101,7 +121,8 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = {
   getAllProducts: productsActions.getAllProducts,
   setTotalProducts: productsActions.setTotalProducts,
-  setTotalPrice: productsActions.setTotalPrice
+  setTotalPrice: productsActions.setTotalPrice,
+  arrayStorage: productsActions.arrayStorage
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Products)

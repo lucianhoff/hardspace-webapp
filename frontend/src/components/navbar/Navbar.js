@@ -147,7 +147,7 @@ function Navigation(props) {
       <div className="secondNav">
         <div>
           <div>
-          <span ><Link to="/" className="effect-underline">SHOP</Link></span>
+          <span ><Link to="/products" className="effect-underline">SHOP</Link></span>
           </div>
         </div>
         <div>
