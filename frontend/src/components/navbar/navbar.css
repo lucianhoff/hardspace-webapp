@@ -11,7 +11,7 @@
 
 .logName{
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
   width: 30%;  
 }
@@ -266,7 +266,7 @@ span a {
     display: flex;
     flex-direction: column;
     align-content: center;
-    height: 150px;
+    height: 160px;
   }
 
   .input-catalog{
@@ -279,17 +279,29 @@ span a {
     width:60%;
   }
 }
-/* @media (max-width: 425px) {
+
+@media (max-width: 460px) {
+  .firstNav .firstP{
+    font-size: 15px;
+  }
+  .navigation{
+    height: 25vh;
+  }
   .hardspace h1 {
     display: none;
   }
+
   .imgLogo{
     display: none;
   }
   .inputcatalog{
     width: 50vw !important;
   }
-} */
+
+  .secondNav .secondSpan{
+    font-size: 20px!important;
+  }
+}
 
 /* 
 @media (max-width: 374px) {

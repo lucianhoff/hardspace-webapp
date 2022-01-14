@@ -210,14 +210,20 @@ form span, .signInForm span {
 }
 
 /*Container Cart*/
+.padreContainerCart{
+  display:flex;
+  justify-content: center;
+}
 .containerCart{
-  margin-left: 5rem;
-  margin-right:5rem;
+  /* margin-left: 5rem;
+  margin-right:5rem; */
   min-height: 60vh;
   background-color: rgba(245, 239, 239, 0.767);
   display: flex;
   flex-direction: column;
   margin-top:4rem;
+  width: 80%;
+  align-self: center;
  
  
 }
@@ -225,7 +231,7 @@ form span, .signInForm span {
 .primerdiv{
   border-bottom: 1px solid #e6e6e6;
   height: 10vh;
-
+align-items: center;
   display: flex;
   justify-content: flex-start;
 }
@@ -245,13 +251,13 @@ form span, .signInForm span {
 .articleContainer{
   border-bottom: 1px solid #e6e6e6;
   display:flex;
-  
-  height: 25vh;
+  justify-content: center;
+  height: 30vh;
   align-items: center;
 }
 
 .articleImg{
-  width: 15%;
+  
   display:flex;
   justify-content: center;
   margin-right:0.5rem;
@@ -260,7 +266,7 @@ form span, .signInForm span {
 }
 
 .articleInfo{
-  width: 55%;
+  width: 70%;
   display:flex;
   flex-direction: column;
 }
@@ -292,7 +298,7 @@ form span, .signInForm span {
 }
 
 .articleInput{
-  width:20%;
+
   display:flex;
   justify-content: center;
 }
@@ -303,7 +309,7 @@ form span, .signInForm span {
 }
 
 .articlePrice{
-width: 15%;
+
 font-size: 20px;
 }
 
@@ -321,7 +327,9 @@ font-size: 20px;
   display:flex;
   flex-direction: column;
   align-items: flex-end;
-  padding:2rem;
+  justify-content: center;
+  height: 25vh;
+  padding: 2rem;
   
 }
 .totales h3{
@@ -467,4 +475,91 @@ input, select{
   background-color: rgba(43, 43, 42, 0.048);
   align-items: center;
   font-weight: bold;
+}
+
+
+/*resposive INDIVIDUAL CART*/
+.mediaquery{
+  display:flex;
+
+}
+
+.mediaQuery{
+  display:flex;
+  flex-direction: column;
+  align-items: center
+}
+@media (max-width: 900px){
+  .articleContainer{
+    height: 30vh;
+  }
+
+  /* .articleInfo{
+    width: 50%;
+  } */
+  .articleTitle{
+    font-size: 1rem;
+  }
+
+  .freedelivery{
+    font-size: 15px;
+  }
+
+  .articlePrice{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 680px){
+  .articleContainer{
+    height: 40vh;
+    display:flex;
+    flex-direction: column;
+   
+  }
+
+  .mediaquery{
+    width:100%!important;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .mediaQuery{
+    margin-top:1rem;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .articleInput{
+    width:40%;
+  }
+
+  .articleImg{
+   
+    display:flex;
+    justify-content: center;
+    margin-right:0.5rem;
+    height: 20vh;
+    object-fit: cover;
+  }
+  .articleInfo{
+    width: 70%;
+  }
+  .articleTitle{
+    font-size: 1rem;
+  }
+
+  .freedelivery{
+    font-size: 15px;
+  }
+
+  .articlePrice{
+    font-size: 15px;
+    
+    align-self: center;
+  }
 }

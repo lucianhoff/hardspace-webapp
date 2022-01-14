@@ -27,6 +27,7 @@ function Cart(props){
     console.log(arraySt)          
          
     return (
+        <div className="padreContainerCart">
             <div className="containerCart">
                 <div className="primerdiv">
                     <h3 className="carrito">Cart</h3>
@@ -46,6 +47,7 @@ function Cart(props){
                 <div className="totales">
                     <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
                 </div>
+            </div>
             </div>
     )
 }

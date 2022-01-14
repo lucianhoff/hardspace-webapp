@@ -86,16 +86,19 @@ function IndividualCart({ elemento}){
     return(
             <>
             <div className="articleContainer">
-                            <img className="articleImg" src={elemento.images[0]}></img>
+              <div className='mediaquery'>
+                           <img className="articleImg" src={elemento.images[0]}></img>
                             <div className="articleInfo">
                                 <p className="articleTitle">{elemento.name}</p>
+                            
                                 <p className='freedelivery'>Free delivery</p>
                                 <div className="deleteAndBuy">
                                     <button className="delete" onClick={()=> deleteArticle()} >Delete article</button>
                                    
                                 </div>
-                                                   
                             </div>
+                            </div>
+                            <div className='mediaQuery'>
                            <div className="articleInput">
                              <button  className="boton" onClick={()=>decrementCount(elemento.price)}>-</button>
                     
@@ -112,6 +115,8 @@ function IndividualCart({ elemento}){
                              <button className="boton"  onClick={()=> incrementCount(elemento.price)}>+</button>
                             </div>
                            <div className="articlePrice">${(elemento.price * elemento.qty).toFixed(2)}</div>
+                           </div>
+                        
                         </div>
 
 </>

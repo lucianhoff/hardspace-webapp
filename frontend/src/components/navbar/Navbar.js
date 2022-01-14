@@ -72,22 +72,22 @@ function Navigation(props) {
       <div className="firstNav">
         <div>
           <div>
-            <p>My Account</p>
+            <p className="firstP">My Account</p>
           </div>
         </div>
         <div>
           <div>
-          <Link to="/addproducts"> Add Products</Link> 
+          <Link to="/addproducts" className="firstP"> Add Products</Link> 
           </div>
         </div>
         <div>
           <div>
-            <p>About us</p>
+            <p className="firstP">About us</p>
           </div>
         </div>
         <div>
           <div>
-            <p>Contact us</p>
+            <p className="firstP">Contact us</p>
           </div>
         </div>
       </div>
@@ -150,19 +150,19 @@ function Navigation(props) {
       <div className="secondNav">
         <div>
           <div>
-          <span ><Link to="/products" className="effect-underline">SHOP</Link></span>
+          <span className="secondSpan"><Link to="/products" className="effect-underline">SHOP</Link></span>
           </div>
         </div>
         <div>
           <div>
-          <span ><p className="effect-underline">ELECTRONIC</p></span>
+          <span className="secondSpan"><p className="effect-underline">ELECTRONIC</p></span>
           </div>
         </div>
         <div>
           <div>
           </div>
             
-          <span ><p className="effect-underline">BRANDS</p></span>
+          <span className="secondSpan"><p className="effect-underline">BRANDS</p></span>
         </div>
       </div>
     </>
