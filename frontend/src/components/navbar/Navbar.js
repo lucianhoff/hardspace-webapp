@@ -137,12 +137,23 @@ function Navigation(props) {
         </div>
         <div className="shop">
           <div className="iconUser">
-           <Link to="/cart"><AiOutlineShoppingCart /></Link> 
-          </div>
-          <div className="signClass">
+            {!props.token ? 
+            (
+            <>
+            <Link to="/signIn"><AiOutlineShoppingCart /></Link> 
+            <div className="signintoadd">
+            <Link to="/signIn">Sign in to add</Link>          
+            </div>
+            </>) : 
+            (<>
+            <Link to="/cart"><AiOutlineShoppingCart /></Link>
+             <div className="signCart">
            <div className="badge">{props.totalProducts}</div>
-              <h5>${props.totalPrice.toFixed(2)}</h5>
+              <h5 className="signintoadd">${props.totalPrice.toFixed(2)}</h5>
           </div>
+          </>)}
+          </div>
+         
         </div>
         </div>
         
