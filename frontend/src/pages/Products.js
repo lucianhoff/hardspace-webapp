@@ -21,7 +21,30 @@ const Products = (props) => {
 
   useEffect(() => {
     props.getAllProducts()
-  }, [])
+}, [])
+
+
+
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
+
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
+      }
+        console.log(archive)
+
+        props.arrayStorage(archive)
+        props.setTotalProducts(sumaProd) 
+        props.setTotalPrice(sumaPrice)
+  
+   }
+  }
+  
 
   /* const [array, setArray] = useState([])
   const [totalProd, setTotalProd] = useState() */
@@ -48,7 +71,7 @@ const Products = (props) => {
     /* if (props.token !== '') { */
       if(productExists !== null){
        
-        alert('producto existe')
+        /* alert('producto existe') */
         let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
         producto.qty = producto.qty +1
         
@@ -59,7 +82,7 @@ const Products = (props) => {
         dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
         
       }else{
-        alert('producto NO existe')
+        /* alert('producto NO existe') */
         const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
         localStorage.setItem(elemento._id, JSON.stringify(producto))
         console.log("agregaste al carrito", elemento.name)
@@ -117,7 +140,8 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = {
   getAllProducts: productsActions.getAllProducts,
   setTotalProducts: productsActions.setTotalProducts,
-  setTotalPrice: productsActions.setTotalPrice
+  setTotalPrice: productsActions.setTotalPrice,
+  arrayStorage: productsActions.arrayStorage
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Products)

@@ -20,9 +20,13 @@ function Cart(props){
     
         if(localStorage.length !== 0){
           for (var i = 0; i<localStorage.length; i++) {
-            archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-            sumaProd = sumaProd + archive[i].qty 
-            sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+                if (localStorage.key(i)!=='token') {
+                    archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                    sumaProd = sumaProd + archive[i].qty 
+                    sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+                } else {
+                    /* alert('este es el token') */
+                }
           }
     
           setArrayCart(archive)
@@ -34,6 +38,7 @@ function Cart(props){
       }    
          
     return (
+        <div className="padreContainerCart">
             <div className="containerCart">
             {
                 props.arraySt.length > 0 
@@ -45,12 +50,13 @@ function Cart(props){
 
                         })               
                  
-                :<h1>Charging cart...</h1>
+                :<p className="articleTitle">Your cart is empty.</p>
             }     
             <div className="totales">
                         <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
                     </div>          
             </div>
+        </div>
     )
 }
 

@@ -12,16 +12,18 @@ function IndividualCart({ elemento }){
     const totalProducts = useSelector(store => store.productsReducer.totalProducts)
     const totalPrice = useSelector(store => store.productsReducer.totalPrice)
     const array = useSelector(store=> store.productsReducer.arrayStorage)
-
+    console.log(array)
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        setCount(elemento.qty)              
+        setCount(elemento.qty)   
+
     }, [])
    
     const decrementCount = (value) => {    
-        count > 0 && setCount(parseInt(count)-1)
-        if(count > 0){
+        /* count > 0 && setCount(parseInt(count)-1) */
+        if (count > 1) {
+            setCount(parseInt(count)-1)
             let restaCant = totalProducts - 1
             let restaPrice = totalPrice - value
             elemento.qty--
@@ -29,13 +31,12 @@ function IndividualCart({ elemento }){
 
             dispatch(productsActions.setTotalProducts(restaCant))
             dispatch(productsActions.setTotalPrice(restaPrice))
-        } if (count===1) {
+        } else if (elemento.qty===1 || count===1) {
           deleteArticle()
         }
      }
 
     const incrementCount = (value) => {
-        
         setCount(parseInt(count)+1);
         let sumaCant = totalProducts + 1
         let sumaPrice = totalPrice + value
@@ -88,16 +89,19 @@ function IndividualCart({ elemento }){
     return(
             <>
             <div className="articleContainer">
-                            <img className="articleImg" src={elemento.images[0]}></img>
+              <div className='mediaquery'>
+                           <img className="articleImg" src={elemento.images[0]}></img>
                             <div className="articleInfo">
                                 <p className="articleTitle">{elemento.name}</p>
+                            
                                 <p className='freedelivery'>Free delivery</p>
                                 <div className="deleteAndBuy">
                                     <button className="delete" onClick={()=> deleteArticle()} >Delete article</button>
                                    
                                 </div>
-                                                   
                             </div>
+                            </div>
+                            <div className='mediaQuery'>
                            <div className="articleInput">
                              <button  className="boton" onClick={()=>decrementCount(elemento.price)}>-</button>
                     
@@ -105,14 +109,15 @@ function IndividualCart({ elemento }){
                                 id="inputCart"
                                 type="text"
                                 name="clicks"
-                                value={count}
+                                value={elemento.qty}
                                 onChange={(event) => {setCount(event.target.value)}}
                                 />
                                    
                              <button className="boton"  onClick={()=> incrementCount(elemento.price)}>+</button>
                             </div>
-                           {/* <div className="articlePrice">${((elemento.price*elemento.qty).toFixed(2))}</div> */}
                            <div className="articlePrice">${(elemento.price * elemento.qty).toFixed(2)}</div>
+                           </div>
+                        
                         </div>
 
 </>
@@ -121,16 +126,14 @@ function IndividualCart({ elemento }){
 
 const mapStateToProps = (state) =>{
     return{
-        totalProducts: state.productsReducer.totalProducts,
+     totalProducts: state.productsReducer.totalProducts,
      totalPrice: state.productsReducer.totalPrice
     } 
   }
   
   const mapDispatchToProps = {    
-    setTotalProducts: productsActions.setTotalProducts,
+     setTotalProducts: productsActions.setTotalProducts,
      setTotalPrice: productsActions.setTotalPrice
   }
   
   export default connect (mapStateToProps, mapDispatchToProps)(IndividualCart)
-
-// export default IndividualCart
