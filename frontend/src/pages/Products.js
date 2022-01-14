@@ -21,11 +21,9 @@ const Products = (props) => {
 
   useEffect(() => {
     props.getAllProducts()
-<<<<<<< HEAD
-  }, [])
-=======
-<<<<<<< HEAD
 }, [])
+
+
 
   function allStorage() {
     var archive = [];
@@ -46,8 +44,7 @@ const Products = (props) => {
   
    }
   }
-=======
-  }, [])
+  
 
   /* const [array, setArray] = useState([])
   const [totalProd, setTotalProd] = useState() */
@@ -64,8 +61,6 @@ const Products = (props) => {
       toast.addEventListener('mouseleave', swal.resumeTimer)
     }
   })
->>>>>>> 35d8dfdb066b7f16f9fa1207d9abde0140d653c3
->>>>>>> 53b139907b486acb7014bcf920cba0d6a122c7c9
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -73,39 +68,6 @@ const Products = (props) => {
     let productExists = localStorage.getItem(elemento._id)
     console.log(productExists)
 
-<<<<<<< HEAD
-    if(productExists !== null){
-     
-      let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
-      producto.qty ++
-      console.log(producto.qty)
-      localStorage.setItem(producto._id,JSON.stringify(producto) )
-      console.log("agregaste al carrito", producto)
-      
-      dispatch(productsActions.setTotalProducts(totalQty ++))
-      dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
-      
-    }else{
-      
-      const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
-      localStorage.setItem(elemento._id, JSON.stringify(producto))
-      console.log("agregaste al carrito", elemento.name)
-
-      dispatch(productsActions.setTotalProducts(totalQty ++))
-      dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
-
-      allStorage()
-    }
-<<<<<<< HEAD
-  }
-
-
-=======
-
-     
-    
-  }
-=======
     /* if (props.token !== '') { */
       if(productExists !== null){
        
@@ -123,7 +85,6 @@ const Products = (props) => {
         const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
         localStorage.setItem(elemento._id, JSON.stringify(producto))
         console.log("agregaste al carrito", elemento.name)
->>>>>>> 35d8dfdb066b7f16f9fa1207d9abde0140d653c3
   
         dispatch(productsActions.setTotalProducts(totalQty +1))
         dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
@@ -138,7 +99,6 @@ const Products = (props) => {
     } */
   }
 
->>>>>>> 53b139907b486acb7014bcf920cba0d6a122c7c9
   return (
   //   <Swiper pagination={true} className="mySwiper">
   // <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
