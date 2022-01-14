@@ -27,11 +27,7 @@
     "mongoose": "^6.1.5",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
-<<<<<<< HEAD
-    "url": "^0.11.0"
-=======
     "react-toastify": "^8.1.0",
     "swiper": "^7.4.1"
->>>>>>> b5b0b9aa1a9044d848f4d76388255f51f935cdd4
   }
 }

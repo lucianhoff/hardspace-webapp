@@ -28,16 +28,19 @@ function App(props) {
     var sumaProd = 0;
     var sumaPrice = 0;
 
-    for (var i = 0; i<localStorage.length; i++) {
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
         archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
         sumaProd = sumaProd + archive[i].qty 
         sumaPrice = sumaPrice + archive[i].price
 
-    console.log(archive)
-    props.setTotalProducts(sumaProd) 
-    props.setTotalPrice(sumaPrice)
-   
-    }
+
+      }
+        console.log(archive)
+        props.setTotalProducts(sumaProd) 
+        props.setTotalPrice(sumaPrice)
+
+  }
 }
   
   useEffect(()=>{
@@ -52,7 +55,7 @@ function App(props) {
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-               {props.token ?
+             {props.token ?
                 <Route path='*'element ={<Home/>}></Route> : 
                 <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />

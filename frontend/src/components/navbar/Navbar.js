@@ -1,7 +1,7 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
-import { connect } from "react-redux"
+import {connect, useSelector, useDispatch} from 'react-redux'
 import productsActions from "../../redux/actions/productsActions"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
