@@ -18,6 +18,7 @@
   "author": "Group F MindHub",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -28,6 +29,7 @@
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "react-toastify": "^8.1.0",
+    "sweetalert2": "^11.3.5",
     "swiper": "^7.4.1",
     "url": "^0.11.0"
   }
