@@ -13,6 +13,7 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
+  const [dataProduct, setDataProduct] = useState(props.productsList); 
   useEffect(() => {
     props.getAllProducts()
   }, [])
@@ -47,8 +48,8 @@ const Products = (props) => {
       </div>
       <div className="products">
         {
-          props.auxSearch.length > 0 
-          ? props.auxSearch.map( products =>
+          props.productsList.length > 0 
+          ? props.productsList.map( products =>
             <div className="swiperFather">
               <div className="swiperAtr">
                 <Swiper pagination={true} className="mySwiper">
