@@ -23,8 +23,6 @@ const Products = (props) => {
     props.getAllProducts()
 }, [])
 
-
-
   function allStorage() {
     var archive = [];
     var sumaProd = 0;
