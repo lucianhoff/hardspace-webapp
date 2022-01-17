@@ -19,6 +19,8 @@ import usersActions from "./redux/actions/usersActions";
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import productsActions from "./redux/actions/productsActions";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
 
 function App(props) {
 
@@ -55,15 +57,17 @@ function App(props) {
   return (
     <BrowserRouter>
     <Navigation />
+    {/* <PayPalScriptProvider options={{"client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}> */}
       <Routes>
         <Route path="/" element={<Home />} />
-             {props.token ?
+            {props.token ?
                 <Route path='*'element ={<Home/>}></Route> : 
                 <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
         <Route path="/addproducts" element={<AddProducts/>} />
       </Routes>
+      {/* </PayPalScriptProvider> */}
       <Footer/>
     </BrowserRouter>
   );

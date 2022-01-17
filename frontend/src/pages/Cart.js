@@ -2,6 +2,7 @@ import React , {useEffect, useState} from 'react'
 import IndividualCart from '../components/IndividualCart'
 import productsActions from "../redux/actions/productsActions"
 import {connect,useSelector} from 'react-redux'
+import PayPal from '../components/PayPal'
 
 
 function Cart(props){
@@ -14,6 +15,13 @@ function Cart(props){
     const [array, setArray] = useState([])
     /* const [totalProd, setTotalProd] = useState()
     const [totalPrice, setTotalPrice] = useState() */
+
+    const product = {
+        description: "Design+code React Hooks Course",
+        price: 19
+    }
+
+
 
     useEffect(() => {
        render()
@@ -45,6 +53,13 @@ function Cart(props){
                 </div>
                 <div className="totales">
                     <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
+                </div>
+                <div className="payment">
+                    <h3>BUY</h3>
+                </div>
+                <div className="paypal-btn">
+                    <PayPal product={product}/>
+                    
                 </div>
             </div>
     )
