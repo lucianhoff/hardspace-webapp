@@ -23,8 +23,6 @@ const Products = (props) => {
     props.getAllProducts()
 }, [])
 
-
-
   function allStorage() {
     var archive = [];
     var sumaProd = 0;
@@ -71,6 +69,7 @@ const Products = (props) => {
     /* if (props.token !== '') { */
       if(productExists !== null){
        
+        /* alert('producto existe') */
         let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
         producto.qty = producto.qty +1
         
@@ -81,7 +80,7 @@ const Products = (props) => {
         dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
         
       }else{
-        
+        /* alert('producto NO existe') */
         const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
         localStorage.setItem(elemento._id, JSON.stringify(producto))
         console.log("agregaste al carrito", elemento.name)

@@ -38,11 +38,11 @@ function App(props) {
       }
       console.log(archive)
 
-      props.arrayStorage(archive)
+      props.setArrayStorage(archive)
       props.setTotalProducts(sumaProd) 
       props.setTotalPrice(sumaPrice)
    
-   }
+    }
   }
   
   useEffect(()=>{
@@ -82,7 +82,7 @@ const mapDispatchToProps = {
   signInLS: usersActions.signInLS,
   setTotalProducts: productsActions.setTotalProducts,
   setTotalPrice:productsActions.setTotalPrice,
-  arrayStorage: productsActions.arrayStorage
+  setArrayStorage: productsActions.setArrayStorage
 
 }
 

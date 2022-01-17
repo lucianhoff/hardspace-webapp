@@ -6,13 +6,13 @@ import swal from 'sweetalert'
 
 
 
-function IndividualCart({ elemento}){
+function IndividualCart({ elemento }){
 
     const dispatch = useDispatch()
     const totalProducts = useSelector(store => store.productsReducer.totalProducts)
     const totalPrice = useSelector(store => store.productsReducer.totalPrice)
     const array = useSelector(store=> store.productsReducer.arrayStorage)
-  console.log(array)
+    console.log(array)
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -21,14 +21,18 @@ function IndividualCart({ elemento}){
     }, [])
    
     const decrementCount = (value) => {    
-        count > 0 && setCount(parseInt(count)-1)
-        if(count > 0){
+        /* count > 0 && setCount(parseInt(count)-1) */
+        if (count > 1) {
+            setCount(parseInt(count)-1)
             let restaCant = totalProducts - 1
             let restaPrice = totalPrice - value
             elemento.qty--
+            localStorage.setItem(elemento._id,JSON.stringify(elemento))
 
             dispatch(productsActions.setTotalProducts(restaCant))
             dispatch(productsActions.setTotalPrice(restaPrice))
+        } else if (elemento.qty===1 || count===1) {
+          deleteArticle()
         }
      }
 
@@ -37,14 +41,13 @@ function IndividualCart({ elemento}){
         let sumaCant = totalProducts + 1
         let sumaPrice = totalPrice + value
         elemento.qty++
+        localStorage.setItem(elemento._id,JSON.stringify(elemento))
 
         dispatch(productsActions.setTotalProducts(sumaCant))
         dispatch(productsActions.setTotalPrice(sumaPrice))
      }
     
     function deleteCart(){   
-            
-      alert(elemento._id)
       let productExists = localStorage.getItem(elemento._id)
       console.log(productExists)
    
@@ -56,7 +59,7 @@ function IndividualCart({ elemento}){
       localStorage.removeItem(elemento._id)
       dispatch(productsActions.setTotalProducts(restaCant))
       dispatch(productsActions.setTotalPrice(restaPrice))
-      dispatch(productsActions.arrayStorage(arrayAux))
+      dispatch(productsActions.setArrayStorage(arrayAux))
 
    }
    
@@ -106,11 +109,9 @@ function IndividualCart({ elemento}){
                                 id="inputCart"
                                 type="text"
                                 name="clicks"
-                                value={count}
+                                value={elemento.qty}
                                 onChange={(event) => {setCount(event.target.value)}}
                                 />
-                                
-                                
                                    
                              <button className="boton"  onClick={()=> incrementCount(elemento.price)}>+</button>
                             </div>

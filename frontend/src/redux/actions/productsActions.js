@@ -65,7 +65,7 @@ const productsActions = {
             }
         }
     },
-    arrayStorage: (array) => {
+    setArrayStorage: (array) => {
         return async (dispatch) => {
             dispatch({type: 'STORAGE', payload: array})
         }
