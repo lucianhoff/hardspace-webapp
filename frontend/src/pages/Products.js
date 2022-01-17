@@ -2,6 +2,7 @@ import React , {useEffect, useState} from "react";
 import { connect , useSelector, useDispatch} from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
+import Filter  from "../components/Filter";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import swal from 'sweetalert2'
@@ -19,6 +20,7 @@ const Products = (props) => {
   // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
   const totalPrice= useSelector(store=> store.productsReducer.totalPrice)
 
+  const [dataProduct, setDataProduct] = useState(props.productsList); 
   useEffect(() => {
     props.getAllProducts()
 }, [])
@@ -102,7 +104,10 @@ const Products = (props) => {
   //   <Swiper pagination={true} className="mySwiper">
   // <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
   // </Swiper>
-    <>
+    <div className="filterProduct">
+      <div className="filter">
+      <Filter/>
+      </div>
       <div className="products">
         {
           props.productsList.length > 0 
@@ -131,7 +136,7 @@ const Products = (props) => {
 const mapStateToProps = (state) =>{
   return{
       productsList : state.productsReducer.productsList,
-      /* token: state.usersReducer.token */
+      auxSearch : state.productsReducer.auxSearch,
   } 
 }
 
@@ -139,7 +144,9 @@ const mapDispatchToProps = {
   getAllProducts: productsActions.getAllProducts,
   setTotalProducts: productsActions.setTotalProducts,
   setTotalPrice: productsActions.setTotalPrice,
-  arrayStorage: productsActions.arrayStorage
+  // arrayStorage: productsActions.arrayStorage,
+
+  
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Products)

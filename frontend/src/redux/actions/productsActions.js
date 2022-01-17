@@ -70,6 +70,12 @@ const productsActions = {
             dispatch({type: 'STORAGE', payload: array})
         }
     },
+
+    brandsAux: (array) => {
+        return async (dispatch) => {          
+            dispatch({type: 'BRANDS', payload: array})
+        }
+    }
 }
 
 export default productsActions

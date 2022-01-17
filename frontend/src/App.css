@@ -111,7 +111,7 @@
   padding: 0.5rem;
   background-color: rgb(25, 196, 196);
   border-radius: 5px;
-  width: 5vw;
+  width: 64px;
 }
 
 .slick-track {
@@ -414,8 +414,31 @@ input, select{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  width: 85%;
 }
 
+@media (max-width: 420px) {
+  .products {
+    width: 70%;
+  }
+
+  .filter{
+    width: 30% !important;
+  }
+
+  .textFilter{
+    margin-left: 1rem !important;
+  }
+}
+
+@media (max-width: 353px) {
+  .filter{
+    width: 25% !important;
+}
+.textFilter{
+  margin-left: 0.5rem !important;
+}
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -444,7 +467,7 @@ input, select{
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   object-fit: cover;
 }
 
@@ -455,7 +478,7 @@ input, select{
   border-radius: 5px;
   height: 24rem;
   color: rgb(0, 0, 0);
-  width: 15vw;
+  width: 230px;
   justify-content: space-around !important;
   box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
   -webkit-box-shadow: -1px 7px 25px -7px rgba(74, 70, 70, 0.67);
@@ -465,9 +488,26 @@ input, select{
 .swiperFather {
   display: flex;
   justify-content: center;
-  width: 20%;
+  width: 25%;
 }
 
+@media (max-width: 1110px) {
+  .swiperFather {
+        width: 33%;
+  }
+}
+
+@media (max-width: 860px) {
+  .swiperFather {
+    width: 50%;
+}
+}
+
+@media (max-width: 650px) {
+  .swiperFather {
+    width: 100%;
+}
+}
 .txtCarouselProduct {
   display: flex;
   justify-content: center;
@@ -562,4 +602,21 @@ input, select{
     
     align-self: center;
   }
+}
+
+.filterProduct{
+  display: flex;
+  
+}
+.filter{
+  width: 15%;
+  margin-top: 5rem
+}
+
+.textFilter{
+  margin-left: 3rem;
+}
+
+.filter li{
+  list-style: none;
 }

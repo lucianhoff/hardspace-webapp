@@ -3,7 +3,8 @@ const initState = {
     searchProducts: [],
     totalProducts: 0,
     totalPrice: 0,
-    arrayStorage: []
+    arrayStorage: [],
+    auxSearch: []
 }
 
 const productsReducer = (state = initState,action)=>{
@@ -17,8 +18,15 @@ const productsReducer = (state = initState,action)=>{
         case 'SEARCH': 
             return {
                 ...state,
-                searchProducts: action.payload
+                searchProducts: action.payload,
+                auxSearch: action.payload
         }
+
+        case 'BRANDS': 
+        return {
+            ...state,
+            auxSearch: action.payload
+    }
         
         case 'TOTAL_PRODUCTS' :
         return {

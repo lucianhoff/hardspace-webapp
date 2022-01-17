@@ -27,6 +27,41 @@
 }
 
 
+/*revisar */ 
+@media (max-width: 889px) {
+    .firstNav{        
+        justify-content: space-evenly;
+        height: 8vh;
+    }
+    .firstNav p{
+        margin-right: 0px !important;
+      }
+      .logName{
+        
+        margin-left: 0rem;
+        
+      }
+      
+    .hardspace h1 {
+        display: none;
+      }
+      
+    .signClass h5{
+        display: none !important;
+
+    }
+    .signClass a{
+        display: none !important;
+
+    }
+
+    .imgLogo{
+      width: 4rem;
+      
+    }
+    .navigation{
+      justify-content: space-around !important;
+}
 
 
 
