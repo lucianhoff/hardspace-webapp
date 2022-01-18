@@ -328,9 +328,16 @@ span a {
   }
 }
 
-@media (max-width: 460px) {
+
+@media (max-width: 619px){
   .firstNav .firstP{
     font-size: 15px;
+  }
+
+}
+@media (max-width: 460px) {
+  .firstNav .firstP{
+    font-size: 12px;
   }
   .navigation{
     height: 25vh;

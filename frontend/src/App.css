@@ -320,6 +320,9 @@ align-items: center;
 .articleTitle{
   font-weight: bold;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  padding:1rem;
 }
 
 .deleteAndBuy{
