@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Home from './pages/Home';
 import Cart from './pages/Cart'
 import AddProducts from "./pages/AddProducts";
+import DeleteProducts from "./pages/DeleteProducts"
 
 //style
 import "./App.css";
@@ -63,6 +64,7 @@ function App(props) {
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
         <Route path="/addproducts" element={<AddProducts/>} />
+        <Route path="/deleteproducts" element={<DeleteProducts/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>

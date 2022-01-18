@@ -34,7 +34,7 @@ function IndividualCart({ elemento }){
         } else if (elemento.qty===1 || count===1) {
           deleteArticle()
         }
-     }
+    }
 
     const incrementCount = (value) => {
         setCount(parseInt(count)+1);
@@ -45,22 +45,21 @@ function IndividualCart({ elemento }){
 
         dispatch(productsActions.setTotalProducts(sumaCant))
         dispatch(productsActions.setTotalPrice(sumaPrice))
-     }
+    }
     
     function deleteCart(){   
-      let productExists = localStorage.getItem(elemento._id)
-      console.log(productExists)
+        let productExists = localStorage.getItem(elemento._id)
+        console.log(productExists)
    
-      let restaCant = totalProducts - elemento.qty
-      let restaPrice = totalPrice - (elemento.price*elemento.qty)
+        let restaCant = totalProducts - elemento.qty
+        let restaPrice = totalPrice - (elemento.price*elemento.qty)
    
-      const arrayAux = array.filter(item => item._id !== elemento._id);
-      console.log(arrayAux)
-      localStorage.removeItem(elemento._id)
-      dispatch(productsActions.setTotalProducts(restaCant))
-      dispatch(productsActions.setTotalPrice(restaPrice))
-      dispatch(productsActions.setArrayStorage(arrayAux))
-
+        const arrayAux = array.filter(item => item._id !== elemento._id);
+        console.log(arrayAux)
+        localStorage.removeItem(elemento._id)
+        dispatch(productsActions.setTotalProducts(restaCant))
+        dispatch(productsActions.setTotalPrice(restaPrice))
+        dispatch(productsActions.setArrayStorage(arrayAux))
    }
    
    function deleteArticle() {

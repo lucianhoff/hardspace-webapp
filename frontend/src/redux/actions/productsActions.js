@@ -70,6 +70,12 @@ const productsActions = {
             dispatch({type: 'STORAGE', payload: array})
         }
     },
+    delProduct:(id)=>{
+        return async (dispatch) => {
+            const response = await axios.delete(`http://localhost:4000/api/product/${id}`)
+            return ({ response: response.data.response, success: true })
+        }
+    },
 }
 
 export default productsActions

@@ -53,8 +53,8 @@ function Cart(props){
                 :<p className="articleTitle">Your cart is empty.</p>
             }     
             <div className="totales">
-                        <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
-                    </div>          
+                <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
+            </div>          
             </div>
         </div>
     )

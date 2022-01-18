@@ -82,7 +82,7 @@ function Navigation(props) {
         </div>
         <div>
           <div>
-            <p className="firstP">About us</p>
+          <Link to="/deleteproducts" className="firstP">About us</Link> 
           </div>
         </div>
         <div>
