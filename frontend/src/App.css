@@ -650,3 +650,39 @@ body::-webkit-scrollbar-thumb,
   background-color: #000;
   border-radius: 5px;
 }
+
+/* DELETE PRODUCTS */
+
+.delete-products{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-prod {
+  width: 70vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #04419c;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.delete-prod img {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.button-delete {
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem;
+  background-color: red;
+  border-radius: 5px;
+  width: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

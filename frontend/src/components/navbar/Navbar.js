@@ -94,7 +94,7 @@ function Navigation(props) {
         </div>
         <div>
           <div>
-          <Link to="/" className="firstP">About us</Link> 
+          <Link to="/deleteproducts" className="firstP">Delete Products</Link> 
           </div>
         </div>
         <div>

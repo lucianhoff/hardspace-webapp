@@ -8,6 +8,7 @@ import Products from "./pages/Products";
 import Product from "./pages/Product";
 import AddProducts from "./pages/AddProducts";
 import Cart from './pages/Cart'
+import DeleteProducts from "./pages/DeleteProducts"
 
 //style
 import "./App.css";
@@ -74,6 +75,7 @@ function App(props) {
         <Route path="/addproducts" element={<AddProducts/>} />
         {true  ? <Route path="/crud" element={<Crud/>} /> : null}
               {/* props.admin */}
+        <Route path="/deleteproducts" element={<DeleteProducts/>} />
       </Routes>
       {/* </PayPalScriptProvider> */}
       <Footer/>
