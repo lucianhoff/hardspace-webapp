@@ -41,8 +41,8 @@ function App(props) {
       props.arrayStorage(archive)
       props.setTotalProducts(sumaProd) 
       props.setTotalPrice(sumaPrice)
-   
-   }
+  
+  }
   }
   
   useEffect(()=>{

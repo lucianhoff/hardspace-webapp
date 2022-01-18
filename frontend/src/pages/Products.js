@@ -42,7 +42,7 @@ const Products = (props) => {
         props.setTotalProducts(sumaProd) 
         props.setTotalPrice(sumaPrice)
   
-   }
+  }
   }
   
 
@@ -70,7 +70,7 @@ const Products = (props) => {
 
     /* if (props.token !== '') { */
       if(productExists !== null){
-       
+      
         let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
         producto.qty = producto.qty +1
         

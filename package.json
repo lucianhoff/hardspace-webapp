@@ -18,11 +18,13 @@
   "author": "Group F MindHub",
   "license": "ISC",
   "dependencies": {
+    "@paypal/react-paypal-js": "^7.5.1",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-fileupload": "^1.2.1",
     "joi": "^17.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",

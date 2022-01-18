@@ -54,9 +54,9 @@ const productsActions = {
                 if(product.data.success && !product.data.error){
                     toast.success("Your product has been uploaded", {
                         position: toast.POSITION.TOP_CENTER,
-                      
+                    
                     }) 
-                               
+                            
                 }else{
                     toast.error(product.data.response)
                 }

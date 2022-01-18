@@ -7,9 +7,9 @@ const userController = {
         let error = null
         let response = []
         try{
-           const users = await User.find()
-           users.map( User =>{
-              return response.push({firstName:User.firstName, lastName:User.lastName, email:User.email, image:User.image, _id:User._id, admin:User.admin, google: User.google, facebook: User.facebook })
+        const users = await User.find()
+        users.map( User =>{
+            return response.push({firstName:User.firstName, lastName:User.lastName, email:User.email, image:User.image, _id:User._id, admin:User.admin, google: User.google, facebook: User.facebook })
             })
             res.json({success: true, response: response})
         }catch(error){
@@ -45,7 +45,7 @@ const userController = {
             if(!correctPass) throw new Error('Email/password incorrect')
             const token = jwt.sign({...user}, process.env.SECRETKEY)
             res.json({ success:true, response:{token, firstName:user.firstName, image:user.image,  _id:user._id}})
-         })
+        })
         .catch ((error) => res.json({success:false, error:error.message}))
     },
     deleteUser :(req, res) =>{

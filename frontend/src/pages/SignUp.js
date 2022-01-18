@@ -41,7 +41,7 @@ const SignUp = (props) => {
                         }
                         else{
                             toasty('error', 'This email is already in use')
-                          }
+                        }
                 }
                 catch(error){
                     props.history.push('/fail')
@@ -86,7 +86,7 @@ const SignUp = (props) => {
                         <span><input type="text" name="lastName" placeholder="Last name" value={newUser.lastName} onChange={userHandler} autoComplete="nope"/></span>
                         <span><input type="email" name="email" placeholder="Email" value={newUser.email} onChange={userHandler} autoComplete="nope"/></span>
                         <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={newUser.password} onChange={userHandler} autoComplete="nope"/>
-                                 <div onClick={() => setHidden(!hidden)} className="eyeIcon">
+                                <div onClick={() => setHidden(!hidden)} className="eyeIcon">
                                     {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons" />}
                                 </div> 
                                 </span>
