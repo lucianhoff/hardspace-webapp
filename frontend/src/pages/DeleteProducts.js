@@ -19,6 +19,7 @@ const Products = (props) => {
 
   useEffect(() => {
     props.getAllProducts()
+    
   }, [], load)
 
 
