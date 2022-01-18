@@ -55,9 +55,11 @@ const Filter = (props) => {
       <ul>
         <li>
           <h3>Brands</h3>
+          
         </li>
         {stateArray.length > 0
           ? stateArray.map((brand, index) => (
+            <div>
               <li>
                 <input
                   type="radio"
@@ -68,6 +70,7 @@ const Filter = (props) => {
 
                 <p>{brand}</p>
               </li>
+            </div>
             ))
           : null}
       </ul>
