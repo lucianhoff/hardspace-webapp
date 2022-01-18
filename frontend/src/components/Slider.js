@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 
@@ -79,8 +80,8 @@ const Carousel = (props) => {
               <img className="imgCarousel" style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}} src={product.images[0]} />
               <h4 className="txtCarousel text-center py-5">{(product.name).substr(0,32)}</h4>
               <div className="price-button">
-                <p>${product.price}</p>
-                <button className="buttonCarousel">Add</button>
+                {/* <p>${product.price}</p> */}
+                <Link to={`/product/${product._id}`} className="buttonCarousel2"  >About this item</Link>
               </div>
             </div>
             )

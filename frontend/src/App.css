@@ -102,16 +102,44 @@
   display: flex;
   justify-content: space-evenly;
   height: 5rem;
-  align-items: center;
+  padding:0.5rem;
+ 
 }
 
+.price-button a{
+  text-align: center;
+
+}
 .buttonCarousel {
   font-weight: bold;
   color: white;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   background-color: rgb(25, 196, 196);
   border-radius: 5px;
   width: 64px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.buttonCarousel2{
+  
+  font-weight: bold;
+  color: white;
+  
+  background-color: rgb(25, 196, 196);
+  border-radius: 5px;
+  width: 100px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselButtons{
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .slick-track {
@@ -495,7 +523,7 @@ input, select{
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  height: 24rem;
+  height: 30rem;
   color: rgb(0, 0, 0);
   width: 230px;
   justify-content: space-around !important;
@@ -530,7 +558,7 @@ input, select{
 .txtCarouselProduct {
   display: flex;
   justify-content: center;
-  height: 6rem;
+  height: 8rem;
   background-color: rgba(43, 43, 42, 0.048);
   align-items: center;
   font-weight: bold;
