@@ -98,10 +98,9 @@
 
 .price-button {
   font-weight: bold;
-  color: rgb(32, 202, 188);
+  color: rgb(168, 168, 168);
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   height: 5rem;
 }
 
@@ -639,4 +638,15 @@ input, select{
 
 .filter li{
   list-style: none;
+}
+
+body::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+body::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 5px;
 }
