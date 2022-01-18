@@ -13,7 +13,7 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
-  const [dataProduct, setDataProduct] = useState(props.productsList); 
+  // const [dataProduct, setDataProduct] = useState(props.productsList); 
   useEffect(() => {
     props.getAllProducts()
   }, [])
