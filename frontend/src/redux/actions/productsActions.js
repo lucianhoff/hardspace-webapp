@@ -13,7 +13,13 @@ const productsActions = {
     search : (text) => {
         return async (dispatch, getState) => {
             try {
-                const arreglo = await axios.get('http://localhost:4000/api/products/'+text)
+                let arreglo
+                if(text === "" ){
+                    arreglo = await axios.get('http://localhost:4000/api/products')
+                }else{
+                    arreglo = await axios.get('http://localhost:4000/api/products/'+text)
+                }
+               
 
                 if (arreglo.data.response.length > 0) {
 

@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from "react";
+import React , {useEffect, useLayoutEffect, useState} from "react";
 import { connect , useSelector, useDispatch} from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
@@ -19,11 +19,23 @@ const Products = (props) => {
   const totalQty = useSelector(store => store.productsReducer.totalProducts)
   // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
   const totalPrice= useSelector(store=> store.productsReducer.totalPrice)
-
   const [dataProduct, setDataProduct] = useState(props.productsList); 
+
   useEffect(() => {
     props.getAllProducts()
+      
 }, [])
+
+  useLayoutEffect(() => {
+   (props.searchProducts.length > 0) ?
+   setDataProduct(props.searchProducts) :
+    setDataProduct(props.getAllProducts)
+
+    console.log(dataProduct)
+   
+}, [props.searchProducts , props.getAllProducts ])
+
+  
 
   function allStorage() {
     var archive = [];
@@ -99,6 +111,7 @@ const Products = (props) => {
       })
     } */
   }
+  
 
   return (
   //   <Swiper pagination={true} className="mySwiper">
@@ -110,8 +123,8 @@ const Products = (props) => {
       </div>
       <div className="products">
         {
-          props.productsList.length > 0 
-          ? props.productsList.map( products =>
+          dataProduct.length > 0 
+          ? dataProduct.map( products =>
             <div className="swiperFather">
               <div className="swiperAtr">
                 <Swiper pagination={true} className="mySwiper">
@@ -120,7 +133,9 @@ const Products = (props) => {
                   <h4 className="txtCarouselProduct">{products.name}</h4>
                   <div className="price-button">
                     <p>{`$${products.price}`}</p>
+                   
                     <button className="buttonCarousel" onClick={()=> addCart(products)} >Buy</button>
+                    
                     
                 </div>
             </div>
@@ -129,14 +144,17 @@ const Products = (props) => {
           : <h1>There are no products</h1>
         }
       </div>
-    </>
+      </div>
+   
   )
 }
+
 
 const mapStateToProps = (state) =>{
   return{
       productsList : state.productsReducer.productsList,
       auxSearch : state.productsReducer.auxSearch,
+      searchProducts: state.productsReducer.searchProducts
   } 
 }
 

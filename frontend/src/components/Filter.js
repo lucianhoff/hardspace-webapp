@@ -4,12 +4,13 @@ import productsActions from "../redux/actions/productsActions";
 
 const Filter = (props) => {
   const [stateArray, setStateArray] = useState([]);
- 
+  const [load, setLoad] = useState(false)
 
   useEffect(() => {
     props.search();
     arrayBrands();
-  }, [stateArray]);
+
+  }, [load]);
 
   const arrayBrands = () => {
     let aux2 = [];
@@ -22,19 +23,23 @@ const Filter = (props) => {
     // alert(aux2.length)
   };
 
-  console.log(props.searchProducts.brand);
+  console.log(props.searchProducts);
 
-  console.log(props);
+ 
 
   const handleChange = (marca) => {
+    console.log(marca)
     let aux = props.searchProducts.filter((item) => item.brand === marca);
     console.log(aux);
-
-    props.brandsAux(aux);
+    setLoad(!load)
+    props.searchProducts(aux);
   };
-  //
+ 
+  console.log(stateArray)
+
   return (
     <div>
+
       <ul>
         <li><h3>Brands</h3></li>
       {stateArray.length > 0
@@ -47,12 +52,13 @@ const Filter = (props) => {
                 onChange={() => handleChange(brand)}
               />
 
-              <p>{brand[index]}</p>
+              <p>{brand}</p>
             </li>
           ))
         : null}
-      {console.log(handleChange)}
+     
       </ul>
+      
     </div>
   );
 };

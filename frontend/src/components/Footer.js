@@ -14,8 +14,8 @@ import { ImInstagram } from "react-icons/im";
 const Footer = () => {
   return (
     <>
-      <footer className="relative bg-blueGray-200 pt-8 pb-6">
-        <div className="bg-red-500 w-full flex flex-col lg:grid lg:grid-cols-3 lg:gap-4 lg:px-2">
+      <footer className="relative footerBk bg-gray-50 mt-4 ">
+        <div className="bg-blue-900 w-full flex flex-col lg:grid lg:grid-cols-3 lg:gap-4 lg:px-2">
           <div className="bg-black-500 h-32">
             <div className="delivery">
               <div className="deliveryIcon"><FaTruck/></div>
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4">
+        <div className="container footerColor mx-auto px-4 pt-5">
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
               <h4 className="text-3xl fonat-semibold text-blueGray-700">
