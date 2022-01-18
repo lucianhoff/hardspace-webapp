@@ -1,11 +1,12 @@
-import React , {useEffect} from "react";
-import { connect } from "react-redux";
+import React , {useEffect, useState} from "react";
+import { connect , useSelector, useDispatch} from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
 import Filter  from "../components/Filter";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
+import swal from 'sweetalert2'
+import "swiper/css/pagination"
 import SwiperCore, {
   Pagination
 } from 'swiper';
@@ -13,10 +14,53 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
+  
+  const dispatch = useDispatch()
+  const totalQty = useSelector(store => store.productsReducer.totalProducts)
+  // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
+  const totalPrice= useSelector(store=> store.productsReducer.totalPrice)
+
   // const [dataProduct, setDataProduct] = useState(props.productsList); 
   useEffect(() => {
     props.getAllProducts()
-  }, [])
+}, [])
+
+  function allStorage() {
+    var archive = [];
+    var sumaProd = 0;
+    var sumaPrice = 0;
+
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        sumaProd = sumaProd + archive[i].qty 
+        sumaPrice = sumaPrice + archive[i].price
+      }
+        console.log(archive)
+
+        props.arrayStorage(archive)
+        props.setTotalProducts(sumaProd) 
+        props.setTotalPrice(sumaPrice)
+  
+   }
+  }
+  
+
+  /* const [array, setArray] = useState([])
+  const [totalProd, setTotalProd] = useState() */
+  /* const [totalPrice, setTotalPrice] = useState() */
+  const Toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    background: '#16bbdc',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', swal.stopTimer)
+      toast.addEventListener('mouseleave', swal.resumeTimer)
+    }
+  })
 
   function addCart(elemento){
     const cantidad = {qty: 1}
@@ -24,19 +68,37 @@ const Products = (props) => {
     let productExists = localStorage.getItem(elemento._id)
     console.log(productExists)
 
-    if(productExists !== null){
-      let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
-      producto.qty = producto.qty +1
-      localStorage.setItem(producto._id,JSON.stringify(producto) )
-      console.log("agregaste al carrito", producto)
-      
-    }else{
-      const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
-      localStorage.setItem(elemento._id, JSON.stringify(producto))
-      console.log("agregaste al carrito", elemento.name)
-    }
-  }
+    /* if (props.token !== '') { */
+      if(productExists !== null){
+       
+        /* alert('producto existe') */
+        let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
+        producto.qty = producto.qty +1
+        
+        localStorage.setItem(producto._id,JSON.stringify(producto) )
+        console.log("agregaste al carrito", producto)
+        
+        dispatch(productsActions.setTotalProducts(totalQty +1))
+        dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
+        
+      }else{
+        /* alert('producto NO existe') */
+        const producto = Object.assign(elemento,cantidad)/*agrega el valor "cantidad" a cada producto*/
+        localStorage.setItem(elemento._id, JSON.stringify(producto))
+        console.log("agregaste al carrito", elemento.name)
+  
+        dispatch(productsActions.setTotalProducts(totalQty +1))
+        dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
+      }
 
+    /* } else {
+      return Toast.fire({
+        title:'HardSpace',
+        text:`You must be logged to add articles.`,
+        icon:'warning',
+      })
+    } */
+  }
 
   return (
   //   <Swiper pagination={true} className="mySwiper">
@@ -68,35 +130,7 @@ const Products = (props) => {
         }
       </div>
     </div>
-    // <div>
-    // <div className="products">
-      // <div className="cardCarousel">
-      //   <div className="imgCarousel">imagen</div>
-      //   <h4 className="txtCarousel">Texto</h4>
-      //   <div className="price-button">
-      //     <p>$28.99</p>
-      //     <button className="buttonCarousel">Buy</button>
-      //   </div>
-      // </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    //   <div className="cardCarousel">
-    //     <div className="imgCarousel">imagen</div>
-    //     <h4 className="txtCarousel">Texto</h4>
-    //     <div className="price-button">
-    //       <p>$28.99</p>
-    //       <button className="buttonCarousel">Buy</button>
-    //     </div>
-    //   </div>
-    // </div>
-    // </div>
-  );
+  )
 }
 
 const mapStateToProps = (state) =>{
@@ -107,7 +141,11 @@ const mapStateToProps = (state) =>{
 }
 
 const mapDispatchToProps = {
-  getAllProducts: productsActions.getAllProducts
+  getAllProducts: productsActions.getAllProducts,
+  setTotalProducts: productsActions.setTotalProducts,
+  setTotalPrice: productsActions.setTotalPrice,
+  // arrayStorage: productsActions.arrayStorage,
+
   
 }
 

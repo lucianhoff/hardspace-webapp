@@ -1,8 +1,8 @@
 import "./navbar.css";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
-import { connect } from "react-redux"
 import productsActions from "../../redux/actions/productsActions"
+import { connect , useSelector, useDispatch} from "react-redux"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
 import { Link } from "react-router-dom";
@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 function Navigation(props) {
   
   const [search,setSearch] = useState ('')
+  const dispatch = useDispatch() 
+  const usuario = useSelector(store => store.productsReducer.totalProducts)
+ 
 
   const Toast = swal.mixin({
     toast: true,
@@ -56,34 +59,35 @@ function Navigation(props) {
         } else {
           return Toast.fire({
             title:'HardSpace',
-            text:`Don´t exist articles for your search.`,
+            text:`Don't exist articles for your search.`,
             icon:'warning',
           })
         }
     }
   }
+  console.log(props)
 
   return (
     <>
       <div className="firstNav">
         <div>
           <div>
-            <p>My Account</p>
+            <p className="firstP">My Account</p>
           </div>
         </div>
         <div>
           <div>
-          <Link to="/addproducts"> Add Products</Link> 
+          <Link to="/addproducts" className="firstP"> Add Products</Link> 
           </div>
         </div>
         <div>
           <div>
-            <p>About us</p>
+            <p className="firstP">About us</p>
           </div>
         </div>
         <div>
           <div>
-            <p>Contact us</p>
+            <p className="firstP">Contact us</p>
           </div>
         </div>
       </div>
@@ -114,7 +118,7 @@ function Navigation(props) {
             
           </div>
           
-        
+       
           <div className="signClass">
             {!props.token ? (
               <>
@@ -133,13 +137,23 @@ function Navigation(props) {
         </div>
         <div className="shop">
           <div className="iconUser">
-           <Link to="/cart"><AiOutlineShoppingCart /></Link> 
+            {!props.token ? 
+            (
+            <>
+            <Link to="/signIn"><AiOutlineShoppingCart /></Link> 
+            <div className="signintoadd">
+            <Link to="/signIn">Sign in to add</Link>          
+            </div>
+            </>) : 
+            (<>
+            <Link to="/cart"><AiOutlineShoppingCart /></Link>
+             <div className="signCart">
+           <div className="badge">{props.totalProducts}</div>
+              <h5 className="signintoadd">${props.totalPrice.toFixed(2)}</h5>
           </div>
-          <div className="signClass">
-           <div className="badge">0</div>
-            {/* <h5>My Cart</h5> */}
-            <h5>$</h5>
+          </>)}
           </div>
+         
         </div>
         </div>
         
@@ -147,19 +161,19 @@ function Navigation(props) {
       <div className="secondNav">
         <div>
           <div>
-          <span ><Link to="/" className="effect-underline">SHOP</Link></span>
+          <span className="secondSpan"><Link to="/products" className="effect-underline">SHOP</Link></span>
           </div>
         </div>
         <div>
           <div>
-          <span ><p className="effect-underline">ELECTRONIC</p></span>
+          <span className="secondSpan"><p className="effect-underline">ELECTRONIC</p></span>
           </div>
         </div>
         <div>
           <div>
           </div>
             
-          <span ><p className="effect-underline">BRANDS</p></span>
+          <span className="secondSpan"><p className="effect-underline">BRANDS</p></span>
         </div>
       </div>
     </>
@@ -171,7 +185,10 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     firstName: state.users.firstName,
     image: state.users.image,
-    searchProducts: state.productsReducer.searchProducts
+    searchProducts: state.productsReducer.searchProducts,
+    totalProducts: state.productsReducer.totalProducts,
+    totalPrice: state.productsReducer.totalPrice
+    
   }
 }
 

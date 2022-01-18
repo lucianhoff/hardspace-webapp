@@ -1,54 +1,139 @@
-import React , {useState }from 'react'
+import { process_params } from 'express/lib/router';
+import React , {useState, useEffect }from 'react'
+import {connect, useSelector, useDispatch} from 'react-redux'
+import productsActions from '../redux/actions/productsActions'
+import swal from 'sweetalert'
 
 
 
-function IndividualCart({elemento}){
+function IndividualCart({ elemento }){
 
+    const dispatch = useDispatch()
+    const totalProducts = useSelector(store => store.productsReducer.totalProducts)
+    const totalPrice = useSelector(store => store.productsReducer.totalPrice)
+    const array = useSelector(store=> store.productsReducer.arrayStorage)
+    console.log(array)
     const [count, setCount] = useState(0);
 
+    useEffect(() => {
+        setCount(elemento.qty)   
+
+    }, [])
    
-    const decrementCount = () => {
-        count > 0 && setCount(parseInt(count)-1)
+    const decrementCount = (value) => {    
+        /* count > 0 && setCount(parseInt(count)-1) */
+        if (count > 1) {
+            setCount(parseInt(count)-1)
+            let restaCant = totalProducts - 1
+            let restaPrice = totalPrice - value
+            elemento.qty--
+            localStorage.setItem(elemento._id,JSON.stringify(elemento))
+
+            dispatch(productsActions.setTotalProducts(restaCant))
+            dispatch(productsActions.setTotalPrice(restaPrice))
+        } else if (elemento.qty===1 || count===1) {
+          deleteArticle()
+        }
      }
 
-    const incrementCount = () => {
-           setCount(parseInt(count)+1);
-        }
+    const incrementCount = (value) => {
+        setCount(parseInt(count)+1);
+        let sumaCant = totalProducts + 1
+        let sumaPrice = totalPrice + value
+        elemento.qty++
+        localStorage.setItem(elemento._id,JSON.stringify(elemento))
 
+        dispatch(productsActions.setTotalProducts(sumaCant))
+        dispatch(productsActions.setTotalPrice(sumaPrice))
+     }
+    
+    function deleteCart(){   
+      let productExists = localStorage.getItem(elemento._id)
+      console.log(productExists)
+   
+      let restaCant = totalProducts - elemento.qty
+      let restaPrice = totalPrice - (elemento.price*elemento.qty)
+   
+      const arrayAux = array.filter(item => item._id !== elemento._id);
+      console.log(arrayAux)
+      localStorage.removeItem(elemento._id)
+      dispatch(productsActions.setTotalProducts(restaCant))
+      dispatch(productsActions.setTotalPrice(restaPrice))
+      dispatch(productsActions.setArrayStorage(arrayAux))
+
+   }
+   
+   function deleteArticle() {
+       
+    swal({
+      title: "Are you sure?",
+      text: "This article will be removed from the list",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        deleteCart()
+        swal("This product has been removed", {
+          icon: "success",
+        })
+      } else {
+        swal("Your product is safe")
+      }
+    })
+  }
+
+      
+    
 
     return(
             <>
             <div className="articleContainer">
-                            <div className="articleImg"> imagen</div>
+              <div className='mediaquery'>
+                           <img className="articleImg" src={elemento.images[0]}></img>
                             <div className="articleInfo">
-                                <p className="articleTitle">{elemento.nombre}</p>
-                                <p>Free delivery</p>
+                                <p className="articleTitle">{elemento.name}</p>
+                            
+                                <p className='freedelivery'>Free delivery</p>
                                 <div className="deleteAndBuy">
-                                    <button className="delete">Delete</button>
-                                    <button className="buynow">Buy now</button>
+                                    <button className="delete" onClick={()=> deleteArticle()} >Delete article</button>
+                                   
                                 </div>
-                                                   
                             </div>
+                            </div>
+                            <div className='mediaQuery'>
                            <div className="articleInput">
-                             <button  className="boton" onClick={decrementCount}>-</button>
+                             <button  className="boton" onClick={()=>decrementCount(elemento.price)}>-</button>
                     
                                 <input
                                 id="inputCart"
                                 type="text"
                                 name="clicks"
-                                value={count}
+                                value={elemento.qty}
                                 onChange={(event) => {setCount(event.target.value)}}
                                 />
-                                
-                                
                                    
-                             <button className="boton"  onClick={incrementCount}>+</button>
+                             <button className="boton"  onClick={()=> incrementCount(elemento.price)}>+</button>
                             </div>
-                           <div className="articlePrice">$</div>
+                           <div className="articlePrice">${(elemento.price * elemento.qty).toFixed(2)}</div>
+                           </div>
+                        
                         </div>
 
 </>
     )
 }
 
-export default IndividualCart
+const mapStateToProps = (state) =>{
+    return{
+     totalProducts: state.productsReducer.totalProducts,
+     totalPrice: state.productsReducer.totalPrice
+    } 
+  }
+  
+  const mapDispatchToProps = {    
+     setTotalProducts: productsActions.setTotalProducts,
+     setTotalPrice: productsActions.setTotalPrice
+  }
+  
+  export default connect (mapStateToProps, mapDispatchToProps)(IndividualCart)
