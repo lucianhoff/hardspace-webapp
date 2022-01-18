@@ -10,10 +10,13 @@ import "swiper/css/pagination"
 import SwiperCore, {
   Pagination
 } from 'swiper';
-
+import { Link } from 'react-router-dom'
+import Spinner from "../components/Spinner";
+import "../CSS/swiper1.css"
 SwiperCore.use([Pagination]);
 
 const Products = (props) => {
+  const id = "a"
 
   const dispatch = useDispatch()
   const totalQty = useSelector(store => store.productsReducer.totalProducts)
@@ -105,6 +108,8 @@ const Products = (props) => {
   // </Swiper>
   return (
     <>
+      {props.productsList.length > 0 ?
+      <>
       <div className="filterProduct">
         <div className="filter">
           <Filter />
@@ -119,18 +124,29 @@ const Products = (props) => {
                       {products.images.map(image => <SwiperSlide><img src={image} /></SwiperSlide>)}
                     </Swiper>
                     <h4 className="txtCarouselProduct">{products.name}</h4>
-                    <div className="price-button">
-                      <p>{`$${products.price}`}</p>
-                      <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
+                    <div className=" price-button flex font-bold flex-col justify-evenly">
+                      <div>
+                        <p className="text-center">{`$${products.price}`}</p>
+                      </div>
+                      <div className="flex font-bold justify-evenly">
+                        <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
+                        <Link to={`/product/${products._id}`} className="buttonCarousel"  >View More</Link>
+                      </div>
 
                     </div>
                   </div>
                 </div>
               )
-              : <h1>There are no products</h1>
+              : <Spinner />
           }
         </div>
       </div>
+      </>
+      : 
+      <div className="flex justify-center align-center w-100 ">
+            <Spinner />
+      </div>
+      }
     </>
   )
 }

@@ -1,12 +1,13 @@
 //components
 import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
-import Products from "./pages/Products";
 
 //pages
 import Home from './pages/Home';
-import Cart from './pages/Cart'
+import Products from "./pages/Products";
+import Product from "./pages/Product";
 import AddProducts from "./pages/AddProducts";
+import Cart from './pages/Cart'
 
 //style
 import "./App.css";
@@ -20,7 +21,6 @@ import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import productsActions from "./redux/actions/productsActions";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-
 
 function App(props) {
 
@@ -65,6 +65,7 @@ function App(props) {
                 <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/addproducts" element={<AddProducts/>} />
       </Routes>
       {/* </PayPalScriptProvider> */}

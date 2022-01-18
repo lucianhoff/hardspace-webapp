@@ -47,7 +47,19 @@ const usersActions ={
                return dispatch({type:'LOG_OUT_USER' })
             }
         }
-    }
+    },
+    getAllUsers: () => {
+        return async (dispatch, getState) => {
+          try {
+            const users = await axios.get(
+              "http://localhost:4000/api/users"
+            );
+            dispatch({ type: "users", payload: users.data.response });
+          } catch (error) {
+            console.log(error);
+          }
+        };
+      },
 }
 
 export default usersActions
