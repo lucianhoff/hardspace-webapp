@@ -33,7 +33,7 @@ const Review = () => {
                                     className="h-6 w-6 cursor-pointer"
                                     fill="none"
                                     viewBox="0 0 24 24"
-                                    stroke="#fff"
+                                    stroke="#000"
                                 >
                                     <path
                                         strokeLinecap="round"
@@ -50,7 +50,7 @@ const Review = () => {
                                     className="h-6 w-6 cursor-pointer"
                                     fill="none"
                                     viewBox="0 0 24 24"
-                                    stroke="#fff"
+                                    stroke="#000"
                                 >
                                     <path
                                         strokeLinecap="round"

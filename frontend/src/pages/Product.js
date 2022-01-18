@@ -70,7 +70,7 @@ const Product = (props) => {
                         </div>
                         <div className="px-24">
                             <p className="text-xl font-bold py-5"> About this item ... </p>
-                            <ul class="list-disc">
+                            <ul className="list-disc">
                                 {product.description.map((description, index) => {
                                     return (
                                         <li key={index} className="py-3">{description}</li>
