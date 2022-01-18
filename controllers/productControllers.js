@@ -19,6 +19,7 @@ const productControllers = {
     },
     getOneProduct: (req,res) => {
         const id = req.params.id
+        console.log(id)
         Product.findOne({_id:id})
         .then((response)=>res.json({response}))
         .catch((err)=>console.error(err))
