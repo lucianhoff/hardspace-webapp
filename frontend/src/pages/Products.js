@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
+import React , {useEffect, useLayoutEffect, useState} from "react";
+import { connect , useSelector, useDispatch} from "react-redux";
 import "../App.css";
 import productsActions from "../redux/actions/productsActions"
 import Filter from "../components/Filter";
@@ -17,27 +17,41 @@ SwiperCore.use([Pagination]);
 
 const Products = (props) => {
   const id = "a"
-
   const dispatch = useDispatch()
   const totalQty = useSelector(store => store.productsReducer.totalProducts)
   // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
   const totalPrice = useSelector(store => store.productsReducer.totalPrice)
-
   const [dataProduct, setDataProduct] = useState(props.productsList);
+
   useEffect(() => {
     props.getAllProducts()
   }, [])
+
+  useLayoutEffect(() => {
+   (props.searchProducts.length > 0) ?
+   setDataProduct(props.searchProducts) :
+    setDataProduct(props.getAllProducts)
+
+    console.log(dataProduct)
+   
+}, [props.searchProducts , props.getAllProducts ])
+
+  
 
   function allStorage() {
     var archive = [];
     var sumaProd = 0;
     var sumaPrice = 0;
 
-    if (localStorage.length !== 0) {
-      for (var i = 0; i < localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty
-        sumaPrice = sumaPrice + archive[i].price
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
+            if (localStorage.key(i)!=='token' && localStorage.key(i) !== "__paypal_storage__") {
+                archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                sumaProd = sumaProd + archive[i].qty 
+                sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+            } else {
+                /* alert('este es el token') */
+            }
       }
       console.log(archive)
 
@@ -102,6 +116,7 @@ const Products = (props) => {
       })
     } */
   }
+  
 
   //   <Swiper pagination={true} className="mySwiper">
   // <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
@@ -112,12 +127,33 @@ const Products = (props) => {
       <>
       <div className="filterProduct">
         <div className="filter">
-          <Filter />
+          <Filter dataProduct={props.productsList} />
         </div>
         <div className="products">
           {
             props.productsList.length > 0
-              ? props.productsList.map(products =>
+              ? props.auxSearch.length > 0 
+              ? props.auxSearch.map(products =>
+                <div className="swiperFather">
+                  <div className="swiperAtr">
+                    <Swiper pagination={true} className="mySwiper">
+                      {products.images.map(image => <SwiperSlide><img src={image} /></SwiperSlide>)}
+                    </Swiper>
+                    <h4 className="txtCarouselProduct">{products.name}</h4>
+                    <div className=" price-button flex font-bold flex-col justify-evenly">
+                      <div>
+                        <p className="text-center">{`$${products.price}`}</p>
+                      </div>
+                      <div className="flex font-bold justify-evenly">
+                        <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
+                        <Link to={`/product/${products._id}`} className="buttonCarousel"  >View More</Link>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              ) :
+              props.productsList.map(products =>
                 <div className="swiperFather">
                   <div className="swiperAtr">
                     <Swiper pagination={true} className="mySwiper">
@@ -155,6 +191,7 @@ const mapStateToProps = (state) => {
   return {
     productsList: state.productsReducer.productsList,
     auxSearch: state.productsReducer.auxSearch,
+    searchProducts : state.productsReducer.searchProducts
   }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
 import Carousel from "../components/Slider";
 
 const Home = () => {
@@ -53,9 +53,9 @@ const Home = () => {
               </div>
               <div className="w-48 lg:mt-6">
                 <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                  <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                    DISCOVER NOW
-                  </span>
+                  
+                  <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
+                
                 </div>
               </div>
             </div>
@@ -78,9 +78,7 @@ const Home = () => {
               </div>
               <div className="w-48 lg:mt-6">
                 <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                  <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                    DISCOVER NOW
-                  </span>
+                <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
                 </div>
               </div>
             </div>
@@ -106,9 +104,7 @@ const Home = () => {
               </div>
               <div className="w-48 lg:mt-6">
                 <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                  <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                    DISCOVER NOW
-                  </span>
+                <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
                 </div>
               </div>
             </div>
@@ -131,9 +127,7 @@ const Home = () => {
               </div>
               <div className="w-48 lg:mt-6">
                 <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                  <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                    DISCOVER NOW
-                  </span>
+                <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
                 </div>
               </div>
             </div>
@@ -160,9 +154,7 @@ const Home = () => {
             </div>
             <div className="w-48 lg:mt-6 invisible">
               <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                  DISCOVER NOW
-                </span>
+              <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
               </div>
             </div>
           </div>
@@ -185,9 +177,7 @@ const Home = () => {
             </div>
             <div className="w-48 lg:mt-6 invisible">
               <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                  DISCOVER NOW
-                </span>
+              <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
               </div>
             </div>
           </div>
@@ -213,9 +203,7 @@ const Home = () => {
           </div>
           <div className="w-48 lg:mt-6 invisible">
             <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-              <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                DISCOVER NOW
-              </span>
+            <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
             </div>
           </div>
         </div>
@@ -238,9 +226,7 @@ const Home = () => {
             </div>
             <div className="w-48 lg:mt-6 invisible">
               <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                  DISCOVER NOW
-                </span>
+              <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
               </div>
             </div>
           </div>
@@ -263,9 +249,7 @@ const Home = () => {
             </div>
             <div className="w-48 lg:mt-6 invisible">
               <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-                <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                  DISCOVER NOW
-                </span>
+              <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
               </div>
             </div>
           </div>
@@ -291,9 +275,7 @@ const Home = () => {
           </div>
           <div className="w-48 lg:mt-6 invisible">
             <div className="group text-center font-bold [transform:translateZ(0)] px-6 py-3 rounded-lg overflow-hidden bg-transparent border-2 border-white text-white relative before:absolute before:bg-emerald-500 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500 cursor-pointer transition-all hover:border-emerald-500">
-              <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500">
-                DISCOVER NOW
-              </span>
+            <Link to="/products" > <span className="relative z-0 group-hover:text-gray-200 transition ease-in-out duration-500"> DISCOVER NOW</span></Link> 
             </div>
           </div>
         </div>

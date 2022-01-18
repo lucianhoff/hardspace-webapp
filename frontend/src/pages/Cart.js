@@ -29,7 +29,7 @@ function Cart(props){
     
         if(localStorage.length !== 0){
           for (var i = 0; i<localStorage.length; i++) {
-                if (localStorage.key(i)!=='token') {
+                if (localStorage.key(i)!=='token' && localStorage.key(i) !== "__paypal_storage__") {
                     archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
                     sumaProd = sumaProd + archive[i].qty 
                     sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
