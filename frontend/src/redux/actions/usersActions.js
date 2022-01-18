@@ -16,19 +16,6 @@ const usersActions = {
     },
     signInUser: (logInUser) => {
         return async (dispatch, getState) => {
-<<<<<<< HEAD
-            try {
-                let response = await axios.post('http://localhost:4000/api/user/signin', logInUser)
-                if (response.data.success) {
-
-                    dispatch({ type: "LOG_USER", payload: response.data.response })
-                }
-                return response
-
-            } catch (error) {
-                console.log(error)
-            }
-=======
         try{
             let response = await  axios.post('http://localhost:4000/api/user/signin', logInUser)
             if(response.data.success){
@@ -40,7 +27,6 @@ const usersActions = {
         }catch (error){
             console.log(error)
         }
->>>>>>> 4a8532d2bc702f58e235f3650d2ae833773bae38
         }
     },
     signOutUser: () => {
@@ -52,39 +38,6 @@ const usersActions = {
         return async (dispatch, getState) => {
             try {
                 let response = await axios.get('http://localhost:4000/api/verifyToken', {
-<<<<<<< HEAD
-                    headers: {
-                        Authorization: 'Bearer ' + token,
-                    }
-                })
-                dispatch({ type: "LOG_USER", payload: { 
-                    token,
-                    firstName: response.data.firstName,
-                    image: response.data.image,
-                    admin: response.data.admin,
-                    lastName: response.data.lastName,
-                    favourites: response.data.favourites,
-                    id: response.data._id 
-                }
-                })// , birthday: response.data.birthday
-            } catch (error) {
-                return dispatch({ type: 'LOG_OUT_USER' })
-            }
-        }
-    },
-    getAllUsers: () => {
-        return async (dispatch, getState) => {
-            try {
-                const users = await axios.get(
-                    "http://localhost:4000/api/users"
-                );
-                dispatch({ type: "USERS", payload: users.data.response });
-            } catch (error) {
-                console.log(error);
-            }
-        };
-    },
-=======
             headers: {
                 Authorization: 'Bearer '+ token,
             }
@@ -129,7 +82,6 @@ const usersActions = {
         }
     
 }
->>>>>>> 4a8532d2bc702f58e235f3650d2ae833773bae38
 }
 
 export default usersActions

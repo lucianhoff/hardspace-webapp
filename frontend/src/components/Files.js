@@ -20,6 +20,7 @@ import { connect } from 'react-redux'
                 setFileList(response.user.data.response.files)
             })
     }
+
     const upload = async (e) => {
         e.preventDefault()
         let file = await e.target.files[0]
@@ -30,15 +31,16 @@ import { connect } from 'react-redux'
         formData.append('user', user)
         formData.append('file', file)
 
-        await props.uploadFile(formData)
-            .then(response => {
-                if (response.success) {
-                    alert("Uploaded successfully!")
-                }
-                else { alert("File already uploaded") }
-            })
-        setReload(!reload)
+        // await props.uploadFile(formData)
+        //     .then(response => {
+        //         if (response.success) {
+        //             alert("Uploaded successfully!")
+        //         }
+        //         else { alert("File already uploaded") }
+        //     })
+        // setReload(!reload)
     }
+
     const deleteItem = async (event) => {
         let { id } = event.target
         let email = await userConected?.email
@@ -48,6 +50,8 @@ import { connect } from 'react-redux'
             })
         setReload(!reload)
     }
+
+
     useEffect(() => {
         fileList()
     }, [reload])

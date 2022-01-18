@@ -145,6 +145,7 @@ const Products = (props) => {
                         <p className="text-center">{`$${products.price}`}</p>
                       </div>
                       <div className="flex font-bold justify-evenly ">
+                        
                         <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
                         <Link to={`/product/${products._id}`} className="buttonCarousel"  >View More</Link>
                       </div>

@@ -5,10 +5,16 @@ import productsActions from "../../redux/actions/productsActions"
 import { connect , useSelector, useDispatch} from "react-redux"
 import swal from 'sweetalert2'
 import usersActions from '../../redux/actions/usersActions'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
 
 function Navigation(props) {
   
+
+  let navigate = useNavigate();
+
   const [search,setSearch] = useState ('')
   const dispatch = useDispatch() 
   const usuario = useSelector(store => store.productsReducer.totalProducts)
@@ -37,35 +43,35 @@ function Navigation(props) {
     
     console.log('el search es::',search)
     if (search.length > 0 && search.length < 3 ) {
-        return Toast.fire({
+        Toast.fire({
             title:'HardSpace',
             text:`You must enter at least 3 characters`,
             icon:'warning',
         })
     } else {
         console.log('VOY A LA BUSQUEDA')
-        const busqueda = await props.search(search) 
-        
+        const busqueda = await props.search(search)               
         if ( busqueda.length > 0 ) {
           console.log('DENTRO DEL NAVBAR:: la busqueda es::',busqueda)
           console.log('DENTRO DEL NAVBAR:: searchProducts es::',props.searchProducts)
 
           
-          return Toast.fire({
+          Toast.fire({
             title:'HardSpace',
             text:`There are ${busqueda.length} articles.`,
             icon:'success',
           })
 
         } else {
-          return Toast.fire({
+          Toast.fire({
             title:'HardSpace',
             text:`Don't exist articles for your search.`,
             icon:'warning',
           })
         }
+      
     }
-
+   navigate("/products")
   }
   console.log(props)
 
@@ -112,16 +118,20 @@ function Navigation(props) {
         </div>
         </div>
         <div className="input-catalog">
+        
           <input
             type="text"
             placeholder="Search our catalog"
             className="inputcatalog"
             onChange={inputHandler}
-            onKeyPress={handlePress}
+            onKeyPress={handlePress}            
             id="search"
             name="search">
           </input>
+          
+   
           <div /* type="button" */ onClick={handleSubmit} className="lens">🔍</div>
+      
         </div>
         <div className="iconsRight">
         <div className="create-account">
@@ -164,7 +174,7 @@ function Navigation(props) {
            <div className="badge">{props.totalProducts}</div>
               <h5 className="signintoadd">${props.totalPrice.toFixed(2)}</h5>
           </div>
-          </>)}
+          </>)} 
           </div>
          
         </div>

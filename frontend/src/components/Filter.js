@@ -55,19 +55,26 @@ const Filter = (props) => {
       <ul>
         <li>
           <h3>Brands</h3>
+          
         </li>
         {stateArray.length > 0
           ? stateArray.map((brand, index) => (
-              <li>
+            <div >
+              <li className="filterContainer">
+                <div>
+                <p>{brand}</p>
+                </div>
+                <div>
+
                 <input
                   type="radio"
                   name="brand"
                   value={brand}
                   onChange={() => handleChange(brand)}
                 />
-
-                <p>{brand}</p>
+                </div>
               </li>
+            </div>
             ))
           : null}
       </ul>
