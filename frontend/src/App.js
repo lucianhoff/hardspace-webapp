@@ -22,6 +22,7 @@ import {connect} from 'react-redux'
 import productsActions from "./redux/actions/productsActions";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Crud from "./pages/Crud";
+
 function App(props) {
 
 
@@ -32,9 +33,13 @@ function App(props) {
 
     if(localStorage.length !== 0){
       for (var i = 0; i<localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty 
-        sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+            if (localStorage.key(i)!=='token' && localStorage.key(i) !== "__paypal_storage__") {
+                archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                sumaProd = sumaProd + archive[i].qty 
+                sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+            } else {
+                /* alert('este es el token') */
+            }
       }
       console.log(archive)
 

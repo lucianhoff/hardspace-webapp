@@ -17,13 +17,12 @@ SwiperCore.use([Pagination]);
 
 const Products = (props) => {
   const id = "a"
-
   const dispatch = useDispatch()
   const totalQty = useSelector(store => store.productsReducer.totalProducts)
   // const arraySt = useSelector(store=> store.productsReducer.arrayStorage)
   const totalPrice = useSelector(store => store.productsReducer.totalPrice)
-
   const [dataProduct, setDataProduct] = useState(props.productsList);
+
   useEffect(() => {
     props.getAllProducts()
   }, [])
@@ -44,11 +43,15 @@ const Products = (props) => {
     var sumaProd = 0;
     var sumaPrice = 0;
 
-    if (localStorage.length !== 0) {
-      for (var i = 0; i < localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty
-        sumaPrice = sumaPrice + archive[i].price
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
+            if (localStorage.key(i)!=='token' && localStorage.key(i) !== "__paypal_storage__") {
+                archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                sumaProd = sumaProd + archive[i].qty 
+                sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+            } else {
+                /* alert('este es el token') */
+            }
       }
       console.log(archive)
 
@@ -167,6 +170,7 @@ const mapStateToProps = (state) => {
   return {
     productsList: state.productsReducer.productsList,
     auxSearch: state.productsReducer.auxSearch,
+    searchProducts : state.productsReducer.searchProducts
   }
 }
 
