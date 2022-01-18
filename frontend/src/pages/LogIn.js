@@ -29,8 +29,7 @@ const SignIn = (props) => {
             }catch (error){
                 props.history.push('/fail')
                 return false
-               }
-            
+            }
         }       
     }
 
@@ -63,7 +62,7 @@ const SignIn = (props) => {
                     <form className="signInForm">
                         <span><input type="email" name="email" placeholder="Email" value={logInUser.email} onChange={logUserHandler} autoComplete="nope"/></span>
                         <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={logInUser.password} onChange={logUserHandler} autoComplete="nope"/>
-                         <div onClick={() => setHidden(!hidden)} className="eyeIcon">
+                        <div onClick={() => setHidden(!hidden)} className="eyeIcon">
                             {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons"/>}
                         </div>
                         </span>
@@ -79,7 +78,7 @@ const SignIn = (props) => {
                                     onSuccess={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
                                                                         />
-                        <p>Don't you have an account yet? <Link to="/signUp">Sign up here</Link></p>
+                        <p>Don't have an account yet? <Link to="/signUp">Sign up here!</Link></p>
                     </div>
                 </div>
             </div>
