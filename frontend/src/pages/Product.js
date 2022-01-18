@@ -11,6 +11,7 @@ import { connect, useSelector, useDispatch } from "react-redux";
 import Reviews from "../components/Reviews"
 
 import "../CSS/swiper2.css"
+import usersActions from "../redux/actions/usersActions";
 SwiperCore.use([EffectFlip, Pagination, Navigation]);
 
 const Product = (props) => {
@@ -18,7 +19,6 @@ const Product = (props) => {
     const id = params.id;
     const dispatch = useDispatch();
     const product = useSelector(state => state.productsReducer.product);
-
     console.log(product)
     useEffect(() => {
         dispatch(productsActions.getOneProduct(id));
@@ -26,8 +26,8 @@ const Product = (props) => {
 
     console.log(product)
 
+    product && console.log(product.reviews.length)
     return (
-
 
         <>
             {product ?
@@ -80,13 +80,14 @@ const Product = (props) => {
                             </ul>
                         </div>
                     </>
+                    {/* <Reviews productId={id} reviews={product.reviews}/> */}
                 </>
-                : <p>sigue fallando</p>}
+                : <p>LOADING</p>}
 
-            <Reviews />
 
         </>
     );
+
 };
 
 // const mapStateToProps = (state) => {

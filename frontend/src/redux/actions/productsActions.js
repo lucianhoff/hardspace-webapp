@@ -82,6 +82,13 @@ const productsActions = {
             dispatch({type: 'GET_ONE_PRODUCT', payload: data})
         }
     },
+    deleteProduct: (id) => {
+        return async (dispatch) => {
+            let response = await axios.delete('http://localhost:4000/api/product/'+id)
+            let data = response.data.response
+            dispatch({type: 'DELETE_PRODUCT', payload: data})
+        }
+    }
 }
 
 export default productsActions

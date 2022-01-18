@@ -21,7 +21,7 @@ import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import productsActions from "./redux/actions/productsActions";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-
+import Crud from "./pages/Crud";
 function App(props) {
 
 
@@ -67,6 +67,8 @@ function App(props) {
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/addproducts" element={<AddProducts/>} />
+        {true  ? <Route path="/crud" element={<Crud/>} /> : null}
+              {/* props.admin */}
       </Routes>
       {/* </PayPalScriptProvider> */}
       <Footer/>
@@ -76,7 +78,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return{
-      token: state.users.token
+      token: state.users.token,
+      admin: state.users.admin
   }
 }
 const mapDispatchToProps = {

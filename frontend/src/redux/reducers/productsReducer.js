@@ -46,6 +46,11 @@ const productsReducer = (state = initState, action) => {
                 ...state,
                 product: action.payload
             }
+        case "DELETE_PRODUCT":
+            return {
+                ...state,
+                productsList: action.payload
+            }
         default:
             return state
     }

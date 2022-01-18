@@ -1,9 +1,16 @@
 import { connect } from "react-redux";
-import { useState, useRef } from "react";
-
-const Review = () => {
+import { useState, useRef, useEffect } from "react";
+import productsActions from "../redux/actions/productsActions";
+import usersActions from "../redux/actions/usersActions";
+const Review = (props) => {
     const input = useRef();
-    const [modoEditar, setModoEditar] = useState(false);
+    const [editMode, setEditMode] = useState(false);
+
+    useEffect(() => {
+        props.getAllUsers()
+        props.getAllProducts()
+        props.getOneProduct(props.productId)
+    }, [])
 
     return (
         <>
@@ -11,14 +18,23 @@ const Review = () => {
                 <div className="bg-transparent  w-full border-2 border-red-500  py-2 px-3 rounded-lg rounded-r-lg">
                     <div className="flex items-center justify-between w-full">
                         <div className="flex items-center">
-                            <span
-                                style={{
-                                    backgroundSize: "cover",
-                                    backgroundPosition: "center",
-                                    backgroundImage: `url(https://i.pinimg.com/550x/09/2c/97/092c9741afdd73f2059a4cc940366013.jpg)`,
-                                }}
-                                className="w-14 h-14 flex items-center justify-center font-bold  rounded-full"
-                            ></span>
+                            {
+                                props.review && props.users > 1 &&
+                                props.users.map((user, index) =>
+                                user.id === props.review.userId ? (
+                                    <span
+                                        key={index}
+                                        style={{
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                            backgroundImage: `url(${props.image})`,
+                                        }}
+                                        key={index}
+                                        className="w-14 h-14 flex items-center justify-center font-bold  rounded-full"
+                                    ></span>
+                                ) : null
+                            )
+                            }
 
 
                             <span className="fw-bold text-black text-2xl pl-5">
@@ -27,7 +43,7 @@ const Review = () => {
                         </div>
 
                         <div className="flex">
-                            <span onClick={() => setModoEditar(!modoEditar)}>
+                            <span onClick={() => setEditMode(!editMode)}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-6 w-6 cursor-pointer"
@@ -65,7 +81,7 @@ const Review = () => {
                     </div>
 
                     <div name="comentarios" className="">
-                        {modoEditar ? (
+                        {editMode ? (
                             <>
                                 <div className="flex flex-col pl-20">
                                     <input
@@ -131,19 +147,17 @@ const Review = () => {
 
 const mapStateToProps = (state) => {
     return {
-        // cursos: state.cursosReducer.cursos,
-        // usuarios: state.reducer.usuarios,
-        // usuario: state.reducer.usuario,
+        productsList: state.productsReducer.productsList,
+        users: state.users.users,
+        _id: state.users._id,
+        image: state.users.image,
     };
 };
 
 const mapDispatchToProps = {
-    //   traerUsuarios: usuarioAction.traerUsuarios,
-    //   borrarOpinion: cursosAction.borrarOpinion,
-    //   traerCursos: cursosAction.traerCursos,
-    //   traerOpiniones: cursosAction.traerOpiniones,
-    //   prueba: cursosAction.prueba,
-    //   traerCursoId: cursosAction.traerCursoId
+    getAllProducts: productsActions.getAllProducts,
+    getAllUsers: usersActions.getAllUsers,
+    getOneProduct: productsActions.getOneProduct,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Review);
