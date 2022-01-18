@@ -127,12 +127,33 @@ const Products = (props) => {
       <>
       <div className="filterProduct">
         <div className="filter">
-          <Filter />
+          <Filter dataProduct={props.productsList} />
         </div>
         <div className="products">
           {
             props.productsList.length > 0
-              ? props.productsList.map(products =>
+              ? props.auxSearch.length > 0 
+              ? props.auxSearch.map(products =>
+                <div className="swiperFather">
+                  <div className="swiperAtr">
+                    <Swiper pagination={true} className="mySwiper">
+                      {products.images.map(image => <SwiperSlide><img src={image} /></SwiperSlide>)}
+                    </Swiper>
+                    <h4 className="txtCarouselProduct">{products.name}</h4>
+                    <div className=" price-button flex font-bold flex-col justify-evenly">
+                      <div>
+                        <p className="text-center">{`$${products.price}`}</p>
+                      </div>
+                      <div className="flex font-bold justify-evenly">
+                        <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
+                        <Link to={`/product/${products._id}`} className="buttonCarousel"  >View More</Link>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              ) :
+              props.productsList.map(products =>
                 <div className="swiperFather">
                   <div className="swiperAtr">
                     <Swiper pagination={true} className="mySwiper">
