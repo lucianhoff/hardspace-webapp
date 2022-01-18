@@ -17,14 +17,12 @@ const productsActions = {
 
                 if (arreglo.data.response.length > 0) {
 
-                    /* console.log('dentro del IF del action:: este es arreglo:: ',arreglo) */
+                    
                     dispatch({type: "SEARCH", payload: arreglo.data.response})
                     return arreglo.data.response
 
                 } else {
                     
-                    /* console.log('No existen articulos para tu búsqueda.')
-                    console.log('dentro del else del action:: este es arreglo:: ',arreglo) */
                     return arreglo.data.response
 
                 }

@@ -7,6 +7,7 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { ToastContainer, toast } from 'react-toastify';
 import GoogleLogin from 'react-google-login'
 import * as React from 'react';
+import Files from '../components/Files';
 
 const SignUp = (props) => {
     const [newUser, setNewUser] = useState({ firstName: '', lastName: '', email: '', password: '', image: '' })// , birthday:''
@@ -72,7 +73,6 @@ const SignUp = (props) => {
         }
     }
     
-
     return(
         <div>
             <div className="signUpBack" style={{backgroundImage:""}}>{/* url('/assets/signup.jpg') */}
@@ -90,8 +90,8 @@ const SignUp = (props) => {
                                     {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons" />}
                                 </div> 
                                 </span>
-                        <span><input type="url" name="image" placeholder="Url profile picture" value={newUser.image} onChange={userHandler} autoComplete="nope"/></span>
-                        {/* <span><input type="date" name="date" value={newUser.birthday} onChange={userHandler}/></span> */}
+                        <span><Files/></span>
+                    
                     </form>
                     <div className="formButtons">
                         <button onClick={sendFormHandler}>Create account</button>
@@ -123,7 +123,11 @@ const SignUp = (props) => {
 }
 
 const mapDispatchToProps = {
-    signUpUser: usersActions.signUpUser
+    signUpUser: usersActions.signUpUser,
+    uploadFile: usersActions.uploadFile,
+    deleteFile: usersActions.deleteFile,
+    getFiles: usersActions.getFiles, 
+
 }
 
 export default connect(null, mapDispatchToProps)(SignUp)

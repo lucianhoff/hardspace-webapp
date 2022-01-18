@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-  export const signUpUser = async (newUser) =>{
+  export const uploadFile = async (newUser) =>{
             try {
                 const user = await axios.post('http://localhost:4000/api/user/signup',
                 {newUser})
@@ -8,22 +8,19 @@ import axios from 'axios'
                     localStorage.setItem('token',user.data.response.token)
                     return {success:true, response:user.data}
                 }else{
-                  
+                
                     return {success:false, response:user.data.response}
                 }
             }catch(error){
                 console.log(error)
             }
-        }
-    ;
-
-  export const signOutUser = async(closeuser)=>{
+        };
+  export const deleteFile = async(closeuser)=>{
       const user = axios.post('http://localhost:4000/api/user/signup',{closeuser})
                     localStorage.removeItem('token')
                     localStorage.removeItem('userConected')
-
     } 
-    export const  signInUser = async(logedUser) => {
+    export const  getFiles = async(logedUser) => {
             try {
                 const user = await axios.post('http://localhost:4000/api/user/signup',
                 {logedUser})
@@ -39,5 +36,4 @@ import axios from 'axios'
         
     }
 
-    
 
