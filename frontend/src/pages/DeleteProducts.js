@@ -19,8 +19,7 @@ const Products = (props) => {
 
   useEffect(() => {
     props.getAllProducts()
-    
-  }, [], load)
+  }, [])
 
 
   function deleteArticle(elemento) {
@@ -34,10 +33,11 @@ const Products = (props) => {
       if (willDelete) {
         props.delProduct(elemento._id)
         setLoad(!load)
-
+        
         swal("This product has been removed.", {
           icon: "success",
         })
+        props.getAllProducts()
       } else {
         swal("Your product is safe.")
       }

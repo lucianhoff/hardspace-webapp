@@ -1,4 +1,4 @@
-import { useState ,useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import toasty from "../components/Toast";
 import usersActions from '../redux/actions/usersActions'
@@ -8,69 +8,67 @@ import GoogleLogin from "react-google-login";
 import * as React from "react";
 import { BsGoogle } from "react-icons/bs";
 import { FaRegFolderOpen } from "react-icons/fa";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-import {app} from '../services/Firebase'
+import { app } from '../services/Firebase'
 import { v4 as uuidv4 } from "uuid";
 
 const SignUp = (props) => {
-    const [file, setFile] = useState("");
-    const [fileUrl, setFileUrl] = useState(null);
-    const firstName = useRef()
-    const lastName = useRef()
-    const email = useRef()
-    const password = useRef()
-   const [hidden, setHidden] = useState(true);
+  const [file, setFile] = useState("");
+  const [Image, setImage] = useState(null);
+  const firstName = useRef()
+  const lastName = useRef()
+  const email = useRef()
+  const password = useRef()
+  const [hidden, setHidden] = useState(true);
 
 
-    const archivoHandler = async (e) => {
+  const archivoHandler = async (e) => {
     const image = e.target.files[0];
-    const imageUrl = URL.createObjectURL(image);
-    setFileUrl(imageUrl);
-
+    setImage(image);
     const storageRef = app.storage().ref();
     const archivoPath = storageRef.child(`${uuidv4()}-${image.name}`);
     await archivoPath.put(image);
     const enlaceUrl = await archivoPath.getDownloadURL();
     setFile(enlaceUrl)
   };
-//   const userHandler = (e) => {
-//     const value = e.target.value;
-//     const data = e.target.name;
-//     setNewUser({ ...newUser, [data]: value });
-//   };
+  //   const userHandler = (e) => {
+  //     const value = e.target.value;
+  //     const data = e.target.name;
+  //     setNewUser({ ...newUser, [data]: value });
+  //   };
 
-//   const sendFormHandler = async () => {
-//     if (Object.values(newUser).some((value) => value === "")) {
-//       toasty("error", "All fields are required!");
-//     } else {
-//       try {
-//         let response = await props.signUpUser(newUser);
-//         console.log(response);
-//         if (response.data.success) {
-//           toasty("success", "Welcome adventurer!");
-//         } else if (response.data.errors) {
-//           let errors = response.data.errors;
-//           errors.map((error) =>
-//             toast.warn(error.message, {
-//               position: "bottom-right",
-//               autoClose: 4000,
-//               hideProgressBar: false,
-//               closeOnClick: true,
-//               pauseOnHover: false,
-//               draggable: true,
-//               progress: undefined,
-//             })
-//           );
-//         } else {
-//           toasty("error", "This email is already in use");
-//         }
-//       } catch (error) {
-//         // props.history.push("/fail");
-//         console.log(error)
-//       }
-//     }
-//   };
+  //   const sendFormHandler = async () => {
+  //     if (Object.values(newUser).some((value) => value === "")) {
+  //       toasty("error", "All fields are required!");
+  //     } else {
+  //       try {
+  //         let response = await props.signUpUser(newUser);
+  //         console.log(response);
+  //         if (response.data.success) {
+  //           toasty("success", "Welcome adventurer!");
+  //         } else if (response.data.errors) {
+  //           let errors = response.data.errors;
+  //           errors.map((error) =>
+  //             toast.warn(error.message, {
+  //               position: "bottom-right",
+  //               autoClose: 4000,
+  //               hideProgressBar: false,
+  //               closeOnClick: true,
+  //               pauseOnHover: false,
+  //               draggable: true,
+  //               progress: undefined,
+  //             })
+  //           );
+  //         } else {
+  //           toasty("error", "This email is already in use");
+  //         }
+  //       } catch (error) {
+  //         // props.history.push("/fail");
+  //         console.log(error)
+  //       }
+  //     }
+  //   };
 
   const responseGoogle = async (res) => {
     let googleUser = {
@@ -95,26 +93,26 @@ const SignUp = (props) => {
   };
 
   function userHandler(e) {
-      e.preventDefault()
+    e.preventDefault()
 
-       props.signUpUser({
+    props.signUpUser({
       firstName: firstName.current.value,
       lastName: lastName.current.value,
       email: email.current.value,
-      password: password.current.value,  
-      image: file    
-     
+      password: password.current.value,
+      image: file
+
     }
     )
-    
+
     // firstName.current.value = ""
     // lastName.current.value = ""
     // email.current.value = ""
     // password.current.value = ""
-      
+
   }
 
-   
+
 
   return (
     <div>
@@ -131,7 +129,7 @@ const SignUp = (props) => {
                 type="text"
                 name="firstName"
                 placeholder="First name"
-                
+
                 ref={firstName}
                 autoComplete="nope"
               />
@@ -141,7 +139,7 @@ const SignUp = (props) => {
                 type="text"
                 name="lastName"
                 placeholder="Last name"
-               
+
                 ref={lastName}
                 autoComplete="nope"
               />
@@ -151,7 +149,7 @@ const SignUp = (props) => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                
+
                 ref={email}
                 autoComplete="nope"
               />
@@ -161,7 +159,7 @@ const SignUp = (props) => {
                 type={hidden ? "password" : "text"}
                 name="password"
                 placeholder="Password"
-                
+
                 ref={password}
                 autoComplete="nope"
               />
@@ -175,44 +173,52 @@ const SignUp = (props) => {
             </span>
             <span>
               <label>
+
                 <input
                   class="hidden cursor-pointer"
                   type="file"
                   onChange={archivoHandler}
                   id="icon-button-file"
                   style={{ display: "none" }}
-                 
+
                 />
-                <FaRegFolderOpen />
+
+                <div className="flex">
+                  <div className="flex items-center align-center">
+                    <FaRegFolderOpen className="mr-3" />
+                  </div>
+
+                  {Image ? Image.name : "Upload your image"}
+                </div>
               </label>
             </span>
-          
-          <div className="formButtons">
-            <button type="submit" >Create account</button>
-            <GoogleLogin
-              clientId="1092488784737-mqogab3geo4opt8lr2gs0rnptb72iq28.apps.googleusercontent.com"
-              render={(renderProps) => (
-                <>
-                  <button
-                    className="botonGoogle"
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                  >
-                    Sign up with Google
-                    <div className="inputIcons">
-                      <BsGoogle />
-                    </div>
-                  </button>
-                </>
-              )}
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              cookiePolicy={"single_host_origin"}
-            />
-            <p>
-              Already have an account? <Link to="/signIn">Log in here</Link>
-            </p>
-          </div>
+
+            <div className="formButtons">
+              <button type="submit" >Create account</button>
+              <GoogleLogin
+                clientId="1092488784737-mqogab3geo4opt8lr2gs0rnptb72iq28.apps.googleusercontent.com"
+                render={(renderProps) => (
+                  <>
+                    <button
+                      className="botonGoogle"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      Sign up with Google
+                      <div className="inputIcons">
+                        <BsGoogle />
+                      </div>
+                    </button>
+                  </>
+                )}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                cookiePolicy={"single_host_origin"}
+              />
+              <p>
+                Already have an account? <Link to="/signIn">Log in here</Link>
+              </p>
+            </div>
           </form>
         </div>
       </div>
@@ -232,10 +238,9 @@ const SignUp = (props) => {
 };
 
 
-  
-  const mapDispatchToProps = {
-    signUpUser: usersActions.signUpUser
-      
-  }
-  
-  export default connect (null, mapDispatchToProps)(SignUp)
+
+const mapDispatchToProps = {
+  signUpUser: usersActions.signUpUser
+}
+
+export default connect(null, mapDispatchToProps)(SignUp)

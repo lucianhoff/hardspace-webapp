@@ -44,7 +44,15 @@ const usersActions = {
                 Authorization: 'Bearer '+ token,
             }
         })
-            dispatch({type:"LOG_USER", payload:{token, firstName:response.data.firstName, image: response.data.image, admin: response.data.admin, lastName: response.data.lastName, favourites: response.data.favourites , _id:response.data._id}})// , birthday: response.data.birthday
+
+            dispatch({type:"LOG_USER", payload:{
+                token, firstName:response.data.firstName,
+                image: response.data.image,
+                admin: response.data.admin,
+                lastName: response.data.lastName,
+                favourites: response.data.favourites,
+                _id:response.data._id
+            }})// , birthday: response.data.birthday
             }catch(error) {
             return dispatch({type:'LOG_OUT_USER' })
             }
