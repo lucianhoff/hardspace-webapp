@@ -610,6 +610,7 @@ input, select{
 /*resposive INDIVIDUAL CART*/
 .mediaquery{
   display:flex;
+  width: 80%;
 
 }
 

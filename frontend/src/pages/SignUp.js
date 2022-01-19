@@ -9,7 +9,6 @@ import * as React from "react";
 import { BsGoogle } from "react-icons/bs";
 import { FaRegFolderOpen } from "react-icons/fa";
 import { connect } from 'react-redux'
-
 import { app } from '../services/Firebase'
 import { v4 as uuidv4 } from "uuid";
 
@@ -31,44 +30,8 @@ const SignUp = (props) => {
     await archivoPath.put(image);
     const enlaceUrl = await archivoPath.getDownloadURL();
     setFile(enlaceUrl)
-  };
-  //   const userHandler = (e) => {
-  //     const value = e.target.value;
-  //     const data = e.target.name;
-  //     setNewUser({ ...newUser, [data]: value });
-  //   };
-
-  //   const sendFormHandler = async () => {
-  //     if (Object.values(newUser).some((value) => value === "")) {
-  //       toasty("error", "All fields are required!");
-  //     } else {
-  //       try {
-  //         let response = await props.signUpUser(newUser);
-  //         console.log(response);
-  //         if (response.data.success) {
-  //           toasty("success", "Welcome adventurer!");
-  //         } else if (response.data.errors) {
-  //           let errors = response.data.errors;
-  //           errors.map((error) =>
-  //             toast.warn(error.message, {
-  //               position: "bottom-right",
-  //               autoClose: 4000,
-  //               hideProgressBar: false,
-  //               closeOnClick: true,
-  //               pauseOnHover: false,
-  //               draggable: true,
-  //               progress: undefined,
-  //             })
-  //           );
-  //         } else {
-  //           toasty("error", "This email is already in use");
-  //         }
-  //       } catch (error) {
-  //         // props.history.push("/fail");
-  //         console.log(error)
-  //       }
-  //     }
-  //   };
+  }
+  
 
   const responseGoogle = async (res) => {
     let googleUser = {
@@ -90,7 +53,7 @@ const SignUp = (props) => {
       props.history.push("/fail");
       return false;
     }
-  };
+  }
 
   function userHandler(e) {
     e.preventDefault()
