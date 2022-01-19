@@ -85,6 +85,8 @@ function Navigation(props) {
 
   }
   console.log(props.admin)
+  console.log(props.firstName)
+  console.log(props)
   return (
     <>
       <div className="firstNav">
