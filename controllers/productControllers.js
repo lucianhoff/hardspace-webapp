@@ -12,8 +12,8 @@ const productControllers = {
     },
     loadProduct: (req,res) => {
         const {name, images, price, stock, brand, category, description} = req.body
-        new Product({name, images, price, stock, brand, category, description}).save()
-        .then((response)=>res.json({response}))
+        const prod = new Product({name, images, price, stock, brand, category, description}).save()
+        .then((res)=>res.json({response:prod,success:true}))
         .catch((err)=>console.error(err))
 
     },
@@ -33,7 +33,7 @@ const productControllers = {
         }catch(error){
             console.error(error)
         }
-        res.json({response:prod,sucess:true})
+        res.json({response:prod,success:true})
 
     },
     modifyProduct: async (req,res)=> {
