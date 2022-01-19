@@ -13,7 +13,7 @@ const productControllers = {
     loadProduct: (req,res) => {
         const {name, images, price, stock, brand, category, description} = req.body
         const prod = new Product({name, images, price, stock, brand, category, description}).save()
-        .then((res)=>res.json({response:prod,success:true}))
+        .then((res)=>res.json({res}))
         .catch((err)=>console.error(err))
 
     },

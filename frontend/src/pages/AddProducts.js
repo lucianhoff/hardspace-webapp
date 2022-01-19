@@ -44,7 +44,14 @@ function AddProducts(props){
     
         e.preventDefault()
         props.addProduct(product)
-        
+
+        document.getElementById("name").value = "";
+        document.getElementById("images").value = "";
+        document.getElementById("price").value = "";
+        document.getElementById("stock").value = "";
+        document.getElementById("brand").value = "";
+        document.getElementById("category").value = "";
+        document.getElementById("description").value = "";
     }
 
     return(
