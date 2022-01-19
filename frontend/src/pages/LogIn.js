@@ -5,6 +5,7 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
 import GoogleLogin from 'react-google-login'
+import { BsGoogle} from "react-icons/bs";
 
 const SignIn = (props) => {
     const [logInUser, setLogInUser] = useState({ email: '', password: '' })
@@ -72,7 +73,7 @@ const SignIn = (props) => {
                         <GoogleLogin
                                     clientId="1092488784737-mqogab3geo4opt8lr2gs0rnptb72iq28.apps.googleusercontent.com"
                                     render={renderProps => (
-                                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Log in with Google</button>
+                                    <button className="botonGoogle"onClick={renderProps.onClick} disabled={renderProps.disabled}>Log in with Google<div className="inputIcons"><BsGoogle/></div></button>
                                     )}
                                     buttonText="Login"
                                     onSuccess={responseGoogle}

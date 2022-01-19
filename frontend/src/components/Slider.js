@@ -79,7 +79,7 @@ const Carousel = (props) => {
               <div key={index} className="cardCarousel">
               <img className="imgCarousel" style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}} src={product.images[0]} />
               <h4 className="txtCarousel text-center py-5">{(product.name).substr(0,32)}</h4>
-              <div className="price-button">
+              <div className="price-button2">
                 {/* <p>${product.price}</p> */}
                 <Link to={`/product/${product._id}`} className="buttonCarousel2"  >About this item</Link>
               </div>

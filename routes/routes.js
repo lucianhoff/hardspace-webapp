@@ -36,18 +36,7 @@ Router.route("/user/:id")
 .delete(deleteUser)
 .put(editUser)
 
- //files upload 
-
-Router.route('/user/upload')
-.post(uploadFile, getFiles)
-
-Router.route('/user/fileList')
-.post(getFiles)
-
-Router.route('/user/delete:id')
-.post(deleteFile)
-
-
+ 
 
 Router.route ("/verifyToken")
 .get(

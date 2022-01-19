@@ -101,11 +101,20 @@
   color: rgb(168, 168, 168);
   display: flex;
   justify-content: space-evenly;
-  height: 5rem;
+  
   padding:0.5rem;
  
 }
 
+.price-button2{
+  font-weight: bold;
+  color: rgb(168, 168, 168);
+  display: flex;
+  justify-content: space-evenly;
+  height: 5rem;
+  padding:0.5rem;
+  text-align: center;
+}
 .price-button a{
   text-align: center;
 
@@ -156,10 +165,16 @@
 
 /* SIGN IN, SIGN UP */
 
+.botonGoogle{
+  display:flex;
+  align-items:Center;
+  justify-content:space-evenly;
+}
+
 .signUpTittle h2, .signInTittle h2{
   font-weight: bold;
   color:#cfcfcf;
-  font-size: 7vmin;
+  font-size: 4rem;
 }
 
 .signUpTittle h4, .signInTittle h4 {
@@ -192,7 +207,7 @@ min-height: 86vh;
 
 .formContainer, .formContainerSignIn{
   padding: 2rem 2rem;
-  width:30%;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,11 +230,29 @@ form input, form select, .signInForm input {
 .formButtons{
   display: flex;
   flex-direction: column;
+  justify-content:space-evenly;
 }
 
-.formButtons button {
+.formButtons button,  p{
   padding: .3rem 0;
   margin: .2rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  padding:0.5rem;
+  
+}
+
+.formButtons button:hover{
+  border:1px solid rgba(119, 136, 153, 0.644);
+  border-radius: 15px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: rgba(119, 136, 153, 0.644);
+}
+
+.formButtons p:hover{
+  border:1px solid rgba(119, 136, 153, 0.644);
+  border-radius: 15px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: rgba(119, 136, 153, 0.644);
 }
 
 form span, .signInForm span {

@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { connect } from 'react-redux'
 
 
- function Files(props,{userConected} ) {
+ function Files(props ) {
     const [open, setOpen] = React.useState(false);
     const [fileSelected, setFile] = useState()
     const [filesList, setFileList] = useState([])
@@ -14,8 +14,8 @@ import { connect } from 'react-redux'
     const [itemId, setItemId] = useState()
 
     const fileList = async () => {
-        let email = userConected?.email
-        await props.getFiles(email)
+       
+        await props.getFiles()
             .then(response => {
                 setFileList(response.user.data.response.files)
             })
@@ -26,54 +26,53 @@ import { connect } from 'react-redux'
         let file = await e.target.files[0]
         console.log(file)
         setFile(file)
-        let user = userConected.email
+        
         const formData = new FormData()
-        formData.append('user', user)
+        
         formData.append('file', file)
 
-        // await props.uploadFile(formData)
-        //     .then(response => {
-        //         if (response.success) {
-        //             alert("Uploaded successfully!")
-        //         }
-        //         else { alert("File already uploaded") }
-        //     })
-        // setReload(!reload)
+        await props.uploadFile(formData)
+            .then(response => {
+                if (response.success) {
+                    alert("Uploaded successfully!")
+                }
+                else { alert("File already uploaded") }
+            })
+        setReload()
     }
 
     const deleteItem = async (event) => {
         let { id } = event.target
-        let email = await userConected?.email
-        await props.deleteFile(id, email)
+        
+        await props.deleteFile(id)
             .then(response => {
                 alert(response.response.mensaje)
             })
-        setReload(!reload)
+        setReload()
     }
 
 
-    useEffect(() => {
-        fileList()
-    }, [reload])
+  
     const handleOpen = () => {
         open ? setOpen(false) : setOpen(true)
     };
 
     return (
         <div>
-            <button onClick={handleOpen}>
-              <div className="deliveryIcon"><FaRegFolderOpen/></div>
-            </button>
+            <label>
+                <input class="hidden cursor-pointer" type="file" onChange={upload} id="icon-button-file" style={{ display: 'none', }} multiple/>
+              <FaRegFolderOpen/>
+            </label>
             {open &&
                 <div className="cardFiles">
                     <div className="cardInput">
                         <div>
                             <input type="file" onChange={upload} id="icon-button-file" style={{ display: 'none', }} multiple/>
-                            <label htmlFor="icon-button-file">
-                                <button variant="contained" component="span" startIcon={< BsCloudUpload />}>
+                            {/* <label htmlFor="icon-button-file">
+                                 <button variant="contained" component="span" starticon={< BsCloudUpload />}>
                                     Upload
-                                </button>
-                            </label>
+                                </button> 
+                            </label> */}
                         </div>
                         <div>
                             {(!filesList)
