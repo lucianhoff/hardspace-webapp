@@ -111,9 +111,9 @@
   color: rgb(168, 168, 168);
   display: flex;
   justify-content: space-evenly;
-  height: 5rem;
+  /* height: 5rem; */
   padding:0.5rem;
-  text-align: center;
+  /* text-align: center; */
 }
 .price-button a{
   text-align: center;
@@ -122,10 +122,10 @@
 .buttonCarousel {
   font-weight: bold;
   color: white;
-  /* padding: 0.5rem; */
+  padding: 0.5rem;
   background-color: rgb(25, 196, 196);
   border-radius: 5px;
-  width: 64px;
+  /* width: 64px; */
   display:flex;
   align-items: center;
   justify-content: center;
@@ -134,14 +134,13 @@
 
 
 .buttonCarousel2{
-  
   font-weight: bold;
   color: white;
-  
   background-color: rgb(25, 196, 196);
   border-radius: 5px;
-  width: 100px;
+  /* width: 100px; */
   display:flex;
+  padding: 0.5rem;
   align-items: center;
   justify-content: center;
 }
@@ -564,7 +563,7 @@ input, select{
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  height: 30rem;
+  height: 23rem;
   color: rgb(0, 0, 0);
   width: 230px;
   justify-content: space-around !important;
