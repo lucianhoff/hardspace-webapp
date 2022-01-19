@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { connect } from "react-redux";
 
 const PayPal = (props) => {
+
+  const [price, setPrice] = useState(props.totalPrice);
+
+  useEffect(() => {
+    setPrice(props.totalPrice);
+  }, [price]);
+
   const initialOptions = {"client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, currency: "USD",
   intent: "capture"}
   console.log(props.totalPrice)
@@ -13,7 +20,7 @@ const PayPal = (props) => {
     {
        description:"items",
        amount: {
-         value: props.totalPrice,
+         value: price,
        },
  
      },
