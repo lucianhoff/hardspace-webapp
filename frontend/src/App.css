@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  height: 20rem;
+  height: 23rem;
   color: rgb(0, 0, 0);
   width: 239px;
   justify-content: space-around !important;
@@ -86,7 +86,7 @@
 .txtCarousel {
   display: flex;
   justify-content: center;
-  height: 3rem;
+  height: 5rem;
   background-color: rgba(43, 43, 42, 0.048);
   align-items: center;
   font-weight: bold;
@@ -98,11 +98,11 @@
 
 .price-button {
   font-weight: bold;
-  color: rgb(32, 202, 188);
+  color: rgb(168, 168, 168);
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   height: 5rem;
+  align-items: center;
 }
 
 .buttonCarousel {
@@ -122,7 +122,8 @@
   margin: 0 10px;
 }
 .slick-list {
-  margin: 0 -20px;
+  margin: 1rem -20px;
+  height: 427px;
 }
 
 /* SIGN IN, SIGN UP */
@@ -208,16 +209,39 @@ form span, .signInForm span {
 .eyeIcon {
   cursor: pointer;
 }
+ /*FOOTER*/
 
+ .deliveryIcon{
+   color:white!important;
+ }
+
+ .footerBk{
+   background-color: rgba(0, 0, 0, 0.644);
+   min-height: 4rem!important;
+ }
+
+ .footerColor{
+   color:White!important;
+ }
+
+ .fab{
+   color:orange!important;
+ }
 /*Container Cart*/
+.padreContainerCart{
+  display:flex;
+  justify-content: center;
+}
 .containerCart{
-  margin-left: 5rem;
-  margin-right:5rem;
+  /* margin-left: 5rem;
+  margin-right:5rem; */
   min-height: 60vh;
   background-color: rgba(245, 239, 239, 0.767);
   display: flex;
   flex-direction: column;
   margin-top:4rem;
+  width: 80%;
+  align-self: center;
  
  
 }
@@ -225,7 +249,7 @@ form span, .signInForm span {
 .primerdiv{
   border-bottom: 1px solid #e6e6e6;
   height: 10vh;
-
+align-items: center;
   display: flex;
   justify-content: flex-start;
 }
@@ -245,19 +269,22 @@ form span, .signInForm span {
 .articleContainer{
   border-bottom: 1px solid #e6e6e6;
   display:flex;
-  
-  height: 20vh;
+  justify-content: center;
+  height: 30vh;
   align-items: center;
 }
 
 .articleImg{
-  width: 10%;
+  
   display:flex;
   justify-content: center;
+  margin-right:0.5rem;
+  height: 20vh;
+  object-fit: cover;
 }
 
 .articleInfo{
-  width: 55%;
+  width: 70%;
   display:flex;
   flex-direction: column;
 }
@@ -274,12 +301,22 @@ form span, .signInForm span {
 
 }
 
+.freedelivery{
+  font-style: italic;
+  font-size: 20px;
+  color: #04419c;
+}
 .delete{  
   margin-right: 1rem;
+  font-size: 15px;
+}
+
+.delete:hover{
+  text-decoration: underline;
 }
 
 .articleInput{
-  width:25%;
+
   display:flex;
   justify-content: center;
 }
@@ -290,7 +327,8 @@ form span, .signInForm span {
 }
 
 .articlePrice{
-width: 10%;
+
+font-size: 20px;
 }
 
 .boton{
@@ -303,6 +341,19 @@ width: 10%;
   
 }
 
+.totales{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  height: 25vh;
+  padding: 2rem;
+  
+}
+.totales h3{
+  font-size: 20px;
+  font-weight: bold;
+}
 /*formulario add products */
 
 .titleForm{
@@ -382,6 +433,7 @@ input, select{
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 85%;
+  /* height: 427px; */
 }
 
 @media (max-width: 420px) {
@@ -434,7 +486,7 @@ input, select{
 .swiper-slide img {
   display: block;
   width: 100%;
-  /* height: 100%; */
+  padding: 15px;
   object-fit: cover;
 }
 
@@ -482,6 +534,94 @@ input, select{
   background-color: rgba(43, 43, 42, 0.048);
   align-items: center;
   font-weight: bold;
+  text-align: center;
+}
+
+
+/*resposive INDIVIDUAL CART*/
+.mediaquery{
+  display:flex;
+
+}
+
+.mediaQuery{
+  display:flex;
+  flex-direction: column;
+  align-items: center
+}
+@media (max-width: 900px){
+  .articleContainer{
+    height: 30vh;
+  }
+
+  /* .articleInfo{
+    width: 50%;
+  } */
+  .articleTitle{
+    font-size: 1rem;
+  }
+
+  .freedelivery{
+    font-size: 15px;
+  }
+
+  .articlePrice{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 680px){
+  .articleContainer{
+    height: 40vh;
+    display:flex;
+    flex-direction: column;
+   
+  }
+
+  .mediaquery{
+    width:100%!important;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .mediaQuery{
+    margin-top:1rem;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .articleInput{
+    width:40%;
+  }
+
+  .articleImg{
+   
+    display:flex;
+    justify-content: center;
+    margin-right:0.5rem;
+    height: 20vh;
+    object-fit: cover;
+  }
+  .articleInfo{
+    width: 70%;
+  }
+  .articleTitle{
+    font-size: 1rem;
+  }
+
+  .freedelivery{
+    font-size: 15px;
+  }
+
+  .articlePrice{
+    font-size: 15px;
+    
+    align-self: center;
+  }
 }
 
 .filterProduct{
@@ -499,4 +639,53 @@ input, select{
 
 .filter li{
   list-style: none;
+}
+
+body::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+body::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 5px;
+}
+
+/* DELETE PRODUCTS */
+
+.delete-products{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-prod {
+  width: 70vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #04419c;
+  border-radius: 10px;
+  margin-top: 10px;
+ 
+}
+.delete-prod img {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.button-delete {
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem;
+  background-color: red;
+  border-radius: 5px;
+  width: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 50px;
 }

@@ -1,12 +1,14 @@
 //components
 import Footer from "./components/Footer";
 import Navigation from "./components/navbar/Navbar";
-import Products from "./pages/Products";
 
 //pages
 import Home from './pages/Home';
-import Cart from './pages/Cart'
+import Products from "./pages/Products";
+import Product from "./pages/Product";
 import AddProducts from "./pages/AddProducts";
+import Cart from './pages/Cart'
+import DeleteProducts from "./pages/DeleteProducts"
 
 //style
 import "./App.css";
@@ -19,6 +21,8 @@ import usersActions from "./redux/actions/usersActions";
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import productsActions from "./redux/actions/productsActions";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import Crud from "./pages/Crud";
 
 function App(props) {
 
@@ -28,37 +32,52 @@ function App(props) {
     var sumaProd = 0;
     var sumaPrice = 0;
 
-    for (var i = 0; i<localStorage.length; i++) {
-        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        sumaProd = sumaProd + archive[i].qty 
-        sumaPrice = sumaPrice + archive[i].price
+    if(localStorage.length !== 0){
+      for (var i = 0; i<localStorage.length; i++) {
+            if (localStorage.key(i)!=='token' && localStorage.key(i) !== "__paypal_storage__") {
+                archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                sumaProd = sumaProd + archive[i].qty 
+                sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
+            } else {
+                /* alert('este es el token') */
+            }
+      }
+      console.log(archive)
 
-    console.log(archive)
-    props.setTotalProducts(sumaProd) 
-    props.setTotalPrice(sumaPrice)
+      props.setArrayStorage(archive)
+      props.setTotalProducts(sumaProd) 
+      props.setTotalPrice(sumaPrice)
    
     }
-}
+  }
   
   useEffect(()=>{
     if(localStorage.getItem('token')){
-        props.signInLS(localStorage.getItem('token'))
-      }
-    allStorage()
+      props.signInLS(localStorage.getItem('token'))
+    }
+    if (localStorage.length>0){
+      allStorage()
+    }
   },[])
 
   return (
     <BrowserRouter>
     <Navigation />
+    {/* <PayPalScriptProvider options={{"client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}> */}
       <Routes>
         <Route path="/" element={<Home />} />
-               {props.token ?
+            {props.token ?
                 <Route path='*'element ={<Home/>}></Route> : 
                 <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/addproducts" element={<AddProducts/>} />
+        {true  ? <Route path="/crud" element={<Crud/>} /> : null}
+              {/* props.admin */}
+        <Route path="/deleteproducts" element={<DeleteProducts/>} />
       </Routes>
+      {/* </PayPalScriptProvider> */}
       <Footer/>
     </BrowserRouter>
   );
@@ -66,13 +85,15 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return{
-      token: state.users.token
+      token: state.users.token,
+      admin: state.users.admin
   }
 }
 const mapDispatchToProps = {
   signInLS: usersActions.signInLS,
   setTotalProducts: productsActions.setTotalProducts,
-  setTotalPrice:productsActions.setTotalPrice
+  setTotalPrice:productsActions.setTotalPrice,
+  setArrayStorage: productsActions.setArrayStorage
 
 }
 

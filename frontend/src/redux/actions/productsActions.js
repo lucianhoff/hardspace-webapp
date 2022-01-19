@@ -9,11 +9,16 @@ const productsActions = {
             dispatch({type: 'GET_ALL_PRODUCTS', payload: data})
         }
     },
-
     search : (text) => {
         return async (dispatch, getState) => {
             try {
-                const arreglo = await axios.get('http://localhost:4000/api/products/'+text)
+                let arreglo
+                if(text === "" ){
+                    arreglo = await axios.get('http://localhost:4000/api/products')
+                }else{
+                    arreglo = await axios.get('http://localhost:4000/api/products/'+text)
+                }
+               
 
                 if (arreglo.data.response.length > 0) {
 
@@ -30,6 +35,10 @@ const productsActions = {
                 }
 
             } catch(error) {
+                console.error(error)
+            }
+        }
+    },
     setTotalProducts: (totalQuantity) => {
         return async (dispatch) => {
             dispatch({type: 'TOTAL_PRODUCTS', payload: totalQuantity})
@@ -61,12 +70,37 @@ const productsActions = {
             }
         }
     },
-
+    setArrayStorage: (array) => {
+        return async (dispatch) => {
+            dispatch({type: 'STORAGE', payload: array})
+        }
+    },
     brandsAux: (array) => {
         return async (dispatch) => {          
             dispatch({type: 'BRANDS', payload: array})
         }
-    }
+    },
+    getOneProduct: (id) => {
+        console.log(id)
+        return async (dispatch) => {
+            let response = await axios.get('http://localhost:4000/api/product/'+id)
+            let data = response.data.response
+            dispatch({type: 'GET_ONE_PRODUCT', payload: data})
+        }
+    },
+    deleteProduct: (id) => {
+        return async (dispatch) => {
+            let response = await axios.delete('http://localhost:4000/api/product/'+id)
+            let data = response.data.response
+            dispatch({type: 'DELETE_PRODUCT', payload: data})
+        }
+    },
+    delProduct:(id)=>{
+        return async (dispatch) => {
+            const response = await axios.delete(`http://localhost:4000/api/product/${id}`)
+            return ({ response: response.data.response, success: true })
+        }
+    },
 }
 
 export default productsActions
