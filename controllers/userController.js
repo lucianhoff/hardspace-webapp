@@ -56,7 +56,7 @@ const userController = {
             let correctPass = bcryptjs.compareSync(password, user.password)
             if(!correctPass) throw new Error('Email/password incorrect')
             const token = jwt.sign({...user}, process.env.SECRETKEY)
-            res.json({ success:true, response:{token, firstName:user.firstName, image:user.image,  _id:user._id}})
+            res.json({ success:true, response:{token, firstName:user.firstName, image:user.image,  _id:user._id, admin: user.admin}})
         })
         .catch ((error) => res.json({success:false, error:error.message}))
     },
@@ -71,10 +71,10 @@ const userController = {
             .catch((error) => res.json({ success: false, response: error.message }))
     },
     verifyToken: (req, res) => {
-        res.json({ firstName: req.user.firstName, image: req.user.image, _id: req.user._id })
+        res.json({ firstName: req.user.firstName, image: req.user.image, _id: req.user._id, admin: req.user.admin })
     },
     verifyToken : (req, res) => {
-        res.json({firstName: req.user.firstName, image:req.user.image, _id:req.user._id})
+        res.json({firstName: req.user.firstName, image:req.user.image, _id:req.user._id, admin: req.user.admin})
     },
     
 }
