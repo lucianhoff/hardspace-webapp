@@ -277,7 +277,7 @@ form span, .signInForm span {
  }
 
  .footerBk{
-   background-color: rgba(0, 0, 0, 0.644);
+   /* background-color: rgba(0, 0, 0, 0.644); */
    min-height: 4rem!important;
  }
 
