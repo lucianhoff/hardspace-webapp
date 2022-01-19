@@ -6,6 +6,7 @@ import Filter from "../components/Filter";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import swal from 'sweetalert2'
+import Swal from "sweetalert2"
 import "swiper/css/pagination"
 import SwiperCore, {
   Pagination
@@ -146,7 +147,32 @@ const Products = (props) => {
                       </div>
                       <div className="flex font-bold justify-evenly ">
                         
-                        <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
+                        <button className="buttonCarousel" 
+                        onClick={
+                          () => {
+                          if (props._id) {
+                            addCart(products)
+                          } else {
+                            const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'error',
+  title: 'Sign in for buy'
+})
+
+                          }}
+                        } 
+                        >Buy</button>
                         <Link to={`/product/${products._id}`} className="buttonCarousel"  >View More</Link>
                       </div>
 
@@ -166,7 +192,32 @@ const Products = (props) => {
                         <p className="text-center">{`$${products.price}`}</p>
                       </div>
                       <div className="flex font-bold justify-evenly">
-                        <button className="buttonCarousel" onClick={() => addCart(products)} >Buy</button>
+                        <button className="buttonCarousel" 
+                        onClick={
+                          () => {
+                          if (props._id) {
+                            addCart(products)
+                          } else {
+                            const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'error',
+  title: 'Sign in for buy'
+})
+
+                          }}
+                        } 
+                        >Buy</button>
                         <Link to={`/product/${products._id}`} className="buttonCarousel"  >View More</Link>
                       </div>
 
@@ -192,7 +243,8 @@ const mapStateToProps = (state) => {
   return {
     productsList: state.productsReducer.productsList,
     auxSearch: state.productsReducer.auxSearch,
-    searchProducts : state.productsReducer.searchProducts
+    searchProducts : state.productsReducer.searchProducts,
+    _id: state.users._id
   }
 }
 
