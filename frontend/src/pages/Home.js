@@ -12,18 +12,17 @@ const Home = () => {
           // className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 lg:mb-2 bg-purple-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
           style={{
             backgroundImage:
-              //   "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-              "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-            // backgroundSize: "",
+              "url(./assets/headphone.png)",
+            backgroundSize: "40%",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "right",
+            backgroundPosition: "85%",
           }}
         >
           <div className="">
             <h3 className="font-bold text-white text-2xl ">
-              Gaming Headset Brilliant
+              Panasonic 
               <br />
-              Lighting Effect
+              Lightweight
             </h3>
           </div>
           <div className="w-48 lg:mt-6">
@@ -49,7 +48,7 @@ const Home = () => {
             >
               <div className="">
                 <h3 className="font-bold text-white text-2xl lg:mb-6">
-                  GPU <br /> Gaming
+                Asus ROG <br /> RX 6700 XT
                 </h3>
               </div>
               <div className="w-48 lg:mt-6">
@@ -61,20 +60,20 @@ const Home = () => {
               </div>
             </div>
             <div
-              className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-yellow-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
+              className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-gray-600 rounded-lg mt-7 lg:h-auto lg:mt-0 "
               style={{
                 backgroundImage:
-                  "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-                // backgroundSize: "",
+                  "url(./assets/masterbox.png)",
+                backgroundSize: "40%",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "right",
+                backgroundPosition: "90%",
               }}
             >
               <div className="">
                 <h3 className="font-bold text-white text-2xl lg:mb-6">
-                  Gaming Headset Brilliant
+                Cooler Master
                   <br />
-                  Lighting Effect
+                  MasterBox
                 </h3>
               </div>
               <div className="w-48 lg:mt-6">
@@ -87,20 +86,18 @@ const Home = () => {
 
           <div className="lg:flex lg:flex-col lg:w-6/12  lg:pr-3">
             <div
-              className="w-full h-80  flex flex-col justify-between p-6 lg:p-2 lg:mb-2 bg-purple-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
+              className="w-full h-80  flex flex-col justify-between p-6 lg:p-2 lg:mb-2 bg-orange-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
               style={{
                 backgroundImage:
-                  "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-                // backgroundSize: "",
+                  "url(./assets/cpu-gaming.png)",
+                backgroundSize: "40%",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "right",
+                backgroundPosition: "90%",
               }}
             >
               <div className="">
                 <h3 className="font-bold text-white text-2xl lg:mb-6">
-                  Gaming Headset Brilliant
-                  <br />
-                  Lighting Effect
+                Ryzen 5 <br /> 5600X
                 </h3>
               </div>
               <div className="w-48 lg:mt-6">
@@ -110,20 +107,20 @@ const Home = () => {
               </div>
             </div>
             <div
-              className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-yellow-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
+              className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-green-700 rounded-lg mt-7 lg:h-auto lg:mt-0 "
               style={{
                 backgroundImage:
-                  "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-                // backgroundSize: "",
+                  "url(./assets/mouse.png)",
+                backgroundSize: "60%",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "right",
               }}
             >
               <div className="">
                 <h3 className="font-bold text-white text-2xl lg:mb-6">
-                  Gaming Headset Brilliant
+                Razer
                   <br />
-                  Lighting Effect
+                  DeathAdder
                 </h3>
               </div>
               <div className="w-48 lg:mt-6">
@@ -135,7 +132,11 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
       <Carousel />
+
+
       <div className=" pt-7 flex flex-col lg:flex-row">
         <div className="lg:flex lg:flex-col lg:w-3/12 lg:pl-3">
           <div
@@ -160,20 +161,20 @@ const Home = () => {
             </div>
           </div>
           <div
-            className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-yellow-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
+            className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-gray-500 rounded-lg mt-7 lg:h-auto lg:mt-0 "
             style={{
               backgroundImage:
                 "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-              // backgroundSize: "",
+              backgroundSize: "80%",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "right",
             }}
           >
             <div className="">
               <h3 className="font-bold text-white text-2xl lg:mb-6">
-                Gaming Headset Brilliant
+                Gaming 
                 <br />
-                Lighting Effect
+                Headset
               </h3>
             </div>
             <div className="w-48 lg:mt-6 invisible">
@@ -185,19 +186,19 @@ const Home = () => {
         </div>
 
         <div
-          className="w-full h-80 lg:h-auto flex flex-col justify-between p-6 bg-red-400 rounded-lg lg:w-3/12 lg:mx-2"
+          className="w-full h-80 lg:h-auto flex flex-col justify-between p-6 bg-blue-400 rounded-lg lg:w-3/12 lg:mx-2"
           style={{
             backgroundImage:
               //   "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-              "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-            // backgroundSize: "",
+              "url(./assets/case.png)",
+            backgroundSize: "60%",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "right",
+            backgroundPosition: " 50% 75%",
           }}
         >
           <div className="">
             <h3 className="font-bold text-white text-2xl ">
-              Gaming Headset Brilliant
+              Gaming Cases
               <br />
               Lighting Effect
             </h3>
@@ -211,18 +212,18 @@ const Home = () => {
 
         <div className="lg:flex lg:flex-col lg:w-3/12 ">
           <div
-            className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 lg:mb-2 bg-red-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
+            className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 lg:mb-2 bg-blue-700 rounded-lg mt-7 lg:h-auto lg:mt-0 "
             style={{
               backgroundImage:
-                "url(https://dm2305files.storage.live.com/y4m5YYlfJrmTyb6I29NEDIK9Db2_rQiIf7clGZN5M8aDySCkO_1iB30hmHmxgk-74-52C8hbY0qdOlIX1UPp16QFmCu1h6bj-Rz5eakGPctSPE438TAYK0O6kY9-fWApvyGchfb_AqYTVPEGgAaZ3xyhICkk0Na7U1vJnFqalM27fa71RDBfnSAsUBzi8EO7JAe?width=1000&height=887&cropmode=none)",
+                "url(./assets/monitor.png)",
               backgroundSize: "50%",
               backgroundRepeat: "no-repeat",
-              backgroundPosition: "right",
+              backgroundPosition: "90%",
             }}
           >
             <div className="">
               <h3 className="font-bold text-white text-2xl lg:mb-6">
-                GPU <br /> Gaming
+                Monitor <br /> Gaming
               </h3>
             </div>
             <div className="w-48 lg:mt-6 invisible">
@@ -232,18 +233,18 @@ const Home = () => {
             </div>
           </div>
           <div
-            className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-yellow-400 rounded-lg mt-7 lg:h-auto lg:mt-0 "
+            className="w-full h-80 flex flex-col justify-between p-6 lg:p-2 bg-green-600 rounded-lg mt-7 lg:h-auto lg:mt-0 "
             style={{
               backgroundImage:
-                "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-              // backgroundSize: "",
+                "url(./assets/mouse.png)",
+              backgroundSize: "60%",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "right",
             }}
           >
             <div className="">
               <h3 className="font-bold text-white text-2xl lg:mb-6">
-                Gaming Headset Brilliant
+                Mouse
                 <br />
                 Lighting Effect
               </h3>
@@ -261,17 +262,17 @@ const Home = () => {
           style={{
             backgroundImage:
               //   "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-              "url(https://i.blogs.es/2a1b25/logitech-g-pro-3/450_1000.png)",
-            // backgroundSize: "",
+              "url(./assets/cpu-gaming.png)",
+            backgroundSize: "70%",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "right",
+            backgroundPosition: " 50% 75%",
           }}
         >
           <div className="">
             <h3 className="font-bold text-white text-2xl ">
-              Gaming Headset Brilliant
+              CPU
               <br />
-              Lighting Effect
+              Gaming
             </h3>
           </div>
           <div className="w-48 lg:mt-6 invisible">
