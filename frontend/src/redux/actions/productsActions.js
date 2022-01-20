@@ -1,5 +1,6 @@
 import axios from "axios"
 import {toast} from 'react-toastify';
+import swal from 'sweetalert'
 
 const productsActions = {
     getAllProducts: ()=>{
@@ -50,19 +51,30 @@ const productsActions = {
     addProduct: (newProduct) => {
         return async (dispatch, getState) =>{
             try {
+
+                swal("The product has been added to the database", {
+                    icon: "success",
+                  })
+
+                let images = []
+                images.push(newProduct.images)
+                let productToLoad = {...newProduct,images}
+
                 const product = await axios.post('http://localhost:4000/api/products',  {
-                    ...newProduct})
-                    
-                    console.log(product)
-                if(product.data.success && !product.data.error){
+                    ...productToLoad})
+
+                return product.data.response
+
+                /* if(product.data.success){
+                    alert('exito')
                     toast.success("Your product has been uploaded", {
                         position: toast.POSITION.TOP_CENTER,
-                    
                     }) 
                             
                 }else{
-                    toast.error(product.data.response)
-                }
+                    toast.error(product.data.response)   */
+
+        
             }catch(error){
                 console.error(error)
             }
