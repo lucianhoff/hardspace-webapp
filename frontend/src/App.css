@@ -402,7 +402,6 @@ font-size: 20px;
   height: 30px;
   background-color: #04419c;
   color:white;
-  
 }
 
 .totales{
@@ -412,12 +411,27 @@ font-size: 20px;
   justify-content: center;
   height: 25vh;
   padding: 2rem;
-  
+}
+.payment{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10vh;
+  padding: 2rem;
+}
+.payment h3{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.paypal-btn {
+  text-align: center;
 }
 .totales h3{
   font-size: 20px;
   font-weight: bold;
 }
+
 /*formulario add products */
 
 .titleForm{

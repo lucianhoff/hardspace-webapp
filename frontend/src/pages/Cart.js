@@ -63,7 +63,7 @@ function Cart(props){
                     <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
                 </div>
                 <div className="payment">
-                    <h3>BUY</h3>
+                    <h3>BUY WITH:</h3>
                 </div>
                 <div className="paypal-btn">
                     <PayPal/>  
