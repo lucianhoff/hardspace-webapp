@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 const productsActions = {
     getAllProducts: ()=>{
         return async (dispatch) => {
-            let response = await axios.get('http://localhost:4000/api/products')
+            let response = await axios.get('https://hardspace--webapp.herokuapp.com/api/products')
             let data = response.data.response
             dispatch({type: 'GET_ALL_PRODUCTS', payload: data})
         }
@@ -15,9 +15,9 @@ const productsActions = {
             try {
                 let arreglo
                 if(text === "" ){
-                    arreglo = await axios.get('http://localhost:4000/api/products')
+                    arreglo = await axios.get('https://hardspace--webapp.herokuapp.com/api/products')
                 }else{
-                    arreglo = await axios.get('http://localhost:4000/api/products/'+text)
+                    arreglo = await axios.get('https://hardspace--webapp.herokuapp.com/api/products/'+text)
                 }
                
 
@@ -60,7 +60,7 @@ const productsActions = {
                 images.push(newProduct.images)
                 let productToLoad = {...newProduct,images}
 
-                const product = await axios.post('http://localhost:4000/api/products',  {
+                const product = await axios.post('https://hardspace--webapp.herokuapp.com/api/products',  {
                     ...productToLoad})
 
                 return product.data.response
@@ -93,21 +93,21 @@ const productsActions = {
     getOneProduct: (id) => {
         console.log(id)
         return async (dispatch) => {
-            let response = await axios.get('http://localhost:4000/api/product/'+id)
+            let response = await axios.get('https://hardspace--webapp.herokuapp.com/api/product/'+id)
             let data = response.data.response
             dispatch({type: 'GET_ONE_PRODUCT', payload: data})
         }
     },
     deleteProduct: (id) => {
         return async (dispatch) => {
-            let response = await axios.delete('http://localhost:4000/api/product/'+id)
+            let response = await axios.delete('https://hardspace--webapp.herokuapp.com/api/product/'+id)
             let data = response.data.response
             dispatch({type: 'DELETE_PRODUCT', payload: data})
         }
     },
     delProduct:(id)=>{
         return async (dispatch) => {
-            const response = await axios.delete(`http://localhost:4000/api/product/${id}`)
+            const response = await axios.delete(`https://hardspace--webapp.herokuapp.com/api/product/${id}`)
             return ({ response: response.data.response, success: true })
         }
     },

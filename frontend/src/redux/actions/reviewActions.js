@@ -6,7 +6,7 @@ const reviewAction = {
       try {
         const token = localStorage.getItem("token");
         await axios.post(
-          "http://localhost:4000/api/reviews",
+          "https://hardspace--webapp.herokuapp.com/api/reviews",
           { ...review },
           {
             headers: { Authorization: "Bearer " + token },
@@ -23,14 +23,14 @@ const reviewAction = {
       try {
         const token = localStorage.getItem("token");
         await axios.put(
-          "http://localhost:4000/api/reviews",
+          "https://hardspace--webapp.herokuapp.com/api/reviews",
           { ...reviewEdit },
           {
             headers: { Authorization: "Bearer " + token },
           }
         );
         let data = await axios.get(
-          "http://localhost:4000/api/reviews"
+          "https://hardspace--webapp.herokuapp.com/api/reviews"
         );
         return { success: true, response: data };
       } catch (error) {
@@ -43,7 +43,7 @@ const reviewAction = {
       try {
         const token = localStorage.getItem("token");
         await axios.delete(
-          "http://localhost:4000/api/reviews",
+          "https://hardspace--webapp.herokuapp.com/api/reviews",
 
           {
             data: reviewDelete,
