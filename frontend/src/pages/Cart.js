@@ -16,6 +16,8 @@ function Cart(props){
         price: 19
     }
 
+
+
     useEffect(() => {
         allStorage()
     }, [])
@@ -30,7 +32,7 @@ function Cart(props){
                 if (localStorage.key(i)!=='token' && localStorage.key(i) !== "__paypal_storage__") {
                     archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
                     sumaProd = sumaProd + archive[i].qty 
-                    sumaPrice = sumaPrice + (archive[i].price * archive[i].qty)
+                    sumaPrice = sumaPrice + (archive[i].price * archive[i].qty) 
                 } else {
                     /* alert('este es el token') */
                 }
@@ -63,10 +65,10 @@ function Cart(props){
                     <h3>Total price = ${totalStatePrice.toFixed(2)}</h3>
                 </div>
                 <div className="payment">
-                    <h3>BUY WITH:</h3>
+                    <h3>BUY</h3>
                 </div>
                 <div className="paypal-btn">
-                    <PayPal/>  
+                    <PayPal product={product}/>  
                 </div>
                 </div>
             </div>
