@@ -14,33 +14,11 @@ function AddProducts(props){
       "description":''
   })
 
-  /* const name = useRef()
-  const image = useRef()
-  const price = useRef()
-  const brand = useRef()
-  const stock = useRef()
-  const category = useRef()
-  const description = useRef() */
-
   function productHandler(e) {
-
-    /* setProduct({
-      name: name.current.value,
-      images: array,
-      price: price.current.value,
-      brand: brand.current.value,
-      stock: stock.current.value,
-      category: category.current.value,
-      description: description.current.value,
-    }) */
-    /* console.log(array) */
-
         setProduct({...product,[e.target.id]:e.target.value})
-        console.log(product)
+  }
 
-    }
-
-    const submitProduct = async (e) => {
+  const submitProduct = async (e) => {
     
         e.preventDefault()
         props.addProduct(product)
@@ -52,7 +30,7 @@ function AddProducts(props){
         document.getElementById("brand").value = "";
         document.getElementById("category").value = "";
         document.getElementById("description").value = "";
-    }
+  }
 
     return(
       <>
