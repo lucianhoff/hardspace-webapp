@@ -139,7 +139,7 @@ function Navigation(props) {
           </input>
 
 
-          <div /* type="button" */ onClick={handleSubmit} className="lens">🔍</div>
+          <div /* type="button" */ onClick={handleSubmit}  className="lens">🔍</div>
 
         </div>
         <div className="iconsRight">
