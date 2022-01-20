@@ -32,16 +32,14 @@ const Filter = (props) => {
 
   
   const handleChange = (marca) => {
-    console.log(marca);
-    console.log(props.searchProducts);
     let aux;
 
     if (props.searchProducts.length > 0){
       aux = props.searchProducts.filter((item) => item.brand.toLowerCase() === marca.toLowerCase());
-      console.log(aux);
+      
     }else{
       aux = props.dataProduct.filter((item) => item.brand.toLowerCase() === marca.toLowerCase());
-      console.log(aux);
+      
     }
     
     setLoad(!load);

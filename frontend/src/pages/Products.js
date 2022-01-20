@@ -33,8 +33,6 @@ const Products = (props) => {
       setDataProduct(props.searchProducts) :
       setDataProduct(props.getAllProducts)
 
-    console.log(dataProduct)
-
   }, [props.searchProducts, props.getAllProducts])
 
 
@@ -54,8 +52,6 @@ const Products = (props) => {
           /* alert('este es el token') */
         }
       }
-      console.log(archive)
-
       props.arrayStorage(archive)
       props.setTotalProducts(sumaProd)
       props.setTotalPrice(sumaPrice)
@@ -84,7 +80,6 @@ const Products = (props) => {
     const cantidad = { qty: 1 }
 
     let productExists = localStorage.getItem(elemento._id)
-    console.log(productExists)
 
     /* if (props.token !== '') { */
     if (productExists !== null) {
@@ -92,10 +87,7 @@ const Products = (props) => {
       /* alert('producto existe') */
       let producto = JSON.parse(productExists)/*transformarmos un json a objeto*/
       producto.qty = producto.qty + 1
-
       localStorage.setItem(producto._id, JSON.stringify(producto))
-      console.log("agregaste al carrito", producto)
-
       dispatch(productsActions.setTotalProducts(totalQty + 1))
       dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
 
@@ -103,8 +95,6 @@ const Products = (props) => {
       /* alert('producto NO existe') */
       const producto = Object.assign(elemento, cantidad)/*agrega el valor "cantidad" a cada producto*/
       localStorage.setItem(elemento._id, JSON.stringify(producto))
-      console.log("agregaste al carrito", elemento.name)
-
       dispatch(productsActions.setTotalProducts(totalQty + 1))
       dispatch(productsActions.setTotalPrice(totalPrice + producto.price))
     }

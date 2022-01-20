@@ -10,9 +10,6 @@ const Reviews = (props) => {
     props.getAllUsers();
     props.getAllProducts();
   }, [])
-
-
-  console.log(props)
   return (
     <>
       <div className="bg-transparent p-5 rounded-lg flex flex-col justify-start items-start ">
@@ -61,7 +58,7 @@ const Reviews = (props) => {
                 onKeyDown={(e) => {
                   if (input.current.value !== "" && props._id) {
                     if (e.key === "Enter" || e.key === "EnterNumpad") {
-                      console.log('enviando')
+                      
                     }
                   }
                 }}

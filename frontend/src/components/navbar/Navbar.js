@@ -34,14 +34,11 @@ function Navigation(props) {
   })
 
   const inputHandler = (e) => {
-    console.log(e.target.value)
     setSearch(e.target.value)
 
   }
 
   const handleSubmit = async (e) => {
-
-    console.log('el search es::', search)
     if (search.length > 0 && search.length < 3) {
       Toast.fire({
         title: 'HardSpace',
@@ -49,13 +46,8 @@ function Navigation(props) {
         icon: 'warning',
       })
     } else {
-      console.log('VOY A LA BUSQUEDA')
       const busqueda = await props.search(search)
       if (busqueda.length > 0) {
-        console.log('DENTRO DEL NAVBAR:: la busqueda es::', busqueda)
-        console.log('DENTRO DEL NAVBAR:: searchProducts es::', props.searchProducts)
-
-
         Toast.fire({
           title: 'HardSpace',
           text: `There are ${busqueda.length} articles.`,
@@ -73,7 +65,6 @@ function Navigation(props) {
     }
     navigate("/products")
   }
-  console.log(props)
 
 
 
@@ -84,9 +75,6 @@ function Navigation(props) {
 
 
   }
-  console.log(props.admin)
-  console.log(props.firstName)
-  console.log(props)
   return (
     <>
       <div className="firstNav">

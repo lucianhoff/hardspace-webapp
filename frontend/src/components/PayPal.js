@@ -13,10 +13,8 @@ const PayPal = (props) => {
     setPrice(props.totalPrice);
     PayPalCheckOut()
   }, [props.arrayStorage]);
-  console.log(price)
   const initialOptions = {"client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, currency: "USD",
   intent: "capture"}
-  console.log(props.totalPrice)
   const createOrder = (data, actions) => {
     //Creo la orden de con los datos, esta puede ser general o con detalle de items
     return actions.order.create({
@@ -36,21 +34,20 @@ const PayPal = (props) => {
 };
 
 const onApprove = (data, actions) => { //recibo el resultado de mi operacion
-  console.log(data)
+  
 return actions.order.capture()
 .then(function (details) {
     const { payer } = details;
     setSuccess(true);
-    console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
             var transaction = details.purchase_units[0].payments.captures[0];
             alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-    console.log(details)
+    
     setOrderID(transaction.id)
 });  
 };
 const onCancel = (data) => {
 console.log('You have cancelled the payment!', data);
-}	        
+}            
 
 const onError = (data, actions) => { //Capturo error en caso de que exista
 setErrorMessage("An Error occured with your payment ");

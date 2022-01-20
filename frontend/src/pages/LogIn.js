@@ -79,7 +79,7 @@ const SignIn = (props) => {
                                     onSuccess={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
                                                                         />
-                        <p>Don't have an account yet? <Link to="/signUp">Sign up here!</Link></p>
+                        <p>Don't have an account yet? <Link to="/signup">Sign up here!</Link></p>
                     </div>
                 </div>
             </div>

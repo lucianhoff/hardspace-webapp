@@ -24,7 +24,6 @@ import { connect } from 'react-redux'
     const upload = async (e) => {
         e.preventDefault()
         let file = await e.target.files[0]
-        console.log(file)
         setFile(file)
         
         const formData = new FormData()

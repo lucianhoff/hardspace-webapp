@@ -12,7 +12,6 @@ function IndividualCart({ elemento }){
     const totalProducts = useSelector(store => store.productsReducer.totalProducts)
     const totalPrice = useSelector(store => store.productsReducer.totalPrice)
     const array = useSelector(store=> store.productsReducer.arrayStorage)
-    console.log(array)
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -55,7 +54,6 @@ function IndividualCart({ elemento }){
         let restaPrice = totalPrice - (elemento.price*elemento.qty)
    
         const arrayAux = array.filter(item => item._id !== elemento._id);
-        console.log(arrayAux)
         localStorage.removeItem(elemento._id)
         dispatch(productsActions.setTotalProducts(restaCant))
         dispatch(productsActions.setTotalPrice(restaPrice))

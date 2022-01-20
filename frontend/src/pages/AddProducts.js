@@ -23,21 +23,7 @@ function AddProducts(props){
   const description = useRef() */
 
   function productHandler(e) {
-
-    /* setProduct({
-      name: name.current.value,
-      images: array,
-      price: price.current.value,
-      brand: brand.current.value,
-      stock: stock.current.value,
-      category: category.current.value,
-      description: description.current.value,
-    }) */
-    /* console.log(array) */
-
         setProduct({...product,[e.target.id]:e.target.value})
-        console.log(product)
-
     }
 
     const submitProduct = async (e) => {

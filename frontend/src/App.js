@@ -40,7 +40,6 @@ function App(props) {
                 /* alert('este es el token') */
             }
       }
-      console.log(archive)
 
       props.setArrayStorage(archive)
       props.setTotalProducts(sumaProd) 
@@ -66,7 +65,7 @@ function App(props) {
         <Route path="/" element={<Home />} />
             {props.token ?
                 <Route path='*'element ={<Home/>}></Route> : 
-                <> <Route path = "/signUp" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
+                <> <Route path = "/signup" element = {<SignUp/>}></Route> <Route path = "/signIn" element = {<LogIn/>}></Route> </>}
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<Product />} />

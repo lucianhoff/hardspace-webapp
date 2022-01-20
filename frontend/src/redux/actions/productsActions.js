@@ -91,7 +91,6 @@ const productsActions = {
         }
     },
     getOneProduct: (id) => {
-        console.log(id)
         return async (dispatch) => {
             let response = await axios.get('https://hardspace-webapp.herokuapp.com/api/product/'+id)
             let data = response.data.response

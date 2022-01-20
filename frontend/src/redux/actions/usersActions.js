@@ -5,7 +5,6 @@ const usersActions = {
         return async (dispatch, getState) => {
             try {
                 let response = await axios.post('https://hardspace-webapp.herokuapp.com/api/user/signup', newUser)
-                console.log(response.data.response)
                 if (response.data.success) {
                     dispatch({ type: "LOG_USER", payload: response.data.response })
 
@@ -21,7 +20,6 @@ const usersActions = {
         try{
             let response = await  axios.post('https://hardspace-webapp.herokuapp.com/api/user/signin', logInUser)
             if(response.data.success){
-                console.log(response.data)
                 dispatch({type:"LOG_USER", payload: response.data.response})
             }
             return response
@@ -44,7 +42,6 @@ const usersActions = {
                 Authorization: 'Bearer '+ token,
             }
         })
-            console.log(response.data)
             dispatch({type:"LOG_USER", payload:{
                 token,
                 firstName:response.data.firstName,
