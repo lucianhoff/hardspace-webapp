@@ -2,7 +2,7 @@ import axios from 'axios'
 
   export const uploadFile = async (newUser) =>{
             try {
-                const user = await axios.post('http://localhost:4000/api/user/signup',
+                const user = await axios.post('https://hardspace-webapp.herokuapp.com/api/user/signup',
                 {newUser})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem('token',user.data.response.token)
@@ -16,13 +16,13 @@ import axios from 'axios'
             }
         };
   export const deleteFile = async(closeuser)=>{
-      const user = axios.post('http://localhost:4000/api/user/signup',{closeuser})
+      const user = axios.post('https://hardspace-webapp.herokuapp.com/api/user/signup',{closeuser})
                     localStorage.removeItem('token')
                     localStorage.removeItem('userConected')
     } 
     export const  getFiles = async(logedUser) => {
             try {
-                const user = await axios.post('http://localhost:4000/api/user/signup',
+                const user = await axios.post('https://hardspace-webapp.herokuapp.com/api/user/signup',
                 {logedUser})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem('token',user.data.response.token)
