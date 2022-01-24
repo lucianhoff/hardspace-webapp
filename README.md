@@ -1,6 +1,6 @@
 # hardspace
 
-Este proyecto se desarrolló durante el bootcamp de MindHub en stack MERN, Enero de 2021. Se desarrolló solo con fines educativos.
+Este proyecto eCommerce se desarrolló durante el bootcamp de MindHub en stack MERN, Enero de 2021. Se desarrolló solo con fines educativos.
 
 # Integrantes del grupo
 
@@ -30,6 +30,6 @@ Este proyecto se desarrolló durante el bootcamp de MindHub en stack MERN, Enero
 - Joi
 - MongoDB / Mongoose
 
-Puede ver una demostración en vivo de esta aplicación alojada en [heroku](https://mytinerary-aguirre.herokuapp.com/) y una descripción detallada de lo que puede hacer con la aplicación (en el lado del cliente), en [youtube](https://www.youtube.com/).
+Puede ver una demostración en vivo de esta aplicación alojada en [Netlify](https://hardspace-app.netlify.app/) y una descripción detallada de lo que puede hacer con la aplicación (en el lado del cliente), en [youtube](https://www.youtube.com/).
 
-Siéntete libre de forkearlo y jugar con él, escribirme en caso de cualquier duda!
+Siéntete libre de forkearlo y jugar con él, escribirme en caso de cualquier duda o al equipo!
